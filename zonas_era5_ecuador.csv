@@ -1,0 +1,16 @@
+﻿zone_id,ciudad,provincia,region,latitud,longitud,rol,justificacion
+guayaquil,Guayaquil,Guayas,Litoral,-2.170998,-79.922359,desarrollo,Alta afectación por lluvias y representación de la costa interior estacional.
+babahoyo,Babahoyo,Los Ríos,Litoral,-1.801926,-79.534645,desarrollo,Planicie aluvial con alta exposición a inundaciones y lluvias estacionales.
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,0.85,-79.60,desarrollo,Costa norte húmeda y provincia con impacto significativo por lluvias.
+portoviejo,Portoviejo,Manabí,Litoral,-1.054581,-80.454454,desarrollo,Costa central con marcada estacionalidad y antecedentes de afectaciones.
+machala,Machala,El Oro,Litoral,-3.258111,-79.955392,desarrollo,Costa sur y provincia con impacto relevante sobre población y cultivos.
+salinas,Salinas,Santa Elena,Litoral,-2.2,-80.9,desarrollo,Zona costera seca que aporta contraste frente a las zonas más húmedas.
+quito,Quito,Pichincha,Sierra,-0.180653,-78.467834,desarrollo,Andes norte de gran altitud y provincia con recurrencia de eventos por lluvias.
+riobamba,Riobamba,Chimborazo,Sierra,-1.663551,-78.654646,desarrollo,"Valle interandino alto y relativamente seco, útil como contraste climático."
+cuenca,Cuenca,Azuay,Sierra,-2.900551,-79.00453,desarrollo,Andes sur con régimen de precipitación distinto y afectaciones registradas.
+loja,Loja,Loja,Sierra,-3.99313,-79.20422,desarrollo,Andes sur y provincia incluida entre las de mayor impacto por lluvias.
+tena,Tena,Napo,Amazonía,-0.9938,-77.8129,desarrollo,Piedemonte andino-amazónico con régimen húmedo y alta influencia orográfica.
+puyo,Puyo,Pastaza,Amazonía,-1.4924,-78.0025,desarrollo,Amazonía central y provincia con impacto considerable por lluvias.
+santo_domingo,Santo Domingo,Santo Domingo de los Tsáchilas,Transición Litoral-Sierra,-0.25305,-79.17536,validacion_espacial,Zona húmeda de transición reservada para medir generalización geográfica.
+nueva_loja,Nueva Loja,Sucumbíos,Amazonía,0.08472,-76.88278,validacion_espacial,Amazonía norte reservada para validación fuera de las zonas de entrenamiento.
+macas,Macas,Morona Santiago,Amazonía,-2.30868,-78.11135,validacion_espacial,Amazonía sur reservada para probar transferencia espacial del modelo.

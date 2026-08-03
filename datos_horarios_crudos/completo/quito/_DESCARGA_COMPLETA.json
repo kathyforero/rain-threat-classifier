@@ -1,0 +1,23 @@
+{
+  "zone_id": "quito",
+  "ciudad": "Quito",
+  "latitud_solicitada": -0.180653,
+  "longitud_solicitada": -78.467834,
+  "dataset": "reanalysis-era5-land-timeseries",
+  "fecha_inicial_solicitada": "1991-01-01",
+  "fecha_final_solicitada": "2026-01-01",
+  "variables": [
+    "2m_temperature",
+    "2m_dewpoint_temperature",
+    "total_precipitation",
+    "surface_pressure",
+    "10m_u_component_of_wind",
+    "10m_v_component_of_wind",
+    "volumetric_soil_water_layer_1"
+  ],
+  "archivos_netcdf": [
+    "reanalysis-era5-land-timeseries-sfc-2m-temperature54cp6zrp.nc",
+    "reanalysis-era5-land-timeseries-sfc-pressure-precipitationb7vk36fx.nc",
+    "reanalysis-era5-land-timeseries-sfc-wind85comg9u.nc"
+  ]
+}

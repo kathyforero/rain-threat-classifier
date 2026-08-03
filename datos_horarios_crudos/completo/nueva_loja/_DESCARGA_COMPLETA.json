@@ -1,0 +1,23 @@
+{
+  "zone_id": "nueva_loja",
+  "ciudad": "Nueva Loja",
+  "latitud_solicitada": 0.08472,
+  "longitud_solicitada": -76.88278,
+  "dataset": "reanalysis-era5-land-timeseries",
+  "fecha_inicial_solicitada": "1991-01-01",
+  "fecha_final_solicitada": "2026-01-01",
+  "variables": [
+    "2m_temperature",
+    "2m_dewpoint_temperature",
+    "total_precipitation",
+    "surface_pressure",
+    "10m_u_component_of_wind",
+    "10m_v_component_of_wind",
+    "volumetric_soil_water_layer_1"
+  ],
+  "archivos_netcdf": [
+    "reanalysis-era5-land-timeseries-sfc-2m-temperaturemww06bco.nc",
+    "reanalysis-era5-land-timeseries-sfc-pressure-precipitationjlwwlxf7.nc",
+    "reanalysis-era5-land-timeseries-sfc-wind2hzhnbwo.nc"
+  ]
+}
