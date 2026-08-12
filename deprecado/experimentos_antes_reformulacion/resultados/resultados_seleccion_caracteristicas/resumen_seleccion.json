@@ -1,0 +1,23 @@
+{
+  "metodo_correlacion": "spearman",
+  "umbral_correlacion_abs": 0.95,
+  "split_usado_para_seleccion": "entrenamiento",
+  "filas_entrenamiento": 3804,
+  "caracteristicas_candidatas": 144,
+  "caracteristicas_constantes_eliminadas": 0,
+  "pares_correlacion_alta": 100,
+  "caracteristicas_eliminadas_por_correlacion": 44,
+  "caracteristicas_contexto_protegidas": [
+    "month_sin",
+    "month_cos",
+    "latitud_solicitada",
+    "longitud_solicitada"
+  ],
+  "caracteristicas_seleccionadas": 100,
+  "clases_objetivo": [
+    "Alta",
+    "Baja",
+    "Media"
+  ],
+  "criterio_representante": "entre variables meteorologicas con correlacion alta, se prioriza la de mayor informacion mutua con target_amenaza"
+}

@@ -1,0 +1,577 @@
+zone_id,ciudad,provincia,region,period_start,target_period_start,amenaza_mes,target_amenaza,prediccion,correcto
+babahoyo,Babahoyo,Los Ríos,Litoral,2017-12-01,2018-01-01,Baja,Baja,Baja,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2018-01-01,2018-02-01,Baja,Media,Baja,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2018-02-01,2018-03-01,Media,Baja,Media,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2018-03-01,2018-04-01,Baja,Media,Baja,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2018-04-01,2018-05-01,Media,Alta,Media,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2018-05-01,2018-06-01,Alta,Baja,Alta,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2018-06-01,2018-07-01,Baja,Baja,Baja,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2018-07-01,2018-08-01,Baja,Media,Baja,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2018-08-01,2018-09-01,Media,Baja,Media,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2018-09-01,2018-10-01,Baja,Baja,Baja,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2018-10-01,2018-11-01,Baja,Baja,Baja,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2018-11-01,2018-12-01,Baja,Alta,Baja,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2018-12-01,2019-01-01,Alta,Alta,Alta,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2019-01-01,2019-02-01,Alta,Media,Alta,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2019-02-01,2019-03-01,Media,Alta,Media,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2019-03-01,2019-04-01,Alta,Alta,Alta,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2019-04-01,2019-05-01,Alta,Alta,Alta,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2019-05-01,2019-06-01,Alta,Media,Alta,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2019-06-01,2019-07-01,Media,Media,Media,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2019-07-01,2019-08-01,Media,Baja,Media,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2019-08-01,2019-09-01,Baja,Baja,Baja,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2019-09-01,2019-10-01,Baja,Media,Baja,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2019-10-01,2019-11-01,Media,Baja,Media,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2019-11-01,2019-12-01,Baja,Media,Baja,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2019-12-01,2020-01-01,Media,Baja,Media,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2020-01-01,2020-02-01,Baja,Media,Baja,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2020-02-01,2020-03-01,Media,Alta,Media,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2020-03-01,2020-04-01,Alta,Alta,Alta,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2020-04-01,2020-05-01,Alta,Baja,Alta,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2020-05-01,2020-06-01,Baja,Baja,Baja,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2020-06-01,2020-07-01,Baja,Baja,Baja,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2020-07-01,2020-08-01,Baja,Baja,Baja,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2020-08-01,2020-09-01,Baja,Baja,Baja,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2020-09-01,2020-10-01,Baja,Media,Baja,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2020-10-01,2020-11-01,Media,Media,Media,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2020-11-01,2020-12-01,Media,Media,Media,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2020-12-01,2021-01-01,Media,Alta,Media,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2021-01-01,2021-02-01,Alta,Media,Alta,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2021-02-01,2021-03-01,Media,Baja,Media,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2021-03-01,2021-04-01,Baja,Media,Baja,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2021-04-01,2021-05-01,Media,Media,Media,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2021-05-01,2021-06-01,Media,Baja,Media,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2021-06-01,2021-07-01,Baja,Baja,Baja,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2021-07-01,2021-08-01,Baja,Media,Baja,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2021-08-01,2021-09-01,Media,Media,Media,1
+babahoyo,Babahoyo,Los Ríos,Litoral,2021-09-01,2021-10-01,Media,Baja,Media,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2021-10-01,2021-11-01,Baja,Media,Baja,0
+babahoyo,Babahoyo,Los Ríos,Litoral,2021-11-01,2021-12-01,Media,Baja,Media,0
+cuenca,Cuenca,Azuay,Sierra,2017-12-01,2018-01-01,Alta,Alta,Alta,1
+cuenca,Cuenca,Azuay,Sierra,2018-01-01,2018-02-01,Alta,Alta,Alta,1
+cuenca,Cuenca,Azuay,Sierra,2018-02-01,2018-03-01,Alta,Baja,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2018-03-01,2018-04-01,Baja,Alta,Baja,0
+cuenca,Cuenca,Azuay,Sierra,2018-04-01,2018-05-01,Alta,Alta,Alta,1
+cuenca,Cuenca,Azuay,Sierra,2018-05-01,2018-06-01,Alta,Alta,Alta,1
+cuenca,Cuenca,Azuay,Sierra,2018-06-01,2018-07-01,Alta,Media,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2018-07-01,2018-08-01,Media,Alta,Media,0
+cuenca,Cuenca,Azuay,Sierra,2018-08-01,2018-09-01,Alta,Baja,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2018-09-01,2018-10-01,Baja,Baja,Baja,1
+cuenca,Cuenca,Azuay,Sierra,2018-10-01,2018-11-01,Baja,Alta,Baja,0
+cuenca,Cuenca,Azuay,Sierra,2018-11-01,2018-12-01,Alta,Baja,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2018-12-01,2019-01-01,Baja,Alta,Baja,0
+cuenca,Cuenca,Azuay,Sierra,2019-01-01,2019-02-01,Alta,Baja,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2019-02-01,2019-03-01,Baja,Alta,Baja,0
+cuenca,Cuenca,Azuay,Sierra,2019-03-01,2019-04-01,Alta,Alta,Alta,1
+cuenca,Cuenca,Azuay,Sierra,2019-04-01,2019-05-01,Alta,Baja,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2019-05-01,2019-06-01,Baja,Alta,Baja,0
+cuenca,Cuenca,Azuay,Sierra,2019-06-01,2019-07-01,Alta,Media,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2019-07-01,2019-08-01,Media,Alta,Media,0
+cuenca,Cuenca,Azuay,Sierra,2019-08-01,2019-09-01,Alta,Media,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2019-09-01,2019-10-01,Media,Baja,Media,0
+cuenca,Cuenca,Azuay,Sierra,2019-10-01,2019-11-01,Baja,Alta,Baja,0
+cuenca,Cuenca,Azuay,Sierra,2019-11-01,2019-12-01,Alta,Alta,Alta,1
+cuenca,Cuenca,Azuay,Sierra,2019-12-01,2020-01-01,Alta,Media,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2020-01-01,2020-02-01,Media,Alta,Media,0
+cuenca,Cuenca,Azuay,Sierra,2020-02-01,2020-03-01,Alta,Media,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2020-03-01,2020-04-01,Media,Alta,Media,0
+cuenca,Cuenca,Azuay,Sierra,2020-04-01,2020-05-01,Alta,Media,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2020-05-01,2020-06-01,Media,Alta,Media,0
+cuenca,Cuenca,Azuay,Sierra,2020-06-01,2020-07-01,Alta,Baja,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2020-07-01,2020-08-01,Baja,Media,Baja,0
+cuenca,Cuenca,Azuay,Sierra,2020-08-01,2020-09-01,Media,Media,Media,1
+cuenca,Cuenca,Azuay,Sierra,2020-09-01,2020-10-01,Media,Baja,Media,0
+cuenca,Cuenca,Azuay,Sierra,2020-10-01,2020-11-01,Baja,Media,Baja,0
+cuenca,Cuenca,Azuay,Sierra,2020-11-01,2020-12-01,Media,Media,Media,1
+cuenca,Cuenca,Azuay,Sierra,2020-12-01,2021-01-01,Media,Media,Media,1
+cuenca,Cuenca,Azuay,Sierra,2021-01-01,2021-02-01,Media,Alta,Media,0
+cuenca,Cuenca,Azuay,Sierra,2021-02-01,2021-03-01,Alta,Alta,Alta,1
+cuenca,Cuenca,Azuay,Sierra,2021-03-01,2021-04-01,Alta,Alta,Alta,1
+cuenca,Cuenca,Azuay,Sierra,2021-04-01,2021-05-01,Alta,Alta,Alta,1
+cuenca,Cuenca,Azuay,Sierra,2021-05-01,2021-06-01,Alta,Alta,Alta,1
+cuenca,Cuenca,Azuay,Sierra,2021-06-01,2021-07-01,Alta,Alta,Alta,1
+cuenca,Cuenca,Azuay,Sierra,2021-07-01,2021-08-01,Alta,Media,Alta,0
+cuenca,Cuenca,Azuay,Sierra,2021-08-01,2021-09-01,Media,Media,Media,1
+cuenca,Cuenca,Azuay,Sierra,2021-09-01,2021-10-01,Media,Media,Media,1
+cuenca,Cuenca,Azuay,Sierra,2021-10-01,2021-11-01,Media,Alta,Media,0
+cuenca,Cuenca,Azuay,Sierra,2021-11-01,2021-12-01,Alta,Alta,Alta,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2017-12-01,2018-01-01,Baja,Baja,Baja,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2018-01-01,2018-02-01,Baja,Media,Baja,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2018-02-01,2018-03-01,Media,Baja,Media,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2018-03-01,2018-04-01,Baja,Baja,Baja,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2018-04-01,2018-05-01,Baja,Baja,Baja,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2018-05-01,2018-06-01,Baja,Baja,Baja,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2018-06-01,2018-07-01,Baja,Baja,Baja,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2018-07-01,2018-08-01,Baja,Media,Baja,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2018-08-01,2018-09-01,Media,Baja,Media,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2018-09-01,2018-10-01,Baja,Baja,Baja,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2018-10-01,2018-11-01,Baja,Media,Baja,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2018-11-01,2018-12-01,Media,Alta,Media,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2018-12-01,2019-01-01,Alta,Media,Alta,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2019-01-01,2019-02-01,Media,Baja,Media,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2019-02-01,2019-03-01,Baja,Baja,Baja,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2019-03-01,2019-04-01,Baja,Media,Baja,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2019-04-01,2019-05-01,Media,Alta,Media,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2019-05-01,2019-06-01,Alta,Alta,Alta,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2019-06-01,2019-07-01,Alta,Media,Alta,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2019-07-01,2019-08-01,Media,Baja,Media,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2019-08-01,2019-09-01,Baja,Baja,Baja,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2019-09-01,2019-10-01,Baja,Media,Baja,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2019-10-01,2019-11-01,Media,Baja,Media,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2019-11-01,2019-12-01,Baja,Media,Baja,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2019-12-01,2020-01-01,Media,Baja,Media,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2020-01-01,2020-02-01,Baja,Alta,Baja,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2020-02-01,2020-03-01,Alta,Media,Alta,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2020-03-01,2020-04-01,Media,Baja,Media,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2020-04-01,2020-05-01,Baja,Alta,Baja,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2020-05-01,2020-06-01,Alta,Baja,Alta,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2020-06-01,2020-07-01,Baja,Baja,Baja,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2020-07-01,2020-08-01,Baja,Baja,Baja,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2020-08-01,2020-09-01,Baja,Baja,Baja,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2020-09-01,2020-10-01,Baja,Media,Baja,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2020-10-01,2020-11-01,Media,Baja,Media,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2020-11-01,2020-12-01,Baja,Alta,Baja,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2020-12-01,2021-01-01,Alta,Alta,Alta,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2021-01-01,2021-02-01,Alta,Media,Alta,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2021-02-01,2021-03-01,Media,Alta,Media,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2021-03-01,2021-04-01,Alta,Media,Alta,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2021-04-01,2021-05-01,Media,Media,Media,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2021-05-01,2021-06-01,Media,Media,Media,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2021-06-01,2021-07-01,Media,Baja,Media,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2021-07-01,2021-08-01,Baja,Media,Baja,0
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2021-08-01,2021-09-01,Media,Media,Media,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2021-09-01,2021-10-01,Media,Media,Media,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2021-10-01,2021-11-01,Media,Media,Media,1
+esmeraldas,Esmeraldas,Esmeraldas,Litoral,2021-11-01,2021-12-01,Media,Media,Media,1
+guayaquil,Guayaquil,Guayas,Litoral,2017-12-01,2018-01-01,Media,Baja,Media,0
+guayaquil,Guayaquil,Guayas,Litoral,2018-01-01,2018-02-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2018-02-01,2018-03-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2018-03-01,2018-04-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2018-04-01,2018-05-01,Baja,Media,Baja,0
+guayaquil,Guayaquil,Guayas,Litoral,2018-05-01,2018-06-01,Media,Baja,Media,0
+guayaquil,Guayaquil,Guayas,Litoral,2018-06-01,2018-07-01,Baja,Media,Baja,0
+guayaquil,Guayaquil,Guayas,Litoral,2018-07-01,2018-08-01,Media,Media,Media,1
+guayaquil,Guayaquil,Guayas,Litoral,2018-08-01,2018-09-01,Media,Baja,Media,0
+guayaquil,Guayaquil,Guayas,Litoral,2018-09-01,2018-10-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2018-10-01,2018-11-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2018-11-01,2018-12-01,Baja,Alta,Baja,0
+guayaquil,Guayaquil,Guayas,Litoral,2018-12-01,2019-01-01,Alta,Alta,Alta,1
+guayaquil,Guayaquil,Guayas,Litoral,2019-01-01,2019-02-01,Alta,Baja,Alta,0
+guayaquil,Guayaquil,Guayas,Litoral,2019-02-01,2019-03-01,Baja,Alta,Baja,0
+guayaquil,Guayaquil,Guayas,Litoral,2019-03-01,2019-04-01,Alta,Media,Alta,0
+guayaquil,Guayaquil,Guayas,Litoral,2019-04-01,2019-05-01,Media,Alta,Media,0
+guayaquil,Guayaquil,Guayas,Litoral,2019-05-01,2019-06-01,Alta,Media,Alta,0
+guayaquil,Guayaquil,Guayas,Litoral,2019-06-01,2019-07-01,Media,Baja,Media,0
+guayaquil,Guayaquil,Guayas,Litoral,2019-07-01,2019-08-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2019-08-01,2019-09-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2019-09-01,2019-10-01,Baja,Alta,Baja,0
+guayaquil,Guayaquil,Guayas,Litoral,2019-10-01,2019-11-01,Alta,Media,Alta,0
+guayaquil,Guayaquil,Guayas,Litoral,2019-11-01,2019-12-01,Media,Media,Media,1
+guayaquil,Guayaquil,Guayas,Litoral,2019-12-01,2020-01-01,Media,Baja,Media,0
+guayaquil,Guayaquil,Guayas,Litoral,2020-01-01,2020-02-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2020-02-01,2020-03-01,Baja,Alta,Baja,0
+guayaquil,Guayaquil,Guayas,Litoral,2020-03-01,2020-04-01,Alta,Media,Alta,0
+guayaquil,Guayaquil,Guayas,Litoral,2020-04-01,2020-05-01,Media,Baja,Media,0
+guayaquil,Guayaquil,Guayas,Litoral,2020-05-01,2020-06-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2020-06-01,2020-07-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2020-07-01,2020-08-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2020-08-01,2020-09-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2020-09-01,2020-10-01,Baja,Media,Baja,0
+guayaquil,Guayaquil,Guayas,Litoral,2020-10-01,2020-11-01,Media,Media,Media,1
+guayaquil,Guayaquil,Guayas,Litoral,2020-11-01,2020-12-01,Media,Alta,Media,0
+guayaquil,Guayaquil,Guayas,Litoral,2020-12-01,2021-01-01,Alta,Alta,Alta,1
+guayaquil,Guayaquil,Guayas,Litoral,2021-01-01,2021-02-01,Alta,Baja,Alta,0
+guayaquil,Guayaquil,Guayas,Litoral,2021-02-01,2021-03-01,Baja,Alta,Baja,0
+guayaquil,Guayaquil,Guayas,Litoral,2021-03-01,2021-04-01,Alta,Baja,Alta,0
+guayaquil,Guayaquil,Guayas,Litoral,2021-04-01,2021-05-01,Baja,Media,Baja,0
+guayaquil,Guayaquil,Guayas,Litoral,2021-05-01,2021-06-01,Media,Baja,Media,0
+guayaquil,Guayaquil,Guayas,Litoral,2021-06-01,2021-07-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2021-07-01,2021-08-01,Baja,Baja,Baja,1
+guayaquil,Guayaquil,Guayas,Litoral,2021-08-01,2021-09-01,Baja,Media,Baja,0
+guayaquil,Guayaquil,Guayas,Litoral,2021-09-01,2021-10-01,Media,Baja,Media,0
+guayaquil,Guayaquil,Guayas,Litoral,2021-10-01,2021-11-01,Baja,Media,Baja,0
+guayaquil,Guayaquil,Guayas,Litoral,2021-11-01,2021-12-01,Media,Baja,Media,0
+loja,Loja,Loja,Sierra,2017-12-01,2018-01-01,Alta,Alta,Alta,1
+loja,Loja,Loja,Sierra,2018-01-01,2018-02-01,Alta,Media,Alta,0
+loja,Loja,Loja,Sierra,2018-02-01,2018-03-01,Media,Media,Media,1
+loja,Loja,Loja,Sierra,2018-03-01,2018-04-01,Media,Alta,Media,0
+loja,Loja,Loja,Sierra,2018-04-01,2018-05-01,Alta,Media,Alta,0
+loja,Loja,Loja,Sierra,2018-05-01,2018-06-01,Media,Baja,Media,0
+loja,Loja,Loja,Sierra,2018-06-01,2018-07-01,Baja,Media,Baja,0
+loja,Loja,Loja,Sierra,2018-07-01,2018-08-01,Media,Alta,Media,0
+loja,Loja,Loja,Sierra,2018-08-01,2018-09-01,Alta,Baja,Alta,0
+loja,Loja,Loja,Sierra,2018-09-01,2018-10-01,Baja,Baja,Baja,1
+loja,Loja,Loja,Sierra,2018-10-01,2018-11-01,Baja,Alta,Baja,0
+loja,Loja,Loja,Sierra,2018-11-01,2018-12-01,Alta,Baja,Alta,0
+loja,Loja,Loja,Sierra,2018-12-01,2019-01-01,Baja,Media,Baja,0
+loja,Loja,Loja,Sierra,2019-01-01,2019-02-01,Media,Baja,Media,0
+loja,Loja,Loja,Sierra,2019-02-01,2019-03-01,Baja,Alta,Baja,0
+loja,Loja,Loja,Sierra,2019-03-01,2019-04-01,Alta,Alta,Alta,1
+loja,Loja,Loja,Sierra,2019-04-01,2019-05-01,Alta,Media,Alta,0
+loja,Loja,Loja,Sierra,2019-05-01,2019-06-01,Media,Alta,Media,0
+loja,Loja,Loja,Sierra,2019-06-01,2019-07-01,Alta,Alta,Alta,1
+loja,Loja,Loja,Sierra,2019-07-01,2019-08-01,Alta,Alta,Alta,1
+loja,Loja,Loja,Sierra,2019-08-01,2019-09-01,Alta,Media,Alta,0
+loja,Loja,Loja,Sierra,2019-09-01,2019-10-01,Media,Baja,Media,0
+loja,Loja,Loja,Sierra,2019-10-01,2019-11-01,Baja,Alta,Baja,0
+loja,Loja,Loja,Sierra,2019-11-01,2019-12-01,Alta,Alta,Alta,1
+loja,Loja,Loja,Sierra,2019-12-01,2020-01-01,Alta,Alta,Alta,1
+loja,Loja,Loja,Sierra,2020-01-01,2020-02-01,Alta,Media,Alta,0
+loja,Loja,Loja,Sierra,2020-02-01,2020-03-01,Media,Baja,Media,0
+loja,Loja,Loja,Sierra,2020-03-01,2020-04-01,Baja,Alta,Baja,0
+loja,Loja,Loja,Sierra,2020-04-01,2020-05-01,Alta,Media,Alta,0
+loja,Loja,Loja,Sierra,2020-05-01,2020-06-01,Media,Baja,Media,0
+loja,Loja,Loja,Sierra,2020-06-01,2020-07-01,Baja,Media,Baja,0
+loja,Loja,Loja,Sierra,2020-07-01,2020-08-01,Media,Media,Media,1
+loja,Loja,Loja,Sierra,2020-08-01,2020-09-01,Media,Alta,Media,0
+loja,Loja,Loja,Sierra,2020-09-01,2020-10-01,Alta,Baja,Alta,0
+loja,Loja,Loja,Sierra,2020-10-01,2020-11-01,Baja,Baja,Baja,1
+loja,Loja,Loja,Sierra,2020-11-01,2020-12-01,Baja,Alta,Baja,0
+loja,Loja,Loja,Sierra,2020-12-01,2021-01-01,Alta,Alta,Alta,1
+loja,Loja,Loja,Sierra,2021-01-01,2021-02-01,Alta,Media,Alta,0
+loja,Loja,Loja,Sierra,2021-02-01,2021-03-01,Media,Alta,Media,0
+loja,Loja,Loja,Sierra,2021-03-01,2021-04-01,Alta,Media,Alta,0
+loja,Loja,Loja,Sierra,2021-04-01,2021-05-01,Media,Alta,Media,0
+loja,Loja,Loja,Sierra,2021-05-01,2021-06-01,Alta,Alta,Alta,1
+loja,Loja,Loja,Sierra,2021-06-01,2021-07-01,Alta,Alta,Alta,1
+loja,Loja,Loja,Sierra,2021-07-01,2021-08-01,Alta,Media,Alta,0
+loja,Loja,Loja,Sierra,2021-08-01,2021-09-01,Media,Baja,Media,0
+loja,Loja,Loja,Sierra,2021-09-01,2021-10-01,Baja,Alta,Baja,0
+loja,Loja,Loja,Sierra,2021-10-01,2021-11-01,Alta,Alta,Alta,1
+loja,Loja,Loja,Sierra,2021-11-01,2021-12-01,Alta,Alta,Alta,1
+machala,Machala,El Oro,Litoral,2017-12-01,2018-01-01,Media,Baja,Media,0
+machala,Machala,El Oro,Litoral,2018-01-01,2018-02-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2018-02-01,2018-03-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2018-03-01,2018-04-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2018-04-01,2018-05-01,Baja,Alta,Baja,0
+machala,Machala,El Oro,Litoral,2018-05-01,2018-06-01,Alta,Baja,Alta,0
+machala,Machala,El Oro,Litoral,2018-06-01,2018-07-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2018-07-01,2018-08-01,Baja,Alta,Baja,0
+machala,Machala,El Oro,Litoral,2018-08-01,2018-09-01,Alta,Baja,Alta,0
+machala,Machala,El Oro,Litoral,2018-09-01,2018-10-01,Baja,Media,Baja,0
+machala,Machala,El Oro,Litoral,2018-10-01,2018-11-01,Media,Alta,Media,0
+machala,Machala,El Oro,Litoral,2018-11-01,2018-12-01,Alta,Alta,Alta,1
+machala,Machala,El Oro,Litoral,2018-12-01,2019-01-01,Alta,Alta,Alta,1
+machala,Machala,El Oro,Litoral,2019-01-01,2019-02-01,Alta,Media,Alta,0
+machala,Machala,El Oro,Litoral,2019-02-01,2019-03-01,Media,Media,Media,1
+machala,Machala,El Oro,Litoral,2019-03-01,2019-04-01,Media,Baja,Media,0
+machala,Machala,El Oro,Litoral,2019-04-01,2019-05-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2019-05-01,2019-06-01,Baja,Media,Baja,0
+machala,Machala,El Oro,Litoral,2019-06-01,2019-07-01,Media,Media,Media,1
+machala,Machala,El Oro,Litoral,2019-07-01,2019-08-01,Media,Alta,Media,0
+machala,Machala,El Oro,Litoral,2019-08-01,2019-09-01,Alta,Media,Alta,0
+machala,Machala,El Oro,Litoral,2019-09-01,2019-10-01,Media,Alta,Media,0
+machala,Machala,El Oro,Litoral,2019-10-01,2019-11-01,Alta,Alta,Alta,1
+machala,Machala,El Oro,Litoral,2019-11-01,2019-12-01,Alta,Baja,Alta,0
+machala,Machala,El Oro,Litoral,2019-12-01,2020-01-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2020-01-01,2020-02-01,Baja,Media,Baja,0
+machala,Machala,El Oro,Litoral,2020-02-01,2020-03-01,Media,Media,Media,1
+machala,Machala,El Oro,Litoral,2020-03-01,2020-04-01,Media,Baja,Media,0
+machala,Machala,El Oro,Litoral,2020-04-01,2020-05-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2020-05-01,2020-06-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2020-06-01,2020-07-01,Baja,Alta,Baja,0
+machala,Machala,El Oro,Litoral,2020-07-01,2020-08-01,Alta,Baja,Alta,0
+machala,Machala,El Oro,Litoral,2020-08-01,2020-09-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2020-09-01,2020-10-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2020-10-01,2020-11-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2020-11-01,2020-12-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2020-12-01,2021-01-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2021-01-01,2021-02-01,Baja,Baja,Baja,1
+machala,Machala,El Oro,Litoral,2021-02-01,2021-03-01,Baja,Media,Baja,0
+machala,Machala,El Oro,Litoral,2021-03-01,2021-04-01,Media,Media,Media,1
+machala,Machala,El Oro,Litoral,2021-04-01,2021-05-01,Media,Media,Media,1
+machala,Machala,El Oro,Litoral,2021-05-01,2021-06-01,Media,Media,Media,1
+machala,Machala,El Oro,Litoral,2021-06-01,2021-07-01,Media,Baja,Media,0
+machala,Machala,El Oro,Litoral,2021-07-01,2021-08-01,Baja,Media,Baja,0
+machala,Machala,El Oro,Litoral,2021-08-01,2021-09-01,Media,Baja,Media,0
+machala,Machala,El Oro,Litoral,2021-09-01,2021-10-01,Baja,Alta,Baja,0
+machala,Machala,El Oro,Litoral,2021-10-01,2021-11-01,Alta,Baja,Alta,0
+machala,Machala,El Oro,Litoral,2021-11-01,2021-12-01,Baja,Media,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2017-12-01,2018-01-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2018-01-01,2018-02-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2018-02-01,2018-03-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2018-03-01,2018-04-01,Baja,Alta,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2018-04-01,2018-05-01,Alta,Alta,Alta,1
+portoviejo,Portoviejo,Manabí,Litoral,2018-05-01,2018-06-01,Alta,Baja,Alta,0
+portoviejo,Portoviejo,Manabí,Litoral,2018-06-01,2018-07-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2018-07-01,2018-08-01,Baja,Media,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2018-08-01,2018-09-01,Media,Baja,Media,0
+portoviejo,Portoviejo,Manabí,Litoral,2018-09-01,2018-10-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2018-10-01,2018-11-01,Baja,Media,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2018-11-01,2018-12-01,Media,Alta,Media,0
+portoviejo,Portoviejo,Manabí,Litoral,2018-12-01,2019-01-01,Alta,Baja,Alta,0
+portoviejo,Portoviejo,Manabí,Litoral,2019-01-01,2019-02-01,Baja,Media,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2019-02-01,2019-03-01,Media,Baja,Media,0
+portoviejo,Portoviejo,Manabí,Litoral,2019-03-01,2019-04-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2019-04-01,2019-05-01,Baja,Alta,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2019-05-01,2019-06-01,Alta,Media,Alta,0
+portoviejo,Portoviejo,Manabí,Litoral,2019-06-01,2019-07-01,Media,Baja,Media,0
+portoviejo,Portoviejo,Manabí,Litoral,2019-07-01,2019-08-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2019-08-01,2019-09-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2019-09-01,2019-10-01,Baja,Alta,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2019-10-01,2019-11-01,Alta,Baja,Alta,0
+portoviejo,Portoviejo,Manabí,Litoral,2019-11-01,2019-12-01,Baja,Media,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2019-12-01,2020-01-01,Media,Baja,Media,0
+portoviejo,Portoviejo,Manabí,Litoral,2020-01-01,2020-02-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2020-02-01,2020-03-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2020-03-01,2020-04-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2020-04-01,2020-05-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2020-05-01,2020-06-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2020-06-01,2020-07-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2020-07-01,2020-08-01,Baja,Media,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2020-08-01,2020-09-01,Media,Baja,Media,0
+portoviejo,Portoviejo,Manabí,Litoral,2020-09-01,2020-10-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2020-10-01,2020-11-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2020-11-01,2020-12-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2020-12-01,2021-01-01,Baja,Alta,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2021-01-01,2021-02-01,Alta,Baja,Alta,0
+portoviejo,Portoviejo,Manabí,Litoral,2021-02-01,2021-03-01,Baja,Media,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2021-03-01,2021-04-01,Media,Baja,Media,0
+portoviejo,Portoviejo,Manabí,Litoral,2021-04-01,2021-05-01,Baja,Media,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2021-05-01,2021-06-01,Media,Baja,Media,0
+portoviejo,Portoviejo,Manabí,Litoral,2021-06-01,2021-07-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2021-07-01,2021-08-01,Baja,Media,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2021-08-01,2021-09-01,Media,Baja,Media,0
+portoviejo,Portoviejo,Manabí,Litoral,2021-09-01,2021-10-01,Baja,Baja,Baja,1
+portoviejo,Portoviejo,Manabí,Litoral,2021-10-01,2021-11-01,Baja,Media,Baja,0
+portoviejo,Portoviejo,Manabí,Litoral,2021-11-01,2021-12-01,Media,Alta,Media,0
+puyo,Puyo,Pastaza,Amazonía,2017-12-01,2018-01-01,Media,Alta,Media,0
+puyo,Puyo,Pastaza,Amazonía,2018-01-01,2018-02-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2018-02-01,2018-03-01,Alta,Baja,Alta,0
+puyo,Puyo,Pastaza,Amazonía,2018-03-01,2018-04-01,Baja,Alta,Baja,0
+puyo,Puyo,Pastaza,Amazonía,2018-04-01,2018-05-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2018-05-01,2018-06-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2018-06-01,2018-07-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2018-07-01,2018-08-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2018-08-01,2018-09-01,Alta,Baja,Alta,0
+puyo,Puyo,Pastaza,Amazonía,2018-09-01,2018-10-01,Baja,Media,Baja,0
+puyo,Puyo,Pastaza,Amazonía,2018-10-01,2018-11-01,Media,Media,Media,1
+puyo,Puyo,Pastaza,Amazonía,2018-11-01,2018-12-01,Media,Alta,Media,0
+puyo,Puyo,Pastaza,Amazonía,2018-12-01,2019-01-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2019-01-01,2019-02-01,Alta,Media,Alta,0
+puyo,Puyo,Pastaza,Amazonía,2019-02-01,2019-03-01,Media,Media,Media,1
+puyo,Puyo,Pastaza,Amazonía,2019-03-01,2019-04-01,Media,Alta,Media,0
+puyo,Puyo,Pastaza,Amazonía,2019-04-01,2019-05-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2019-05-01,2019-06-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2019-06-01,2019-07-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2019-07-01,2019-08-01,Alta,Media,Alta,0
+puyo,Puyo,Pastaza,Amazonía,2019-08-01,2019-09-01,Media,Alta,Media,0
+puyo,Puyo,Pastaza,Amazonía,2019-09-01,2019-10-01,Alta,Baja,Alta,0
+puyo,Puyo,Pastaza,Amazonía,2019-10-01,2019-11-01,Baja,Alta,Baja,0
+puyo,Puyo,Pastaza,Amazonía,2019-11-01,2019-12-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2019-12-01,2020-01-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2020-01-01,2020-02-01,Alta,Baja,Alta,0
+puyo,Puyo,Pastaza,Amazonía,2020-02-01,2020-03-01,Baja,Media,Baja,0
+puyo,Puyo,Pastaza,Amazonía,2020-03-01,2020-04-01,Media,Alta,Media,0
+puyo,Puyo,Pastaza,Amazonía,2020-04-01,2020-05-01,Alta,Media,Alta,0
+puyo,Puyo,Pastaza,Amazonía,2020-05-01,2020-06-01,Media,Media,Media,1
+puyo,Puyo,Pastaza,Amazonía,2020-06-01,2020-07-01,Media,Baja,Media,0
+puyo,Puyo,Pastaza,Amazonía,2020-07-01,2020-08-01,Baja,Alta,Baja,0
+puyo,Puyo,Pastaza,Amazonía,2020-08-01,2020-09-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2020-09-01,2020-10-01,Alta,Baja,Alta,0
+puyo,Puyo,Pastaza,Amazonía,2020-10-01,2020-11-01,Baja,Baja,Baja,1
+puyo,Puyo,Pastaza,Amazonía,2020-11-01,2020-12-01,Baja,Alta,Baja,0
+puyo,Puyo,Pastaza,Amazonía,2020-12-01,2021-01-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2021-01-01,2021-02-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2021-02-01,2021-03-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2021-03-01,2021-04-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2021-04-01,2021-05-01,Alta,Media,Alta,0
+puyo,Puyo,Pastaza,Amazonía,2021-05-01,2021-06-01,Media,Alta,Media,0
+puyo,Puyo,Pastaza,Amazonía,2021-06-01,2021-07-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2021-07-01,2021-08-01,Alta,Media,Alta,0
+puyo,Puyo,Pastaza,Amazonía,2021-08-01,2021-09-01,Media,Baja,Media,0
+puyo,Puyo,Pastaza,Amazonía,2021-09-01,2021-10-01,Baja,Alta,Baja,0
+puyo,Puyo,Pastaza,Amazonía,2021-10-01,2021-11-01,Alta,Alta,Alta,1
+puyo,Puyo,Pastaza,Amazonía,2021-11-01,2021-12-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2017-12-01,2018-01-01,Media,Alta,Media,0
+quito,Quito,Pichincha,Sierra,2018-01-01,2018-02-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2018-02-01,2018-03-01,Alta,Baja,Alta,0
+quito,Quito,Pichincha,Sierra,2018-03-01,2018-04-01,Baja,Media,Baja,0
+quito,Quito,Pichincha,Sierra,2018-04-01,2018-05-01,Media,Alta,Media,0
+quito,Quito,Pichincha,Sierra,2018-05-01,2018-06-01,Alta,Media,Alta,0
+quito,Quito,Pichincha,Sierra,2018-06-01,2018-07-01,Media,Alta,Media,0
+quito,Quito,Pichincha,Sierra,2018-07-01,2018-08-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2018-08-01,2018-09-01,Alta,Media,Alta,0
+quito,Quito,Pichincha,Sierra,2018-09-01,2018-10-01,Media,Alta,Media,0
+quito,Quito,Pichincha,Sierra,2018-10-01,2018-11-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2018-11-01,2018-12-01,Alta,Baja,Alta,0
+quito,Quito,Pichincha,Sierra,2018-12-01,2019-01-01,Baja,Alta,Baja,0
+quito,Quito,Pichincha,Sierra,2019-01-01,2019-02-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2019-02-01,2019-03-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2019-03-01,2019-04-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2019-04-01,2019-05-01,Alta,Media,Alta,0
+quito,Quito,Pichincha,Sierra,2019-05-01,2019-06-01,Media,Alta,Media,0
+quito,Quito,Pichincha,Sierra,2019-06-01,2019-07-01,Alta,Media,Alta,0
+quito,Quito,Pichincha,Sierra,2019-07-01,2019-08-01,Media,Baja,Media,0
+quito,Quito,Pichincha,Sierra,2019-08-01,2019-09-01,Baja,Media,Baja,0
+quito,Quito,Pichincha,Sierra,2019-09-01,2019-10-01,Media,Alta,Media,0
+quito,Quito,Pichincha,Sierra,2019-10-01,2019-11-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2019-11-01,2019-12-01,Alta,Baja,Alta,0
+quito,Quito,Pichincha,Sierra,2019-12-01,2020-01-01,Baja,Alta,Baja,0
+quito,Quito,Pichincha,Sierra,2020-01-01,2020-02-01,Alta,Media,Alta,0
+quito,Quito,Pichincha,Sierra,2020-02-01,2020-03-01,Media,Media,Media,1
+quito,Quito,Pichincha,Sierra,2020-03-01,2020-04-01,Media,Alta,Media,0
+quito,Quito,Pichincha,Sierra,2020-04-01,2020-05-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2020-05-01,2020-06-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2020-06-01,2020-07-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2020-07-01,2020-08-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2020-08-01,2020-09-01,Alta,Media,Alta,0
+quito,Quito,Pichincha,Sierra,2020-09-01,2020-10-01,Media,Baja,Media,0
+quito,Quito,Pichincha,Sierra,2020-10-01,2020-11-01,Baja,Media,Baja,0
+quito,Quito,Pichincha,Sierra,2020-11-01,2020-12-01,Media,Media,Media,1
+quito,Quito,Pichincha,Sierra,2020-12-01,2021-01-01,Media,Alta,Media,0
+quito,Quito,Pichincha,Sierra,2021-01-01,2021-02-01,Alta,Baja,Alta,0
+quito,Quito,Pichincha,Sierra,2021-02-01,2021-03-01,Baja,Alta,Baja,0
+quito,Quito,Pichincha,Sierra,2021-03-01,2021-04-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2021-04-01,2021-05-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2021-05-01,2021-06-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2021-06-01,2021-07-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2021-07-01,2021-08-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2021-08-01,2021-09-01,Alta,Alta,Alta,1
+quito,Quito,Pichincha,Sierra,2021-09-01,2021-10-01,Alta,Media,Alta,0
+quito,Quito,Pichincha,Sierra,2021-10-01,2021-11-01,Media,Alta,Media,0
+quito,Quito,Pichincha,Sierra,2021-11-01,2021-12-01,Alta,Alta,Alta,1
+riobamba,Riobamba,Chimborazo,Sierra,2017-12-01,2018-01-01,Media,Media,Media,1
+riobamba,Riobamba,Chimborazo,Sierra,2018-01-01,2018-02-01,Media,Alta,Media,0
+riobamba,Riobamba,Chimborazo,Sierra,2018-02-01,2018-03-01,Alta,Baja,Alta,0
+riobamba,Riobamba,Chimborazo,Sierra,2018-03-01,2018-04-01,Baja,Media,Baja,0
+riobamba,Riobamba,Chimborazo,Sierra,2018-04-01,2018-05-01,Media,Media,Media,1
+riobamba,Riobamba,Chimborazo,Sierra,2018-05-01,2018-06-01,Media,Alta,Media,0
+riobamba,Riobamba,Chimborazo,Sierra,2018-06-01,2018-07-01,Alta,Media,Alta,0
+riobamba,Riobamba,Chimborazo,Sierra,2018-07-01,2018-08-01,Media,Alta,Media,0
+riobamba,Riobamba,Chimborazo,Sierra,2018-08-01,2018-09-01,Alta,Baja,Alta,0
+riobamba,Riobamba,Chimborazo,Sierra,2018-09-01,2018-10-01,Baja,Alta,Baja,0
+riobamba,Riobamba,Chimborazo,Sierra,2018-10-01,2018-11-01,Alta,Alta,Alta,1
+riobamba,Riobamba,Chimborazo,Sierra,2018-11-01,2018-12-01,Alta,Baja,Alta,0
+riobamba,Riobamba,Chimborazo,Sierra,2018-12-01,2019-01-01,Baja,Alta,Baja,0
+riobamba,Riobamba,Chimborazo,Sierra,2019-01-01,2019-02-01,Alta,Alta,Alta,1
+riobamba,Riobamba,Chimborazo,Sierra,2019-02-01,2019-03-01,Alta,Alta,Alta,1
+riobamba,Riobamba,Chimborazo,Sierra,2019-03-01,2019-04-01,Alta,Baja,Alta,0
+riobamba,Riobamba,Chimborazo,Sierra,2019-04-01,2019-05-01,Baja,Baja,Baja,1
+riobamba,Riobamba,Chimborazo,Sierra,2019-05-01,2019-06-01,Baja,Alta,Baja,0
+riobamba,Riobamba,Chimborazo,Sierra,2019-06-01,2019-07-01,Alta,Alta,Alta,1
+riobamba,Riobamba,Chimborazo,Sierra,2019-07-01,2019-08-01,Alta,Media,Alta,0
+riobamba,Riobamba,Chimborazo,Sierra,2019-08-01,2019-09-01,Media,Media,Media,1
+riobamba,Riobamba,Chimborazo,Sierra,2019-09-01,2019-10-01,Media,Baja,Media,0
+riobamba,Riobamba,Chimborazo,Sierra,2019-10-01,2019-11-01,Baja,Baja,Baja,1
+riobamba,Riobamba,Chimborazo,Sierra,2019-11-01,2019-12-01,Baja,Media,Baja,0
+riobamba,Riobamba,Chimborazo,Sierra,2019-12-01,2020-01-01,Media,Media,Media,1
+riobamba,Riobamba,Chimborazo,Sierra,2020-01-01,2020-02-01,Media,Alta,Media,0
+riobamba,Riobamba,Chimborazo,Sierra,2020-02-01,2020-03-01,Alta,Baja,Alta,0
+riobamba,Riobamba,Chimborazo,Sierra,2020-03-01,2020-04-01,Baja,Alta,Baja,0
+riobamba,Riobamba,Chimborazo,Sierra,2020-04-01,2020-05-01,Alta,Baja,Alta,0
+riobamba,Riobamba,Chimborazo,Sierra,2020-05-01,2020-06-01,Baja,Media,Baja,0
+riobamba,Riobamba,Chimborazo,Sierra,2020-06-01,2020-07-01,Media,Media,Media,1
+riobamba,Riobamba,Chimborazo,Sierra,2020-07-01,2020-08-01,Media,Alta,Media,0
+riobamba,Riobamba,Chimborazo,Sierra,2020-08-01,2020-09-01,Alta,Media,Alta,0
+riobamba,Riobamba,Chimborazo,Sierra,2020-09-01,2020-10-01,Media,Baja,Media,0
+riobamba,Riobamba,Chimborazo,Sierra,2020-10-01,2020-11-01,Baja,Baja,Baja,1
+riobamba,Riobamba,Chimborazo,Sierra,2020-11-01,2020-12-01,Baja,Media,Baja,0
+riobamba,Riobamba,Chimborazo,Sierra,2020-12-01,2021-01-01,Media,Media,Media,1
+riobamba,Riobamba,Chimborazo,Sierra,2021-01-01,2021-02-01,Media,Alta,Media,0
+riobamba,Riobamba,Chimborazo,Sierra,2021-02-01,2021-03-01,Alta,Alta,Alta,1
+riobamba,Riobamba,Chimborazo,Sierra,2021-03-01,2021-04-01,Alta,Media,Alta,0
+riobamba,Riobamba,Chimborazo,Sierra,2021-04-01,2021-05-01,Media,Alta,Media,0
+riobamba,Riobamba,Chimborazo,Sierra,2021-05-01,2021-06-01,Alta,Alta,Alta,1
+riobamba,Riobamba,Chimborazo,Sierra,2021-06-01,2021-07-01,Alta,Alta,Alta,1
+riobamba,Riobamba,Chimborazo,Sierra,2021-07-01,2021-08-01,Alta,Media,Alta,0
+riobamba,Riobamba,Chimborazo,Sierra,2021-08-01,2021-09-01,Media,Media,Media,1
+riobamba,Riobamba,Chimborazo,Sierra,2021-09-01,2021-10-01,Media,Alta,Media,0
+riobamba,Riobamba,Chimborazo,Sierra,2021-10-01,2021-11-01,Alta,Media,Alta,0
+riobamba,Riobamba,Chimborazo,Sierra,2021-11-01,2021-12-01,Media,Media,Media,1
+salinas,Salinas,Santa Elena,Litoral,2017-12-01,2018-01-01,Media,Baja,Media,0
+salinas,Salinas,Santa Elena,Litoral,2018-01-01,2018-02-01,Baja,Alta,Baja,0
+salinas,Salinas,Santa Elena,Litoral,2018-02-01,2018-03-01,Alta,Baja,Alta,0
+salinas,Salinas,Santa Elena,Litoral,2018-03-01,2018-04-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2018-04-01,2018-05-01,Baja,Alta,Baja,0
+salinas,Salinas,Santa Elena,Litoral,2018-05-01,2018-06-01,Alta,Baja,Alta,0
+salinas,Salinas,Santa Elena,Litoral,2018-06-01,2018-07-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2018-07-01,2018-08-01,Baja,Media,Baja,0
+salinas,Salinas,Santa Elena,Litoral,2018-08-01,2018-09-01,Media,Baja,Media,0
+salinas,Salinas,Santa Elena,Litoral,2018-09-01,2018-10-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2018-10-01,2018-11-01,Baja,Media,Baja,0
+salinas,Salinas,Santa Elena,Litoral,2018-11-01,2018-12-01,Media,Alta,Media,0
+salinas,Salinas,Santa Elena,Litoral,2018-12-01,2019-01-01,Alta,Alta,Alta,1
+salinas,Salinas,Santa Elena,Litoral,2019-01-01,2019-02-01,Alta,Media,Alta,0
+salinas,Salinas,Santa Elena,Litoral,2019-02-01,2019-03-01,Media,Baja,Media,0
+salinas,Salinas,Santa Elena,Litoral,2019-03-01,2019-04-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2019-04-01,2019-05-01,Baja,Media,Baja,0
+salinas,Salinas,Santa Elena,Litoral,2019-05-01,2019-06-01,Media,Media,Media,1
+salinas,Salinas,Santa Elena,Litoral,2019-06-01,2019-07-01,Media,Baja,Media,0
+salinas,Salinas,Santa Elena,Litoral,2019-07-01,2019-08-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2019-08-01,2019-09-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2019-09-01,2019-10-01,Baja,Media,Baja,0
+salinas,Salinas,Santa Elena,Litoral,2019-10-01,2019-11-01,Media,Baja,Media,0
+salinas,Salinas,Santa Elena,Litoral,2019-11-01,2019-12-01,Baja,Media,Baja,0
+salinas,Salinas,Santa Elena,Litoral,2019-12-01,2020-01-01,Media,Baja,Media,0
+salinas,Salinas,Santa Elena,Litoral,2020-01-01,2020-02-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2020-02-01,2020-03-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2020-03-01,2020-04-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2020-04-01,2020-05-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2020-05-01,2020-06-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2020-06-01,2020-07-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2020-07-01,2020-08-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2020-08-01,2020-09-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2020-09-01,2020-10-01,Baja,Media,Baja,0
+salinas,Salinas,Santa Elena,Litoral,2020-10-01,2020-11-01,Media,Baja,Media,0
+salinas,Salinas,Santa Elena,Litoral,2020-11-01,2020-12-01,Baja,Alta,Baja,0
+salinas,Salinas,Santa Elena,Litoral,2020-12-01,2021-01-01,Alta,Media,Alta,0
+salinas,Salinas,Santa Elena,Litoral,2021-01-01,2021-02-01,Media,Baja,Media,0
+salinas,Salinas,Santa Elena,Litoral,2021-02-01,2021-03-01,Baja,Media,Baja,0
+salinas,Salinas,Santa Elena,Litoral,2021-03-01,2021-04-01,Media,Media,Media,1
+salinas,Salinas,Santa Elena,Litoral,2021-04-01,2021-05-01,Media,Media,Media,1
+salinas,Salinas,Santa Elena,Litoral,2021-05-01,2021-06-01,Media,Media,Media,1
+salinas,Salinas,Santa Elena,Litoral,2021-06-01,2021-07-01,Media,Baja,Media,0
+salinas,Salinas,Santa Elena,Litoral,2021-07-01,2021-08-01,Baja,Media,Baja,0
+salinas,Salinas,Santa Elena,Litoral,2021-08-01,2021-09-01,Media,Alta,Media,0
+salinas,Salinas,Santa Elena,Litoral,2021-09-01,2021-10-01,Alta,Baja,Alta,0
+salinas,Salinas,Santa Elena,Litoral,2021-10-01,2021-11-01,Baja,Baja,Baja,1
+salinas,Salinas,Santa Elena,Litoral,2021-11-01,2021-12-01,Baja,Media,Baja,0
+tena,Tena,Napo,Amazonía,2017-12-01,2018-01-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2018-01-01,2018-02-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2018-02-01,2018-03-01,Alta,Baja,Alta,0
+tena,Tena,Napo,Amazonía,2018-03-01,2018-04-01,Baja,Alta,Baja,0
+tena,Tena,Napo,Amazonía,2018-04-01,2018-05-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2018-05-01,2018-06-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2018-06-01,2018-07-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2018-07-01,2018-08-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2018-08-01,2018-09-01,Alta,Media,Alta,0
+tena,Tena,Napo,Amazonía,2018-09-01,2018-10-01,Media,Media,Media,1
+tena,Tena,Napo,Amazonía,2018-10-01,2018-11-01,Media,Baja,Media,0
+tena,Tena,Napo,Amazonía,2018-11-01,2018-12-01,Baja,Media,Baja,0
+tena,Tena,Napo,Amazonía,2018-12-01,2019-01-01,Media,Alta,Media,0
+tena,Tena,Napo,Amazonía,2019-01-01,2019-02-01,Alta,Media,Alta,0
+tena,Tena,Napo,Amazonía,2019-02-01,2019-03-01,Media,Media,Media,1
+tena,Tena,Napo,Amazonía,2019-03-01,2019-04-01,Media,Media,Media,1
+tena,Tena,Napo,Amazonía,2019-04-01,2019-05-01,Media,Alta,Media,0
+tena,Tena,Napo,Amazonía,2019-05-01,2019-06-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2019-06-01,2019-07-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2019-07-01,2019-08-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2019-08-01,2019-09-01,Alta,Media,Alta,0
+tena,Tena,Napo,Amazonía,2019-09-01,2019-10-01,Media,Media,Media,1
+tena,Tena,Napo,Amazonía,2019-10-01,2019-11-01,Media,Alta,Media,0
+tena,Tena,Napo,Amazonía,2019-11-01,2019-12-01,Alta,Baja,Alta,0
+tena,Tena,Napo,Amazonía,2019-12-01,2020-01-01,Baja,Alta,Baja,0
+tena,Tena,Napo,Amazonía,2020-01-01,2020-02-01,Alta,Baja,Alta,0
+tena,Tena,Napo,Amazonía,2020-02-01,2020-03-01,Baja,Alta,Baja,0
+tena,Tena,Napo,Amazonía,2020-03-01,2020-04-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2020-04-01,2020-05-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2020-05-01,2020-06-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2020-06-01,2020-07-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2020-07-01,2020-08-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2020-08-01,2020-09-01,Alta,Media,Alta,0
+tena,Tena,Napo,Amazonía,2020-09-01,2020-10-01,Media,Baja,Media,0
+tena,Tena,Napo,Amazonía,2020-10-01,2020-11-01,Baja,Baja,Baja,1
+tena,Tena,Napo,Amazonía,2020-11-01,2020-12-01,Baja,Alta,Baja,0
+tena,Tena,Napo,Amazonía,2020-12-01,2021-01-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2021-01-01,2021-02-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2021-02-01,2021-03-01,Alta,Alta,Alta,1
+tena,Tena,Napo,Amazonía,2021-03-01,2021-04-01,Alta,Media,Alta,0
+tena,Tena,Napo,Amazonía,2021-04-01,2021-05-01,Media,Media,Media,1
+tena,Tena,Napo,Amazonía,2021-05-01,2021-06-01,Media,Alta,Media,0
+tena,Tena,Napo,Amazonía,2021-06-01,2021-07-01,Alta,Media,Alta,0
+tena,Tena,Napo,Amazonía,2021-07-01,2021-08-01,Media,Media,Media,1
+tena,Tena,Napo,Amazonía,2021-08-01,2021-09-01,Media,Baja,Media,0
+tena,Tena,Napo,Amazonía,2021-09-01,2021-10-01,Baja,Alta,Baja,0
+tena,Tena,Napo,Amazonía,2021-10-01,2021-11-01,Alta,Media,Alta,0
+tena,Tena,Napo,Amazonía,2021-11-01,2021-12-01,Media,Media,Media,1

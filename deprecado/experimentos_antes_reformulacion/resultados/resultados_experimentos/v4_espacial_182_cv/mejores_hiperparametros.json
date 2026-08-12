@@ -1,0 +1,32 @@
+{
+  "Regresion_Logistica": {
+    "model__class_weight": "balanced",
+    "model__C": 0.01
+  },
+  "Random_Forest": {
+    "n_estimators": 250,
+    "min_samples_leaf": 4,
+    "max_features": 0.5,
+    "max_depth": 26,
+    "class_weight": "balanced"
+  },
+  "XGBoost": {
+    "subsample": 0.8,
+    "n_estimators": 500,
+    "max_depth": 3,
+    "learning_rate": 0.1,
+    "colsample_bytree": 0.9
+  },
+  "SVM_RBF": {
+    "model__gamma": 0.01,
+    "model__class_weight": "balanced",
+    "model__C": 10.0
+  },
+  "MLP": {
+    "model__learning_rate_init": 0.003,
+    "model__hidden_layer_sizes": [
+      64
+    ],
+    "model__alpha": 0.001
+  }
+}

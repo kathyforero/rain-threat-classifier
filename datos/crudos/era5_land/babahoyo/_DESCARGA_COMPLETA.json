@@ -1,0 +1,23 @@
+{
+  "zone_id": "babahoyo",
+  "ciudad": "Babahoyo",
+  "latitud_solicitada": -1.801926,
+  "longitud_solicitada": -79.534645,
+  "dataset": "reanalysis-era5-land-timeseries",
+  "fecha_inicial_solicitada": "1991-01-01",
+  "fecha_final_solicitada": "2026-01-01",
+  "variables": [
+    "2m_temperature",
+    "2m_dewpoint_temperature",
+    "total_precipitation",
+    "surface_pressure",
+    "10m_u_component_of_wind",
+    "10m_v_component_of_wind",
+    "volumetric_soil_water_layer_1"
+  ],
+  "archivos_netcdf": [
+    "reanalysis-era5-land-timeseries-sfc-2m-temperature0er8d7yw.nc",
+    "reanalysis-era5-land-timeseries-sfc-pressure-precipitationw84tumpt.nc",
+    "reanalysis-era5-land-timeseries-sfc-wind1iq4sgwr.nc"
+  ]
+}

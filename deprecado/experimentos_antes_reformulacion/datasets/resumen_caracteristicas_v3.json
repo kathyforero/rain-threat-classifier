@@ -1,0 +1,41 @@
+{
+  "dataset_origen": "C:\\Users\\Kathy\\Documents\\GitHub\\rain-threat-classifier\\resultados_completo\\dataset_modelo_mensual_v2.csv",
+  "dataset_v3": "C:\\Users\\Kathy\\Documents\\GitHub\\rain-threat-classifier\\resultados_completo\\dataset_modelo_mensual_v3.csv",
+  "filas_v2": 6195,
+  "filas_eliminadas_por_historia_lag11": 75,
+  "filas_v3": 6120,
+  "caracteristicas_v2": 149,
+  "caracteristicas_nuevas_v3": 18,
+  "total_caracteristicas_v3": 167,
+  "lag11": [
+    "prcptot_mm_lag11",
+    "rx1day_mm_lag11",
+    "rx5day_mm_lag11",
+    "max_6h_mm_lag11",
+    "wet_days_lag11",
+    "sdii_mm_per_wet_day_lag11",
+    "temperature_mean_c_lag11",
+    "relative_humidity_mean_pct_lag11"
+  ],
+  "agregados": [
+    "prcptot_media_3m",
+    "prcptot_media_6m",
+    "rx5_media_3m",
+    "rx5_max_6m",
+    "humedad_media_3m",
+    "temperatura_media_3m"
+  ],
+  "tendencias": [
+    "prcptot_tendencia_1m",
+    "rx5_tendencia_1m",
+    "humedad_tendencia_1m",
+    "temperatura_tendencia_1m"
+  ],
+  "distribucion_split_v3": {
+    "entrenamiento": 3744,
+    "holdout_historia": 936,
+    "validacion_temporal": 576,
+    "prueba_temporal": 576,
+    "holdout_espacial": 288
+  }
+}

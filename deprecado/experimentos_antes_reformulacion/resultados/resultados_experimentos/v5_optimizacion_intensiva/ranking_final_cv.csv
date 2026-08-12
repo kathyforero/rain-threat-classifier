@@ -1,0 +1,8 @@
+modelo,macro_f1_cv_mean,macro_f1_cv_std,balanced_accuracy_cv_mean,recall_alta_cv_mean,fase_mejor,params
+Persistencia,0.36956096583190984,0.03196940295998654,0.3696017871927305,0.3496155421307826,baseline,
+MLP,0.36473439686846265,0.014345643100952285,0.367089716689893,0.35457376032562304,A,"{""model__validation_fraction"": 0.15, ""model__n_iter_no_change"": 20, ""model__learning_rate_init"": 0.0001, ""model__hidden_layer_sizes"": [192, 96, 48], ""model__batch_size"": 128, ""model__alpha"": 0.0003, ""model__activation"": ""relu""}"
+XGBoost,0.3591037812191596,0.028524243832109955,0.3609206479537389,0.3610890276277497,A,"{""subsample"": 1.0, ""reg_lambda"": 10.0, ""reg_alpha"": 0.0, ""n_estimators"": 450, ""min_child_weight"": 2, ""max_depth"": 4, ""learning_rate"": 0.05, ""gamma"": 0.05, ""colsample_bytree"": 0.85}"
+SVM_RBF,0.3556633043835017,0.01948667799689789,0.35875982727038386,0.3088106162671527,A,"{""model__gamma"": 0.0005, ""model__class_weight"": null, ""model__C"": 3.0}"
+Regresion_Logistica,0.35243559830279303,0.007903859323207295,0.36211578667563227,0.4105381748529186,A,"{""model__class_weight"": ""balanced"", ""model__C"": 0.001}"
+Random_Forest,0.34839845131493413,0.02410458636685049,0.35153857011066514,0.31591389531669506,A,"{""n_estimators"": 500, ""min_samples_split"": 2, ""min_samples_leaf"": 2, ""max_features"": 0.8, ""max_depth"": 32, ""class_weight"": ""balanced"", ""bootstrap"": true}"
+Dummy,0.1550652519848876,0.016693197359406733,0.3333333333333333,0.25,baseline,

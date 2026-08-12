@@ -1,17 +1,36 @@
 """
-Audita los archivos generados en resultados_completo/.
+Audita la calidad de los datos crudos y de los datasets meteorológicos
+derivados antes de iniciar cualquier etapa de Machine Learning.
 
-Ejecutar:
+EJECUTAR
+--------
     py 03_validar_calidad_dataset.py
 
-Genera:
-    resultados_completo/reporte_auditoria_dataset.csv
-    resultados_completo/columnas_recomendadas_modelo.txt
+ENTRADAS
+--------
+datos/crudos/era5_land/<zona>/
+datos/procesados/indicadores_diarios_todas_zonas.csv
+datos/procesados/indicadores_mensuales_todas_zonas.csv
+datos/calidad/reporte_calidad.csv
+zonas_era5_ecuador.csv
+
+SALIDA
+------
+datos/calidad/reporte_auditoria_dataset.csv
+
+Este paso NO audita:
+- target de clasificación;
+- lags;
+- train/validation/test;
+- características seleccionadas;
+- modelos.
+
+Esas decisiones pertenecen a los pasos posteriores del pipeline.
 """
 
 from __future__ import annotations
 
-import re
+import json
 from pathlib import Path
 
 import numpy as np
@@ -19,34 +38,74 @@ import pandas as pd
 
 
 BASE_DIR = Path(__file__).resolve().parent
-RESULTS_DIR = BASE_DIR / "resultados_completo"
+
+ZONES_FILE = (
+    BASE_DIR
+    / "zonas_era5_ecuador.csv"
+)
+RAW_DIR = (
+    BASE_DIR
+    / "datos"
+    / "crudos"
+    / "era5_land"
+)
+PROCESSED_DIR = (
+    BASE_DIR
+    / "datos"
+    / "procesados"
+)
+QUALITY_DIR = (
+    BASE_DIR
+    / "datos"
+    / "calidad"
+)
 
 FILES = {
-    "diario": RESULTS_DIR / "indicadores_diarios_todas_zonas.csv",
-    "mensual": RESULTS_DIR / "indicadores_mensuales_todas_zonas.csv",
-    "calidad": RESULTS_DIR / "reporte_calidad.csv",
-    "modelo": RESULTS_DIR / "dataset_modelo_mensual.csv",
+    "diario": (
+        PROCESSED_DIR
+        / "indicadores_diarios_todas_zonas.csv"
+    ),
+    "mensual": (
+        PROCESSED_DIR
+        / "indicadores_mensuales_todas_zonas.csv"
+    ),
+    "calidad": (
+        QUALITY_DIR
+        / "reporte_calidad.csv"
+    ),
 }
 
-AUDIT_FILE = RESULTS_DIR / "reporte_auditoria_dataset.csv"
-FEATURES_FILE = RESULTS_DIR / "columnas_recomendadas_modelo.txt"
+AUDIT_FILE = (
+    QUALITY_DIR
+    / "reporte_auditoria_dataset.csv"
+)
 
 EXPECTED_ZONES = 15
+EXPECTED_DEVELOPMENT_ZONES = 12
+EXPECTED_HOLDOUT_ZONES = 3
 EXPECTED_DAYS_PER_ZONE = 12_784
 EXPECTED_MONTHS_PER_ZONE = 420
-EXPECTED_MODEL_ROWS_PER_ZONE = 413
 
-EXPECTED_SPLITS = {
-    "entrenamiento": 3804,
-    "validacion_temporal": 576,
-    "prueba_temporal": 576,
-    "holdout_historia": 951,
-    "holdout_espacial": 288,
+EXPECTED_RAW_START = "1991-01-01"
+EXPECTED_RAW_END = "2026-01-01"
+
+EXPECTED_RAW_VARIABLES = {
+    "2m_temperature",
+    "2m_dewpoint_temperature",
+    "total_precipitation",
+    "surface_pressure",
+    "10m_u_component_of_wind",
+    "10m_v_component_of_wind",
+    "volumetric_soil_water_layer_1",
 }
 
-VALID_LABELS = {"Baja", "Media", "Alta"}
+COMPLETE_MARKER_NAME = (
+    "_DESCARGA_COMPLETA.json"
+)
 
-checks: list[dict[str, object]] = []
+checks: list[
+    dict[str, object]
+] = []
 
 
 def add_check(
@@ -58,7 +117,11 @@ def add_check(
     checks.append({
         "nivel": level,
         "verificacion": name,
-        "resultado": "OK" if ok else level,
+        "resultado": (
+            "OK"
+            if ok
+            else level
+        ),
         "detalle": detail,
     })
 
@@ -68,13 +131,27 @@ def require_columns(
     columns: list[str],
     dataset_name: str,
 ) -> bool:
-    missing = sorted(set(columns).difference(frame.columns))
+    missing = sorted(
+        set(columns)
+        .difference(
+            frame.columns
+        )
+    )
+
     add_check(
         "ERROR",
-        f"{dataset_name}: columnas obligatorias",
+        (
+            f"{dataset_name}: "
+            "columnas obligatorias"
+        ),
         not missing,
-        "Todas presentes." if not missing else f"Faltan: {missing}",
+        (
+            "Todas presentes."
+            if not missing
+            else f"Faltan: {missing}"
+        ),
     )
+
     return not missing
 
 
@@ -83,45 +160,379 @@ def count_by_zone(
     expected: int,
     dataset_name: str,
 ) -> None:
-    counts = frame.groupby("zone_id").size()
-    bad = counts[counts != expected]
+    counts = (
+        frame
+        .groupby("zone_id")
+        .size()
+    )
+
+    bad = counts[
+        counts != expected
+    ]
+
     add_check(
         "ERROR",
-        f"{dataset_name}: filas por zona",
+        (
+            f"{dataset_name}: "
+            "filas por zona"
+        ),
         bad.empty,
         (
-            f"Todas las zonas tienen {expected} filas."
+            f"Todas las zonas tienen "
+            f"{expected} filas."
             if bad.empty
-            else f"Conteos incorrectos: {bad.to_dict()}"
+            else (
+                "Conteos incorrectos: "
+                f"{bad.to_dict()}"
+            )
         ),
     )
 
 
-def has_infinite(frame: pd.DataFrame) -> bool:
-    numeric = frame.select_dtypes(include=[np.number])
-    return bool(np.isinf(numeric.to_numpy()).any())
+def has_infinite(
+    frame: pd.DataFrame,
+) -> bool:
+    numeric = frame.select_dtypes(
+        include=[np.number]
+    )
+
+    return bool(
+        np.isinf(
+            numeric.to_numpy()
+        ).any()
+    )
 
 
-def no_soil_columns(frame: pd.DataFrame, dataset_name: str) -> None:
-    forbidden = [
+def processed_without_soil(
+    frame: pd.DataFrame,
+    dataset_name: str,
+) -> None:
+    """
+    La variable de humedad del suelo sí forma parte de la descarga cruda
+    original, pero el pipeline histórico no la incorpora a los indicadores
+    diario/mensual utilizados posteriormente.
+    """
+    soil_columns = [
         column
         for column in frame.columns
-        if "swvl1" in column.lower()
-        or "soil_water" in column.lower()
+        if (
+            "swvl1"
+            in column.lower()
+            or "soil_water"
+            in column.lower()
+        )
     ]
+
     add_check(
         "ERROR",
-        f"{dataset_name}: humedad del suelo eliminada",
-        not forbidden,
         (
-            "No existen columnas de humedad del suelo."
-            if not forbidden
-            else f"Aún aparecen: {forbidden}"
+            f"{dataset_name}: "
+            "humedad del suelo no "
+            "propagada al dataset derivado"
+        ),
+        not soil_columns,
+        (
+            "No existen columnas de "
+            "humedad del suelo en el "
+            "dataset derivado."
+            if not soil_columns
+            else (
+                "Columnas encontradas: "
+                f"{soil_columns}"
+            )
         ),
     )
 
 
-def audit_quality(frame: pd.DataFrame) -> None:
+def load_reference_zones() -> pd.DataFrame:
+    if not ZONES_FILE.exists():
+        raise FileNotFoundError(
+            f"No se encontró {ZONES_FILE}"
+        )
+
+    zones = pd.read_csv(
+        ZONES_FILE,
+        encoding="utf-8-sig",
+    )
+
+    required = [
+        "zone_id",
+        "ciudad",
+        "provincia",
+        "region",
+        "latitud",
+        "longitud",
+        "rol",
+    ]
+
+    if not require_columns(
+        zones,
+        required,
+        "Zonas",
+    ):
+        raise ValueError(
+            "El catálogo de zonas "
+            "no tiene la estructura "
+            "esperada."
+        )
+
+    duplicate_ids = int(
+        zones["zone_id"]
+        .duplicated()
+        .sum()
+    )
+
+    add_check(
+        "ERROR",
+        "Zonas: zone_id único",
+        duplicate_ids == 0,
+        f"Duplicados: {duplicate_ids}",
+    )
+
+    add_check(
+        "ERROR",
+        "Zonas: 15 zonas definidas",
+        len(zones) == EXPECTED_ZONES,
+        f"Filas encontradas: {len(zones)}",
+    )
+
+    roles = (
+        zones
+        .groupby("rol")["zone_id"]
+        .nunique()
+        .to_dict()
+    )
+
+    roles_ok = (
+        roles.get(
+            "desarrollo",
+            0,
+        )
+        == EXPECTED_DEVELOPMENT_ZONES
+        and roles.get(
+            "validacion_espacial",
+            0,
+        )
+        == EXPECTED_HOLDOUT_ZONES
+    )
+
+    add_check(
+        "ERROR",
+        (
+            "Zonas: 12 desarrollo "
+            "y 3 validación espacial"
+        ),
+        roles_ok,
+        f"Distribución: {roles}",
+    )
+
+    return zones
+
+
+def audit_raw_downloads(
+    zones: pd.DataFrame,
+) -> None:
+    if not RAW_DIR.exists():
+        add_check(
+            "ERROR",
+            "Crudos: directorio existe",
+            False,
+            f"No existe {RAW_DIR}",
+        )
+        return
+
+    add_check(
+        "ERROR",
+        "Crudos: directorio existe",
+        True,
+        str(RAW_DIR),
+    )
+
+    missing_zone_dirs: list[str] = []
+    missing_markers: list[str] = []
+    invalid_markers: list[str] = []
+    missing_files: list[str] = []
+    variable_mismatches: list[str] = []
+    date_mismatches: list[str] = []
+
+    for _, zone in zones.iterrows():
+        zone_id = zone["zone_id"]
+        zone_dir = RAW_DIR / zone_id
+
+        if not zone_dir.exists():
+            missing_zone_dirs.append(
+                zone_id
+            )
+            continue
+
+        marker = (
+            zone_dir
+            / COMPLETE_MARKER_NAME
+        )
+
+        if not marker.exists():
+            missing_markers.append(
+                zone_id
+            )
+            continue
+
+        try:
+            payload = json.loads(
+                marker.read_text(
+                    encoding="utf-8"
+                )
+            )
+        except Exception as exc:
+            invalid_markers.append(
+                f"{zone_id}: {exc}"
+            )
+            continue
+
+        variables = set(
+            payload.get(
+                "variables",
+                [],
+            )
+        )
+
+        if variables != EXPECTED_RAW_VARIABLES:
+            variable_mismatches.append(
+                (
+                    f"{zone_id}: "
+                    f"{sorted(variables)}"
+                )
+            )
+
+        if (
+            payload.get(
+                "fecha_inicial_solicitada"
+            )
+            != EXPECTED_RAW_START
+            or payload.get(
+                "fecha_final_solicitada"
+            )
+            != EXPECTED_RAW_END
+        ):
+            date_mismatches.append(
+                zone_id
+            )
+
+        for relative_name in payload.get(
+            "archivos_netcdf",
+            [],
+        ):
+            if not (
+                zone_dir
+                / relative_name
+            ).exists():
+                missing_files.append(
+                    (
+                        f"{zone_id}/"
+                        f"{relative_name}"
+                    )
+                )
+
+    add_check(
+        "ERROR",
+        "Crudos: carpeta por cada zona",
+        not missing_zone_dirs,
+        (
+            "Todas presentes."
+            if not missing_zone_dirs
+            else (
+                "Faltan: "
+                f"{missing_zone_dirs}"
+            )
+        ),
+    )
+
+    add_check(
+        "ERROR",
+        (
+            "Crudos: marcador de descarga "
+            "completa por zona"
+        ),
+        (
+            not missing_markers
+            and not invalid_markers
+        ),
+        (
+            "Todos los marcadores "
+            "son válidos."
+            if (
+                not missing_markers
+                and not invalid_markers
+            )
+            else (
+                f"Sin marcador: "
+                f"{missing_markers}; "
+                f"inválidos: "
+                f"{invalid_markers}"
+            )
+        ),
+    )
+
+    add_check(
+        "ERROR",
+        (
+            "Crudos: siete variables "
+            "originales registradas"
+        ),
+        not variable_mismatches,
+        (
+            "Los marcadores registran "
+            "las siete variables "
+            "solicitadas originalmente."
+            if not variable_mismatches
+            else (
+                "Diferencias: "
+                + " | ".join(
+                    variable_mismatches
+                )
+            )
+        ),
+    )
+
+    add_check(
+        "ERROR",
+        (
+            "Crudos: periodo solicitado "
+            "1991-01-01 a 2026-01-01"
+        ),
+        not date_mismatches,
+        (
+            "Periodo correcto."
+            if not date_mismatches
+            else (
+                "Zonas con periodo "
+                f"distinto: "
+                f"{date_mismatches}"
+            )
+        ),
+    )
+
+    add_check(
+        "ERROR",
+        (
+            "Crudos: NetCDF listados "
+            "en marcadores existen"
+        ),
+        not missing_files,
+        (
+            "Todos los archivos "
+            "referenciados existen."
+            if not missing_files
+            else (
+                "Faltan: "
+                f"{missing_files}"
+            )
+        ),
+    )
+
+
+def audit_quality(
+    frame: pd.DataFrame,
+) -> None:
     needed = [
         "zone_id",
         "rol",
@@ -139,24 +550,54 @@ def audit_quality(frame: pd.DataFrame) -> None:
         "missing_u10_hours",
         "missing_v10_hours",
     ]
-    if not require_columns(frame, needed, "Calidad"):
+
+    if not require_columns(
+        frame,
+        needed,
+        "Calidad",
+    ):
         return
 
     add_check(
         "ERROR",
         "Calidad: 15 zonas",
-        frame["zone_id"].nunique() == EXPECTED_ZONES,
-        f"Zonas encontradas: {frame['zone_id'].nunique()}",
+        (
+            frame["zone_id"]
+            .nunique()
+            == EXPECTED_ZONES
+        ),
+        (
+            "Zonas encontradas: "
+            f"{frame['zone_id'].nunique()}"
+        ),
     )
 
-    roles = frame.groupby("rol")["zone_id"].nunique().to_dict()
-    roles_ok = (
-        roles.get("desarrollo", 0) == 12
-        and roles.get("validacion_espacial", 0) == 3
+    roles = (
+        frame
+        .groupby("rol")["zone_id"]
+        .nunique()
+        .to_dict()
     )
+
+    roles_ok = (
+        roles.get(
+            "desarrollo",
+            0,
+        )
+        == EXPECTED_DEVELOPMENT_ZONES
+        and roles.get(
+            "validacion_espacial",
+            0,
+        )
+        == EXPECTED_HOLDOUT_ZONES
+    )
+
     add_check(
         "ERROR",
-        "Calidad: 12 zonas de desarrollo y 3 holdout",
+        (
+            "Calidad: 12 zonas de "
+            "desarrollo y 3 holdout"
+        ),
         roles_ok,
         f"Distribución: {roles}",
     )
@@ -174,37 +615,78 @@ def audit_quality(frame: pd.DataFrame) -> None:
         "missing_u10_hours",
         "missing_v10_hours",
     ]
-    bad = {
-        column: int((frame[column] != 0).sum())
-        for column in zero_columns
-        if (frame[column] != 0).any()
-    }
-    add_check(
-        "ERROR",
-        "Calidad: cero faltantes temporales y meteorológicos",
-        not bad,
-        "Todos los indicadores son cero."
-        if not bad
-        else f"Incidencias: {bad}",
-    )
 
-    daily_ok = bool((frame["daily_rows"] == 12_784).all())
-    monthly_ok = bool((frame["monthly_rows"] == 420).all())
+    bad = {
+        column: int(
+            (
+                frame[column] != 0
+            ).sum()
+        )
+        for column in zero_columns
+        if (
+            frame[column] != 0
+        ).any()
+    }
+
     add_check(
         "ERROR",
-        "Calidad: 12.784 días y 420 meses por zona",
-        daily_ok and monthly_ok,
         (
-            "Conteos correctos."
-            if daily_ok and monthly_ok
-            else "Hay conteos diferentes a los esperados."
+            "Calidad: cero faltantes "
+            "temporales y meteorológicos"
+        ),
+        not bad,
+        (
+            "Todos los indicadores "
+            "son cero."
+            if not bad
+            else (
+                "Incidencias: "
+                f"{bad}"
+            )
         ),
     )
 
-    no_soil_columns(frame, "Calidad")
+    daily_ok = bool(
+        (
+            frame["daily_rows"]
+            == EXPECTED_DAYS_PER_ZONE
+        ).all()
+    )
+    monthly_ok = bool(
+        (
+            frame["monthly_rows"]
+            == EXPECTED_MONTHS_PER_ZONE
+        ).all()
+    )
+
+    add_check(
+        "ERROR",
+        (
+            "Calidad: 12.784 días "
+            "y 420 meses por zona"
+        ),
+        (
+            daily_ok
+            and monthly_ok
+        ),
+        (
+            "Conteos correctos."
+            if (
+                daily_ok
+                and monthly_ok
+            )
+            else (
+                "Hay conteos "
+                "diferentes a "
+                "los esperados."
+            )
+        ),
+    )
 
 
-def audit_daily(frame: pd.DataFrame) -> None:
+def audit_daily(
+    frame: pd.DataFrame,
+) -> None:
     needed = [
         "zone_id",
         "date",
@@ -223,151 +705,343 @@ def audit_daily(frame: pd.DataFrame) -> None:
         "wind_max_ms",
         "surface_pressure_mean_hpa",
     ]
-    if not require_columns(frame, needed, "Diario"):
+
+    if not require_columns(
+        frame,
+        needed,
+        "Diario",
+    ):
         return
 
-    frame["date"] = pd.to_datetime(frame["date"], errors="coerce")
-    count_by_zone(frame, EXPECTED_DAYS_PER_ZONE, "Diario")
+    frame["date"] = pd.to_datetime(
+        frame["date"],
+        errors="coerce",
+    )
 
-    duplicates = int(frame.duplicated(["zone_id", "date"]).sum())
+    count_by_zone(
+        frame,
+        EXPECTED_DAYS_PER_ZONE,
+        "Diario",
+    )
+
+    duplicates = int(
+        frame.duplicated(
+            [
+                "zone_id",
+                "date",
+            ]
+        ).sum()
+    )
+
     add_check(
         "ERROR",
-        "Diario: claves zona-fecha únicas",
+        (
+            "Diario: claves "
+            "zona-fecha únicas"
+        ),
         duplicates == 0,
         f"Duplicados: {duplicates}",
     )
 
-    coverage = frame.groupby("zone_id")["date"].agg(["min", "max"])
+    coverage = (
+        frame
+        .groupby("zone_id")["date"]
+        .agg(["min", "max"])
+    )
+
     coverage_ok = bool(
-        (coverage["min"] == pd.Timestamp("1991-01-01")).all()
-        and (coverage["max"] == pd.Timestamp("2025-12-31")).all()
+        (
+            coverage["min"]
+            == pd.Timestamp(
+                "1991-01-01"
+            )
+        ).all()
+        and (
+            coverage["max"]
+            == pd.Timestamp(
+                "2025-12-31"
+            )
+        ).all()
     )
+
     add_check(
         "ERROR",
-        "Diario: cobertura exacta 1991-01-01 a 2025-12-31",
+        (
+            "Diario: cobertura exacta "
+            "1991-01-01 a 2025-12-31"
+        ),
         coverage_ok,
-        "Cobertura correcta."
-        if coverage_ok
-        else coverage.to_string(),
+        (
+            "Cobertura correcta."
+            if coverage_ok
+            else coverage.to_string()
+        ),
     )
 
-    nullable_exceptions = {"zone_id", "date"}
     required_values = [
-        column for column in needed
-        if column not in nullable_exceptions
+        column
+        for column in needed
+        if column not in {
+            "zone_id",
+            "date",
+        }
     ]
-    nulls = frame[required_values].isna().sum()
-    bad_nulls = nulls[nulls > 0].to_dict()
+
+    nulls = (
+        frame[
+            required_values
+        ]
+        .isna()
+        .sum()
+    )
+    bad_nulls = (
+        nulls[
+            nulls > 0
+        ].to_dict()
+    )
+
     add_check(
         "ERROR",
-        "Diario: variables obligatorias sin nulos",
+        (
+            "Diario: variables "
+            "obligatorias sin nulos"
+        ),
         not bad_nulls,
-        "No hay nulos."
-        if not bad_nulls
-        else f"Nulos: {bad_nulls}",
+        (
+            "No hay nulos."
+            if not bad_nulls
+            else (
+                "Nulos: "
+                f"{bad_nulls}"
+            )
+        ),
     )
 
-    precip = [
+    precip_columns = [
         "precip_total_mm",
         "precip_max_1h_mm",
         "precip_max_3h_mm",
         "precip_max_6h_mm",
     ]
-    negatives = int((frame[precip] < 0).any(axis=1).sum())
-    add_check(
-        "ERROR",
-        "Diario: precipitación no negativa",
-        negatives == 0,
-        f"Filas negativas: {negatives}",
+
+    negatives = int(
+        (
+            frame[
+                precip_columns
+            ]
+            < 0
+        ).any(
+            axis=1
+        ).sum()
     )
 
-    TOLERANCIA_PRECIP_MM = 1e-6
+    add_check(
+        "ERROR",
+        (
+            "Diario: precipitación "
+            "no negativa"
+        ),
+        negatives == 0,
+        (
+            "Filas negativas: "
+            f"{negatives}"
+        ),
+    )
+
+    tolerance_mm = 1e-6
 
     hierarchy_bad = int(
         (
             (
-                frame["precip_max_1h_mm"]
-                > frame["precip_max_3h_mm"] + TOLERANCIA_PRECIP_MM
+                frame[
+                    "precip_max_1h_mm"
+                ]
+                > frame[
+                    "precip_max_3h_mm"
+                ]
+                + tolerance_mm
             )
             | (
-                frame["precip_max_3h_mm"]
-                > frame["precip_max_6h_mm"] + TOLERANCIA_PRECIP_MM
+                frame[
+                    "precip_max_3h_mm"
+                ]
+                > frame[
+                    "precip_max_6h_mm"
+                ]
+                + tolerance_mm
             )
         ).sum()
     )
+
     add_check(
         "ADVERTENCIA",
-        "Diario: máximo 1h ≤ 3h ≤ 6h",
+        (
+            "Diario: máximo "
+            "1h ≤ 3h ≤ 6h"
+        ),
         hierarchy_bad == 0,
-        f"Filas que no cumplen: {hierarchy_bad}",
+        (
+            "Filas que no cumplen: "
+            f"{hierarchy_bad}"
+        ),
     )
 
     temp_bad = int(
         (
-            (frame["temperature_min_c"] > frame["temperature_mean_c"])
-            | (frame["temperature_mean_c"] > frame["temperature_max_c"])
+            (
+                frame[
+                    "temperature_min_c"
+                ]
+                > frame[
+                    "temperature_mean_c"
+                ]
+            )
+            | (
+                frame[
+                    "temperature_mean_c"
+                ]
+                > frame[
+                    "temperature_max_c"
+                ]
+            )
         ).sum()
     )
+
     add_check(
         "ERROR",
-        "Diario: temperatura mínima ≤ media ≤ máxima",
+        (
+            "Diario: temperatura "
+            "mínima ≤ media ≤ máxima"
+        ),
         temp_bad == 0,
-        f"Filas que no cumplen: {temp_bad}",
+        (
+            "Filas que no cumplen: "
+            f"{temp_bad}"
+        ),
     )
 
     rh_bad = int(
         (
-            (frame["relative_humidity_mean_pct"] < 0)
-            | (frame["relative_humidity_mean_pct"] > 100)
+            (
+                frame[
+                    "relative_humidity_mean_pct"
+                ]
+                < 0
+            )
+            | (
+                frame[
+                    "relative_humidity_mean_pct"
+                ]
+                > 100
+            )
         ).sum()
     )
+
     add_check(
         "ERROR",
-        "Diario: humedad relativa entre 0 y 100",
+        (
+            "Diario: humedad relativa "
+            "entre 0 y 100"
+        ),
         rh_bad == 0,
-        f"Filas fuera de rango: {rh_bad}",
+        (
+            "Filas fuera de rango: "
+            f"{rh_bad}"
+        ),
     )
 
     range_bad = {
         "temperatura_fuera_-30_50": int(
             (
-                (frame["temperature_min_c"] < -30)
-                | (frame["temperature_max_c"] > 50)
+                (
+                    frame[
+                        "temperature_min_c"
+                    ]
+                    < -30
+                )
+                | (
+                    frame[
+                        "temperature_max_c"
+                    ]
+                    > 50
+                )
             ).sum()
         ),
         "presion_fuera_500_1100": int(
             (
-                (frame["surface_pressure_mean_hpa"] < 500)
-                | (frame["surface_pressure_mean_hpa"] > 1100)
+                (
+                    frame[
+                        "surface_pressure_mean_hpa"
+                    ]
+                    < 500
+                )
+                | (
+                    frame[
+                        "surface_pressure_mean_hpa"
+                    ]
+                    > 1100
+                )
             ).sum()
         ),
         "viento_negativo": int(
             (
-                (frame["wind_mean_ms"] < 0)
-                | (frame["wind_max_ms"] < 0)
+                (
+                    frame[
+                        "wind_mean_ms"
+                    ]
+                    < 0
+                )
+                | (
+                    frame[
+                        "wind_max_ms"
+                    ]
+                    < 0
+                )
             ).sum()
         ),
     }
+
     add_check(
         "ADVERTENCIA",
-        "Diario: rangos físicos generales",
-        all(value == 0 for value in range_bad.values()),
+        (
+            "Diario: rangos "
+            "físicos generales"
+        ),
+        all(
+            value == 0
+            for value
+            in range_bad.values()
+        ),
         str(range_bad),
+    )
+
+    infinite = has_infinite(
+        frame
     )
 
     add_check(
         "ERROR",
         "Diario: sin infinitos",
-        not has_infinite(frame),
-        "No hay infinitos."
-        if not has_infinite(frame)
-        else "Se detectaron infinitos.",
+        not infinite,
+        (
+            "No hay infinitos."
+            if not infinite
+            else (
+                "Se detectaron "
+                "infinitos."
+            )
+        ),
     )
 
-    no_soil_columns(frame, "Diario")
+    processed_without_soil(
+        frame,
+        "Diario",
+    )
 
 
-def audit_monthly(frame: pd.DataFrame) -> None:
+def audit_monthly(
+    frame: pd.DataFrame,
+) -> None:
     needed = [
         "zone_id",
         "period",
@@ -396,41 +1070,123 @@ def audit_monthly(frame: pd.DataFrame) -> None:
         "wind_max_ms",
         "surface_pressure_mean_hpa",
     ]
-    if not require_columns(frame, needed, "Mensual"):
+
+    if not require_columns(
+        frame,
+        needed,
+        "Mensual",
+    ):
         return
 
-    count_by_zone(frame, EXPECTED_MONTHS_PER_ZONE, "Mensual")
+    frame["period_start"] = (
+        pd.to_datetime(
+            frame["period_start"],
+            errors="coerce",
+        )
+    )
 
-    duplicates = int(frame.duplicated(["zone_id", "period"]).sum())
+    count_by_zone(
+        frame,
+        EXPECTED_MONTHS_PER_ZONE,
+        "Mensual",
+    )
+
+    duplicates = int(
+        frame.duplicated(
+            [
+                "zone_id",
+                "period",
+            ]
+        ).sum()
+    )
+
     add_check(
         "ERROR",
-        "Mensual: claves zona-periodo únicas",
+        (
+            "Mensual: claves "
+            "zona-periodo únicas"
+        ),
         duplicates == 0,
         f"Duplicados: {duplicates}",
     )
 
-    complete_days = (
-        frame["days_available"]
-        == frame["expected_days_in_month"]
+    coverage = (
+        frame
+        .groupby("zone_id")[
+            "period_start"
+        ]
+        .agg(["min", "max"])
     )
-    complete_flag = (
-        frame["is_complete_month"]
-        .astype(str)
-        .str.lower()
-        .isin({"true", "1"})
+
+    coverage_ok = bool(
+        (
+            coverage["min"]
+            == pd.Timestamp(
+                "1991-01-01"
+            )
+        ).all()
+        and (
+            coverage["max"]
+            == pd.Timestamp(
+                "2025-12-01"
+            )
+        ).all()
     )
+
     add_check(
         "ERROR",
-        "Mensual: todos los meses completos",
-        bool(complete_days.all() and complete_flag.all()),
         (
-            f"Días incompletos: {(~complete_days).sum()}, "
-            f"banderas falsas: {(~complete_flag).sum()}"
+            "Mensual: cobertura exacta "
+            "1991-01 a 2025-12"
+        ),
+        coverage_ok,
+        (
+            "Cobertura correcta."
+            if coverage_ok
+            else coverage.to_string()
+        ),
+    )
+
+    complete_days = (
+        frame["days_available"]
+        == frame[
+            "expected_days_in_month"
+        ]
+    )
+
+    complete_flag = (
+        frame[
+            "is_complete_month"
+        ]
+        .astype(str)
+        .str.lower()
+        .isin({
+            "true",
+            "1",
+        })
+    )
+
+    add_check(
+        "ERROR",
+        (
+            "Mensual: todos los "
+            "meses completos"
+        ),
+        bool(
+            complete_days.all()
+            and complete_flag.all()
+        ),
+        (
+            f"Días incompletos: "
+            f"{(~complete_days).sum()}, "
+            f"banderas falsas: "
+            f"{(~complete_flag).sum()}"
         ),
     )
 
     required_values = [
-        column for column in needed
+        column
+        for column in needed
         if column not in {
             "zone_id",
             "period",
@@ -438,259 +1194,248 @@ def audit_monthly(frame: pd.DataFrame) -> None:
             "is_complete_month",
         }
     ]
-    nulls = frame[required_values].isna().sum()
-    bad_nulls = nulls[nulls > 0].to_dict()
+
+    nulls = (
+        frame[
+            required_values
+        ]
+        .isna()
+        .sum()
+    )
+    bad_nulls = (
+        nulls[
+            nulls > 0
+        ].to_dict()
+    )
+
     add_check(
         "ERROR",
-        "Mensual: variables obligatorias sin nulos",
+        (
+            "Mensual: variables "
+            "obligatorias sin nulos"
+        ),
         not bad_nulls,
-        "No hay nulos."
-        if not bad_nulls
-        else f"Nulos: {bad_nulls}",
+        (
+            "No hay nulos."
+            if not bad_nulls
+            else (
+                "Nulos: "
+                f"{bad_nulls}"
+            )
+        ),
     )
 
     logical_bad = {
         "prcptot_menor_rx1day": int(
-            (frame["prcptot_mm"] + 1e-9 < frame["rx1day_mm"]).sum()
+            (
+                frame["prcptot_mm"]
+                + 1e-9
+                < frame[
+                    "rx1day_mm"
+                ]
+            ).sum()
         ),
         "r20_mayor_r10": int(
-            (frame["r20mm_days"] > frame["r10mm_days"]).sum()
+            (
+                frame["r20mm_days"]
+                > frame["r10mm_days"]
+            ).sum()
         ),
         "r10_mayor_dias_humedos": int(
-            (frame["r10mm_days"] > frame["wet_days"]).sum()
+            (
+                frame["r10mm_days"]
+                > frame["wet_days"]
+            ).sum()
         ),
         "cwd_mayor_dias_mes": int(
-            (frame["cwd_days"] > frame["days_available"]).sum()
+            (
+                frame["cwd_days"]
+                > frame[
+                    "days_available"
+                ]
+            ).sum()
         ),
         "cdd_mayor_dias_mes": int(
-            (frame["cdd_days"] > frame["days_available"]).sum()
+            (
+                frame["cdd_days"]
+                > frame[
+                    "days_available"
+                ]
+            ).sum()
         ),
         "temperatura_incoherente": int(
             (
-                (frame["temperature_min_c"] > frame["temperature_mean_c"])
+                (
+                    frame[
+                        "temperature_min_c"
+                    ]
+                    > frame[
+                        "temperature_mean_c"
+                    ]
+                )
                 | (
-                    frame["temperature_mean_c"]
-                    > frame["temperature_max_c"]
+                    frame[
+                        "temperature_mean_c"
+                    ]
+                    > frame[
+                        "temperature_max_c"
+                    ]
                 )
             ).sum()
         ),
     }
+
     add_check(
         "ERROR",
-        "Mensual: coherencia interna",
-        all(value == 0 for value in logical_bad.values()),
+        (
+            "Mensual: "
+            "coherencia interna"
+        ),
+        all(
+            value == 0
+            for value
+            in logical_bad.values()
+        ),
         str(logical_bad),
     )
 
-    no_soil_columns(frame, "Mensual")
+    infinite = has_infinite(
+        frame
+    )
 
+    add_check(
+        "ERROR",
+        "Mensual: sin infinitos",
+        not infinite,
+        (
+            "No hay infinitos."
+            if not infinite
+            else (
+                "Se detectaron "
+                "infinitos."
+            )
+        ),
+    )
 
-def recommended_features(frame: pd.DataFrame) -> list[str]:
-    lag_pattern = re.compile(r"_lag[0-6]$")
-    lag_columns = [
-        column
-        for column in frame.columns
-        if lag_pattern.search(column)
-    ]
-    context = [
-        column
-        for column in (
-            "month_sin",
-            "month_cos",
-            "latitud_solicitada",
-            "longitud_solicitada",
-        )
-        if column in frame.columns
-    ]
-    return sorted(lag_columns) + context
-
-
-def audit_model(frame: pd.DataFrame) -> None:
-    needed = [
-        "zone_id",
-        "period_start",
-        "target_period_start",
-        "target_amenaza",
-        "target_rx5day_mm",
-        "split",
-        "rol",
-        "baseline_count",
-        "rx5_q33",
-        "rx5_q66",
-    ]
-    if not require_columns(frame, needed, "Modelo"):
-        return
-
-    count_by_zone(
+    processed_without_soil(
         frame,
-        EXPECTED_MODEL_ROWS_PER_ZONE,
-        "Modelo",
+        "Mensual",
     )
 
-    duplicates = int(
-        frame.duplicated(["zone_id", "period_start"]).sum()
-    )
-    add_check(
-        "ERROR",
-        "Modelo: claves zona-periodo únicas",
-        duplicates == 0,
-        f"Duplicados: {duplicates}",
+
+def audit_cross_dataset_consistency(
+    zones: pd.DataFrame,
+    quality: pd.DataFrame,
+    daily: pd.DataFrame,
+    monthly: pd.DataFrame,
+) -> None:
+    expected_ids = set(
+        zones["zone_id"]
+        .astype(str)
     )
 
-    labels = set(frame["target_amenaza"].dropna().unique())
-    add_check(
-        "ERROR",
-        "Modelo: etiquetas Baja, Media y Alta",
-        labels == VALID_LABELS,
-        f"Etiquetas encontradas: {sorted(labels)}",
-    )
-
-    target_nulls = int(frame["target_amenaza"].isna().sum())
-    add_check(
-        "ERROR",
-        "Modelo: etiqueta sin nulos",
-        target_nulls == 0,
-        f"Nulos: {target_nulls}",
-    )
-
-    threshold_bad = int(
-        (
-            frame["rx5_q33"].isna()
-            | frame["rx5_q66"].isna()
-            | (frame["rx5_q33"] > frame["rx5_q66"])
-            | (frame["baseline_count"] < 10)
-        ).sum()
-    )
-    add_check(
-        "ERROR",
-        "Modelo: terciles históricos válidos",
-        threshold_bad == 0,
-        f"Filas inválidas: {threshold_bad}",
-    )
-
-    split_counts = frame["split"].value_counts().to_dict()
-    add_check(
-        "ERROR",
-        "Modelo: particiones temporales y espaciales",
-        split_counts == EXPECTED_SPLITS,
-        f"Conteos: {split_counts}",
-    )
-
-    development_in_holdout = int(
-        (
-            (frame["rol"] == "desarrollo")
-            & frame["split"].isin(
-                {"holdout_historia", "holdout_espacial"}
-            )
-        ).sum()
-    )
-    holdout_in_development = int(
-        (
-            (frame["rol"] == "validacion_espacial")
-            & frame["split"].isin(
-                {
-                    "entrenamiento",
-                    "validacion_temporal",
-                    "prueba_temporal",
-                }
-            )
-        ).sum()
-    )
-    add_check(
-        "ERROR",
-        "Modelo: holdout espacial separado",
-        (
-            development_in_holdout == 0
-            and holdout_in_development == 0
+    datasets = {
+        "calidad": set(
+            quality["zone_id"]
+            .astype(str)
         ),
-        (
-            f"Desarrollo en holdout: {development_in_holdout}; "
-            f"holdout en desarrollo: {holdout_in_development}"
+        "diario": set(
+            daily["zone_id"]
+            .astype(str)
         ),
-    )
-
-    all_null = frame.columns[frame.isna().all()].tolist()
-    add_check(
-        "ERROR",
-        "Modelo: sin columnas totalmente nulas",
-        not all_null,
-        "No hay columnas totalmente nulas."
-        if not all_null
-        else f"Columnas: {all_null}",
-    )
-
-    no_soil_columns(frame, "Modelo")
-
-    features = recommended_features(frame)
-    leakage = [
-        column for column in features
-        if column.startswith("target_")
-    ]
-    add_check(
-        "ERROR",
-        "Modelo: variables recomendadas sin fuga del objetivo",
-        not leakage,
-        (
-            f"Variables recomendadas: {len(features)}; "
-            f"fugas: {leakage}"
+        "mensual": set(
+            monthly["zone_id"]
+            .astype(str)
         ),
-    )
+    }
 
-    FEATURES_FILE.write_text(
-        "\n".join(features) + "\n",
-        encoding="utf-8",
-    )
-
-    distributions = (
-        frame.groupby("split")["target_amenaza"]
-        .value_counts(normalize=True)
-        .rename("proporcion")
-        .reset_index()
-    )
-    minority = distributions[
-        distributions["proporcion"] < 0.10
-    ]
-    add_check(
-        "ADVERTENCIA",
-        "Modelo: ninguna clase menor al 10% por partición",
-        minority.empty,
-        "Distribución aceptable."
-        if minority.empty
-        else minority.to_string(index=False),
-    )
-
-    add_check(
-        "ERROR",
-        "Modelo: sin infinitos",
-        not has_infinite(frame),
-        "No hay infinitos."
-        if not has_infinite(frame)
-        else "Se detectaron infinitos.",
-    )
+    for name, ids in datasets.items():
+        add_check(
+            "ERROR",
+            (
+                f"Consistencia: zonas "
+                f"de {name} coinciden "
+                "con catálogo"
+            ),
+            ids == expected_ids,
+            (
+                "Coincidencia exacta."
+                if ids == expected_ids
+                else (
+                    f"Faltan: "
+                    f"{sorted(expected_ids - ids)}; "
+                    f"sobran: "
+                    f"{sorted(ids - expected_ids)}"
+                )
+            ),
+        )
 
 
 def main() -> None:
+    checks.clear()
+
     missing_files = [
         str(path)
         for path in FILES.values()
         if not path.exists()
     ]
-    if missing_files:
-        raise FileNotFoundError(
-            "Faltan archivos:\n- " + "\n- ".join(missing_files)
+
+    if not ZONES_FILE.exists():
+        missing_files.append(
+            str(ZONES_FILE)
         )
 
-    quality = pd.read_csv(FILES["calidad"], encoding="utf-8-sig")
-    daily = pd.read_csv(FILES["diario"], encoding="utf-8-sig")
-    monthly = pd.read_csv(FILES["mensual"], encoding="utf-8-sig")
-    model = pd.read_csv(FILES["modelo"], encoding="utf-8-sig")
+    if missing_files:
+        raise FileNotFoundError(
+            "Faltan archivos:\n- "
+            + "\n- ".join(
+                missing_files
+            )
+        )
 
-    audit_quality(quality)
-    audit_daily(daily)
-    audit_monthly(monthly)
-    audit_model(model)
+    QUALITY_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
 
-    report = pd.DataFrame(checks)
+    zones = load_reference_zones()
+
+    quality = pd.read_csv(
+        FILES["calidad"],
+        encoding="utf-8-sig",
+    )
+    daily = pd.read_csv(
+        FILES["diario"],
+        encoding="utf-8-sig",
+    )
+    monthly = pd.read_csv(
+        FILES["mensual"],
+        encoding="utf-8-sig",
+    )
+
+    audit_raw_downloads(
+        zones
+    )
+    audit_quality(
+        quality
+    )
+    audit_daily(
+        daily
+    )
+    audit_monthly(
+        monthly
+    )
+    audit_cross_dataset_consistency(
+        zones,
+        quality,
+        daily,
+        monthly,
+    )
+
+    report = pd.DataFrame(
+        checks
+    )
+
     report.to_csv(
         AUDIT_FILE,
         index=False,
@@ -698,34 +1443,75 @@ def main() -> None:
     )
 
     errors = report[
-        (report["nivel"] == "ERROR")
-        & (report["resultado"] != "OK")
-    ]
-    warnings = report[
-        (report["nivel"] == "ADVERTENCIA")
-        & (report["resultado"] != "OK")
+        (
+            report["nivel"]
+            == "ERROR"
+        )
+        & (
+            report["resultado"]
+            != "OK"
+        )
     ]
 
-    print("\nRESUMEN DE AUDITORÍA")
-    print("--------------------")
-    print(f"Verificaciones: {len(report)}")
-    print(f"Errores: {len(errors)}")
-    print(f"Advertencias: {len(warnings)}")
-    print(f"Reporte: {AUDIT_FILE.resolve()}")
-    print(f"Variables: {FEATURES_FILE.resolve()}")
+    warnings = report[
+        (
+            report["nivel"]
+            == "ADVERTENCIA"
+        )
+        & (
+            report["resultado"]
+            != "OK"
+        )
+    ]
+
+    print(
+        "\nRESUMEN DE AUDITORÍA"
+    )
+    print(
+        "--------------------"
+    )
+    print(
+        f"Verificaciones: "
+        f"{len(report)}"
+    )
+    print(
+        f"Errores: "
+        f"{len(errors)}"
+    )
+    print(
+        f"Advertencias: "
+        f"{len(warnings)}"
+    )
+    print(
+        f"Reporte: "
+        f"{AUDIT_FILE.resolve()}"
+    )
 
     if errors.empty:
         print(
-            "\nCALIDAD ESTRUCTURAL APROBADA. "
-            "Puedes continuar con análisis exploratorio y modelado."
+            "\nCALIDAD ESTRUCTURAL "
+            "APROBADA."
+        )
+        print(
+            "Los datos crudos y los "
+            "datasets meteorológicos "
+            "procesados están listos "
+            "para iniciar el Paso 04."
         )
     else:
         print(
-            "\nCALIDAD NO APROBADA. Corrige estos puntos:"
+            "\nCALIDAD NO APROBADA. "
+            "Corrige estos puntos:"
         )
         print(
-            errors[["verificacion", "detalle"]]
-            .to_string(index=False)
+            errors[
+                [
+                    "verificacion",
+                    "detalle",
+                ]
+            ].to_string(
+                index=False
+            )
         )
 
 

@@ -1,0 +1,9 @@
+version,modelo,macro_f1_validacion_2018_2021
+V5 optimizada,Regresion_Logistica,0.45213422173219625
+V5 optimizada,SVM_RBF,0.4366060190084217
+V5 optimizada,Random_Forest,0.4172457232698197
+Baseline,Persistencia,0.4092073182130144
+V1,MLP,0.409003
+V3,Random_Forest,0.40285
+V5 optimizada,XGBoost,0.3909902192719528
+V5 optimizada,MLP,0.3816030799214544

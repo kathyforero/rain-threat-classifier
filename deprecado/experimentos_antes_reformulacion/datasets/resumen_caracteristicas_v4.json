@@ -1,0 +1,47 @@
+{
+  "dataset_origen": "C:\\Users\\Kathy\\Documents\\GitHub\\rain-threat-classifier\\resultados_completo\\dataset_modelo_mensual_v3.csv",
+  "dataset_v4": "C:\\Users\\Kathy\\Documents\\GitHub\\rain-threat-classifier\\resultados_completo\\dataset_modelo_mensual_v4.csv",
+  "filas": 6120,
+  "caracteristicas_v3": 167,
+  "zonas_desarrollo": [
+    "babahoyo",
+    "cuenca",
+    "esmeraldas",
+    "guayaquil",
+    "loja",
+    "machala",
+    "portoviejo",
+    "puyo",
+    "quito",
+    "riobamba",
+    "salinas",
+    "tena"
+  ],
+  "regiones_entrenamiento": [
+    "Amazonía",
+    "Litoral",
+    "Sierra"
+  ],
+  "features_zona": [
+    "zona_babahoyo",
+    "zona_cuenca",
+    "zona_esmeraldas",
+    "zona_guayaquil",
+    "zona_loja",
+    "zona_machala",
+    "zona_portoviejo",
+    "zona_puyo",
+    "zona_quito",
+    "zona_riobamba",
+    "zona_salinas",
+    "zona_tena"
+  ],
+  "features_region": [
+    "region_amazonia",
+    "region_litoral",
+    "region_sierra"
+  ],
+  "caracteristicas_nuevas_v4": 15,
+  "total_caracteristicas_v4": 182,
+  "nota_holdout": "Las zonas reservadas no tienen columna one-hot propia; sus zona_* quedan en 0 y mantienen latitud, longitud y región."
+}

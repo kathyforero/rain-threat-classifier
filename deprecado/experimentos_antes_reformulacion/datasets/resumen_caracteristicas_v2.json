@@ -1,0 +1,17 @@
+{
+  "dataset_origen": "C:\\Users\\Kathy\\Documents\\GitHub\\rain-threat-classifier\\resultados_completo\\dataset_modelo_mensual.csv",
+  "dataset_v2": "C:\\Users\\Kathy\\Documents\\GitHub\\rain-threat-classifier\\resultados_completo\\dataset_modelo_mensual_v2.csv",
+  "filas": 6195,
+  "columnas_dataset_v2": 191,
+  "caracteristicas_originales": 144,
+  "caracteristicas_nuevas": [
+    "amenaza_actual_Baja",
+    "amenaza_actual_Media",
+    "amenaza_actual_Alta",
+    "target_month_sin",
+    "target_month_cos"
+  ],
+  "total_caracteristicas_v2": 149,
+  "target": "target_amenaza",
+  "descripcion": "V2 conserva las características meteorológicas originales y añade la amenaza conocida del mes actual en one-hot y la estacionalidad del mes objetivo."
+}

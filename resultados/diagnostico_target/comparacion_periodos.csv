@@ -1,0 +1,7 @@
+﻿split,target_amenaza,cantidad,porcentaje
+entrenamiento,Alta,1319,34.02992776057791
+entrenamiento,Baja,1279,32.997936016511865
+entrenamiento,Media,1278,32.972136222910216
+validacion_temporal,Alta,212,36.80555555555556
+validacion_temporal,Baja,215,37.326388888888886
+validacion_temporal,Media,149,25.868055555555557

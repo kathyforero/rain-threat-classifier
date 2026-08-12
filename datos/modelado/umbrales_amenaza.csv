@@ -1,0 +1,2 @@
+﻿definicion,variable,unidad,scope,fecha_inicio,fecha_fin,zonas_utilizadas,observaciones,q33_global_mm,q66_global_mm,interpretacion_baja,interpretacion_media,interpretacion_alta,nota
+terciles_globales_rx5day,rx5day_mm,mm,12_zonas_desarrollo_1991_2017,1991-01-01,2017-12-01,12,3888,37.347906937599184,70.9957434463501,rx5day < q33_global_mm,q33_global_mm <= rx5day < q66_global_mm,rx5day >= q66_global_mm,Umbrales estadísticos del proyecto; no corresponden a umbrales oficiales de alerta meteorológica.

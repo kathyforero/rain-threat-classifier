@@ -1,0 +1,21 @@
+﻿columna,motivo
+period,Identificador temporal textual.
+period_start,Fecha de entrada; se evita memorizar época.
+year,Se evita usar tendencia temporal como atajo.
+month,Se reemplaza por mes objetivo.
+month_sin,Se reemplaza por codificación cíclica del mes objetivo.
+month_cos,Se reemplaza por codificación cíclica del mes objetivo.
+expected_days_in_month,Control de completitud.
+days_available,Control de completitud.
+is_complete_month,Control de completitud.
+days_with_incomplete_precip_hours,Control de calidad.
+days_with_incomplete_instant_hours,Control de calidad.
+zone_id,Identificador de zona; perjudica generalización a zonas no vistas.
+ciudad,Identificador textual de zona.
+provincia,Identificador geográfico demasiado específico.
+rol,Metadato experimental.
+amenaza_mes,Derivación determinística de Rx5day actual; se reserva para baseline de persistencia.
+target_period_start,Información del objetivo; solo se usa para crear mes objetivo conocido.
+target_rx5day_mm,Valor futuro. Prohibido como predictor.
+target_amenaza,Etiqueta.
+split,Metadato experimental.

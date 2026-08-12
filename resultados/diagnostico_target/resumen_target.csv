@@ -1,0 +1,16 @@
+﻿metrica,valor
+filas_dataset_supervisado_total,6285
+filas_diagnostico_desarrollo,4452
+zonas_totales,15
+zonas_diagnostico,12
+variable_base_target,rx5day_mm
+q33_global_mm,37.347906937599184
+q66_global_mm,70.9957434463501
+scope_umbrales,"12 zonas desarrollo, 1991-2017"
+nota,Test temporal y holdout espacial no incluidos en diagnósticos.
+entrenamiento_target_baja,1279
+entrenamiento_target_media,1278
+entrenamiento_target_alta,1319
+validacion_temporal_target_baja,215
+validacion_temporal_target_media,149
+validacion_temporal_target_alta,212

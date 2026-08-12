@@ -1,0 +1,28 @@
+{
+  "Logistic_Regression": {
+    "model__C": 0.1,
+    "preprocess__num__selector__k": "all"
+  },
+  "Random_Forest": {
+    "model__max_depth": 18,
+    "model__min_samples_leaf": 1,
+    "preprocess__num__selector__k": "all"
+  },
+  "XGBoost": {
+    "model__learning_rate": 0.08,
+    "model__max_depth": 3,
+    "preprocess__num__selector__k": "all"
+  },
+  "SVM_RBF": {
+    "model__C": 1,
+    "model__gamma": 0.05,
+    "preprocess__num__selector__k": "all"
+  },
+  "MLP": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64
+    ],
+    "preprocess__num__selector__k": 10
+  }
+}

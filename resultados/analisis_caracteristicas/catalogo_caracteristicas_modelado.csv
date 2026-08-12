@@ -1,0 +1,39 @@
+﻿caracteristica,familia,tipo,disponibilidad,justificacion
+prcptot_mm,meteorologica_actual,numerica,conocida_en_t,Representación meteorológica retenida tras revisión semántica y de redundancia.
+rx5day_mm,meteorologica_actual,numerica,conocida_en_t,Representación meteorológica retenida tras revisión semántica y de redundancia.
+max_3h_mm,meteorologica_actual,numerica,conocida_en_t,Representación meteorológica retenida tras revisión semántica y de redundancia.
+sdii_mm_per_wet_day,meteorologica_actual,numerica,conocida_en_t,Representación meteorológica retenida tras revisión semántica y de redundancia.
+r20mm_days,meteorologica_actual,numerica,conocida_en_t,Representación meteorológica retenida tras revisión semántica y de redundancia.
+cwd_days,meteorologica_actual,numerica,conocida_en_t,Representación meteorológica retenida tras revisión semántica y de redundancia.
+cdd_days,meteorologica_actual,numerica,conocida_en_t,Representación meteorológica retenida tras revisión semántica y de redundancia.
+temperature_mean_c,meteorologica_actual,numerica,conocida_en_t,Representación meteorológica retenida tras revisión semántica y de redundancia.
+relative_humidity_mean_pct,meteorologica_actual,numerica,conocida_en_t,Representación meteorológica retenida tras revisión semántica y de redundancia.
+wind_mean_ms,meteorologica_actual,numerica,conocida_en_t,Representación meteorológica retenida tras revisión semántica y de redundancia.
+surface_pressure_mean_hpa,meteorologica_actual,numerica,conocida_en_t,Representación meteorológica retenida tras revisión semántica y de redundancia.
+latitud_solicitada,geografica,numerica,estatica,Contexto espacial continuo potencialmente generalizable a zonas no vistas.
+longitud_solicitada,geografica,numerica,estatica,Contexto espacial continuo potencialmente generalizable a zonas no vistas.
+target_month_sin,estacionalidad,numerica,conocida_en_t,Codificación cíclica del mes objetivo.
+target_month_cos,estacionalidad,numerica,conocida_en_t,Codificación cíclica del mes objetivo.
+region,geografica,categorica,estatica,Contexto regional generalizable; se codificará dentro del Pipeline del Paso 06.
+prcptot_mm__lag1,antecedente_reciente,numerica,historica,lag1: antecedente inmediato.
+prcptot_mm__lag11,analogo_estacional,numerica,historica,lag11: mismo mes calendario del año anterior al mes objetivo.
+rx5day_mm__lag1,antecedente_reciente,numerica,historica,lag1: antecedente inmediato.
+rx5day_mm__lag11,analogo_estacional,numerica,historica,lag11: mismo mes calendario del año anterior al mes objetivo.
+max_3h_mm__lag1,antecedente_reciente,numerica,historica,lag1: antecedente inmediato.
+max_3h_mm__lag11,analogo_estacional,numerica,historica,lag11: mismo mes calendario del año anterior al mes objetivo.
+sdii_mm_per_wet_day__lag1,antecedente_reciente,numerica,historica,lag1: antecedente inmediato.
+sdii_mm_per_wet_day__lag11,analogo_estacional,numerica,historica,lag11: mismo mes calendario del año anterior al mes objetivo.
+r20mm_days__lag1,antecedente_reciente,numerica,historica,lag1: antecedente inmediato.
+r20mm_days__lag11,analogo_estacional,numerica,historica,lag11: mismo mes calendario del año anterior al mes objetivo.
+cwd_days__lag1,antecedente_reciente,numerica,historica,lag1: antecedente inmediato.
+cwd_days__lag11,analogo_estacional,numerica,historica,lag11: mismo mes calendario del año anterior al mes objetivo.
+cdd_days__lag1,antecedente_reciente,numerica,historica,lag1: antecedente inmediato.
+cdd_days__lag11,analogo_estacional,numerica,historica,lag11: mismo mes calendario del año anterior al mes objetivo.
+temperature_mean_c__lag1,antecedente_reciente,numerica,historica,lag1: antecedente inmediato.
+temperature_mean_c__lag11,analogo_estacional,numerica,historica,lag11: mismo mes calendario del año anterior al mes objetivo.
+relative_humidity_mean_pct__lag1,antecedente_reciente,numerica,historica,lag1: antecedente inmediato.
+relative_humidity_mean_pct__lag11,analogo_estacional,numerica,historica,lag11: mismo mes calendario del año anterior al mes objetivo.
+wind_mean_ms__lag1,antecedente_reciente,numerica,historica,lag1: antecedente inmediato.
+wind_mean_ms__lag11,analogo_estacional,numerica,historica,lag11: mismo mes calendario del año anterior al mes objetivo.
+surface_pressure_mean_hpa__lag1,antecedente_reciente,numerica,historica,lag1: antecedente inmediato.
+surface_pressure_mean_hpa__lag11,analogo_estacional,numerica,historica,lag11: mismo mes calendario del año anterior al mes objetivo.

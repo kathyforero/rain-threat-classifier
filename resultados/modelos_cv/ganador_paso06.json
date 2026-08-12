@@ -1,0 +1,14 @@
+{
+  "modelo_ganador": "SVM_RBF",
+  "macro_f1_cv_media": 0.7188163076158562,
+  "macro_f1_cv_std": 0.019304975772312646,
+  "balanced_accuracy_media": 0.7180166367616077,
+  "recall_alta_media": 0.7130872610184341,
+  "mejores_parametros": {
+    "model__C": 1,
+    "model__gamma": 0.05,
+    "preprocess__num__selector__k": "all"
+  },
+  "mejor_baseline": "Persistencia",
+  "macro_f1_mejor_baseline": 0.5904185395405437
+}

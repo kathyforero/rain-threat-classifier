@@ -1,0 +1,44 @@
+{
+  "Regresion_Logistica": {
+    "model__class_weight": "balanced",
+    "model__C": 0.001
+  },
+  "Random_Forest": {
+    "n_estimators": 500,
+    "min_samples_split": 2,
+    "min_samples_leaf": 2,
+    "max_features": 0.8,
+    "max_depth": 32,
+    "class_weight": "balanced",
+    "bootstrap": true
+  },
+  "XGBoost": {
+    "subsample": 1.0,
+    "reg_lambda": 10.0,
+    "reg_alpha": 0.0,
+    "n_estimators": 450,
+    "min_child_weight": 2,
+    "max_depth": 4,
+    "learning_rate": 0.05,
+    "gamma": 0.05,
+    "colsample_bytree": 0.85
+  },
+  "SVM_RBF": {
+    "model__gamma": 0.0005,
+    "model__class_weight": null,
+    "model__C": 3.0
+  },
+  "MLP": {
+    "model__validation_fraction": 0.15,
+    "model__n_iter_no_change": 20,
+    "model__learning_rate_init": 0.0001,
+    "model__hidden_layer_sizes": [
+      192,
+      96,
+      48
+    ],
+    "model__batch_size": 128,
+    "model__alpha": 0.0003,
+    "model__activation": "relu"
+  }
+}
