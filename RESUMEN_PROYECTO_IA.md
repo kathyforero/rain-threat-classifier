@@ -89,9 +89,20 @@ accuracy = 0.6997
 
 ## Donde esta el modelo
 
-En la version actual, el modelo final **no esta guardado como un archivo `.joblib` o `.pkl` dentro de `resultados/`**.
+El modelo final vigente esta guardado en:
 
-Lo que si esta guardado es:
+```text
+resultados/modelo_final/modelo_svm_rbf_final.joblib
+```
+
+Junto a ese archivo tambien se generaron:
+
+```text
+resultados/modelo_final/metadata_modelo_svm_rbf_final.json
+resultados/modelo_final/metricas_prueba_temporal_modelo_final.csv
+```
+
+Ademas, el proyecto conserva:
 
 - la seleccion del ganador: `resultados/modelos_cv/ganador_paso06.json`
 - los mejores parametros: `resultados/modelos_cv/mejores_parametros.json`
@@ -118,13 +129,21 @@ En los notebooks, ese pipeline se crea como un objeto de Python, se entrena con 
 Conceptualmente:
 
 ```text
-datos nuevos -> pipeline entrenado -> prediccion: Baja, Media o Alta
+datos nuevos -> pipeline entrenado -> prediccion: 0, 1 o 2
 ```
 
-Si se quisiera usar fuera del notebook, lo ideal seria guardar ese pipeline ya entrenado en un archivo, por ejemplo:
+La traduccion de la salida es:
 
 ```text
-modelo_svm_rbf_final.joblib
+0 = Baja
+1 = Media
+2 = Alta
 ```
 
-Ese archivo seria el modelo listo para cargar y reutilizar sin volver a entrenar desde cero.
+Esa equivalencia tambien esta guardada en el archivo de metadata.
+
+## Que es un .joblib
+
+Un `.joblib` es un archivo que guarda un objeto de Python ya entrenado. En este caso guarda el `Pipeline` completo de scikit-learn: preparacion de columnas, imputacion, escalado, one-hot encoding, seleccion de caracteristicas y el clasificador `SVM_RBF`.
+
+Sirve para reutilizar el modelo sin volver a entrenarlo desde cero. Se carga con `joblib.load(...)` y luego se usa con `.predict(...)`.

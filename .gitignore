@@ -1,2 +1,32 @@
-./proyecto_referencia/*
-./Tourist_Helper/*
+# Entornos locales
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Proyectos/copias de referencia pesadas
+proyecto_referencia/
+TouristHelper/
+
+# Dependencias y builds de frontend
+node_modules/
+build/
+dist/
+
+# Builds C/C++
+cmake-build-*/
+backend/build/
+
+# Artefactos de modelos y resultados generados
+*.joblib
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.onnx
+*.yml.gz
+*.xml
+resultados/modelo_final/
+
+# Datos crudos pesados
+datos/crudos/
