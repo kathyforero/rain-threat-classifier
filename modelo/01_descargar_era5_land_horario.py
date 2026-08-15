@@ -54,7 +54,7 @@ VARIABLES = [
     "volumetric_soil_water_layer_1",
 ]
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 ZONES_FILE = BASE_DIR / "zonas_era5_ecuador.csv"
 RAW_DIR = BASE_DIR / "datos" / "crudos" / "era5_land"
 

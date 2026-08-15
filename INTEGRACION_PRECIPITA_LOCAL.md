@@ -18,12 +18,22 @@ el frontend React lee ese JSON local
 
 Esto no sirve como sistema publico desplegado, pero si sirve perfecto para una demo local y para conectar el modelo real con el front sin montar backend.
 
-## Archivos creados/cambiados
+## Estado actual
+
+Este documento queda como referencia de integracion local no oficial. En la reestructura actual del repositorio, el flujo academico se mantiene hasta el Paso 08 y no hay un script operativo de exportacion local dentro de `modelo/`.
+
+Si se retoma esta integracion, el script deberia ubicarse en:
+
+```text
+modelo/10_exportar_predicciones_front_local.py
+```
+
+## Archivos esperados para esa integracion
 
 En `rain-threat-classifier`:
 
 ```text
-10_exportar_predicciones_front_local.py
+modelo/10_exportar_predicciones_front_local.py
 ```
 
 Ese script carga:
@@ -59,15 +69,15 @@ Ahora el `predictionService` usa `localStaticPredictionService`, que lee:
 
 desde la carpeta `public`.
 
-## Como se ejecuta
+## Como se ejecutaria
 
 Desde `rain-threat-classifier`:
 
 ```powershell
-.\.venv\Scripts\python.exe 10_exportar_predicciones_front_local.py
+.\.venv\Scripts\python.exe modelo/10_exportar_predicciones_front_local.py
 ```
 
-Despues corres el frontend como normalmente lo ejecutes en tu computador.
+Ese comando solo aplica si el script existe. Despues corres el frontend como normalmente lo ejecutes en tu computador.
 
 El front no le pregunta nada a una API. Solo lee el JSON local generado previamente.
 
@@ -87,7 +97,7 @@ Para consultar 2026 localmente habria que:
 
 1. descargar/procesar datos 2026;
 2. reconstruir features;
-3. volver a ejecutar `10_exportar_predicciones_front_local.py`;
+3. volver a ejecutar `modelo/10_exportar_predicciones_front_local.py`;
 4. refrescar el frontend.
 
 ## Que tan complicado fue

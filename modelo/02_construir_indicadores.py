@@ -42,7 +42,7 @@ import pandas as pd
 import xarray as xr
 
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 ZONES_FILE = BASE_DIR / "zonas_era5_ecuador.csv"
 
 RAW_DIR = (

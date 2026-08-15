@@ -131,8 +131,12 @@ Tenemos un pipeline por pasos:
 - `06_entrenar_comparar_modelos.ipynb`: entrena y compara modelos.
 - `07_validar_modelo.ipynb`: valida el modelo seleccionado.
 - `08_evaluacion_final.ipynb`: evaluacion final.
-- `09_exportar_modelo_final.py`: entrena y exporta el modelo final `.joblib`.
-- `10_exportar_predicciones_front_local.py`: genera predicciones locales en JSON para el frontend.
+
+Nueva ubicacion despues de la reestructura:
+
+- Archivos del modelo: `modelo/`
+
+Los pasos oficiales del proyecto academico llegan hasta el Paso 08.
 
 ## Modelos comparados
 

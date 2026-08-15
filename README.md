@@ -1,131 +1,172 @@
-# Pipeline ERA5-Land para amenaza mensual por lluvias intensas
+# Rain Threat Classifier
 
-## Decisión metodológica
+Proyecto academico para clasificar la amenaza meteorologica mensual por precipitacion en zonas seleccionadas del Ecuador.
 
-- Fuente original: datos horarios puntuales de ERA5-Land.
-- Procesamiento intermedio: indicadores diarios.
-- Unidad final del modelo: una fila por zona y mes.
-- Objetivo: clasificar la categoría del mes siguiente.
-- Periodo sugerido: 1991-2025.
-- Zonas de desarrollo: 12.
-- Zonas reservadas para validación espacial: 3.
+La idea no es usar una caja negra lista, sino construir un flujo propio: descargar datos, procesarlos, crear indicadores, definir la etiqueta, entrenar modelos y comparar resultados.
 
-Los datos horarios no se convierten en millones de muestras independientes.
-Se resumen en indicadores diarios y mensuales para conservar información de
-intensidad y duración sin inflar artificialmente el número de observaciones.
-
-## Indicadores generados
-
-Precipitación:
-- PRCPTOT: precipitación total mensual.
-- Rx1day: máximo acumulado diario del mes.
-- Rx5day: máximo acumulado en cinco días consecutivos.
-- Máximos en 1, 3 y 6 horas.
-- Días húmedos, días >= 10 mm y días >= 20 mm.
-- SDII: intensidad promedio por día húmedo.
-- CWD y CDD: rachas húmedas y secas.
-
-Otras variables:
-- Temperatura media, máxima y mínima.
-- Punto de rocío y humedad relativa estimada.
-- Viento medio y máximo.
-- Presión superficial.
-- Humedad de la primera capa del suelo.
-
-## Instalación
-
-```bat
-py -m pip install --upgrade "cdsapi>=0.7.7" truststore
-py -m pip install xarray netCDF4 pandas numpy
-```
-
-Configura las credenciales de Copernicus en:
+## Estructura
 
 ```text
-C:/Users/TU_USUARIO/.cdsapirc
+rain-threat-classifier/
+|-- modelo/                    # Pipeline, notebooks y entrenamiento ML
+|-- back/                      # Backend de aplicacion, por ahora reservado
+|-- front/                     # Frontend/interfaz, por ahora reservado
+|-- datos/                     # Datos crudos, procesados y de modelado
+|-- resultados/                # Reportes, metricas y salidas del modelo
+|-- Tareas/                    # Entregas, correcciones y guias de defensa
+|-- zonas_era5_ecuador.csv
+`-- README.md
 ```
 
-## Ejecución
+Los datos y resultados se mantienen en la raiz para no duplicar archivos pesados y conservar una sola fuente de verdad.
 
-### 1. Probar la descarga
+## Objetivo
 
-En `01_descargar_era5_land_horario.py` deja:
+El problema se formula como:
 
-```python
-TEST_MODE = True
+```text
+X(z, t) -> Y(z, t+1)
 ```
 
-Luego ejecuta:
+Es decir, con variables conocidas de una zona `z` hasta el mes `t`, se clasifica la amenaza del mes siguiente `t+1` en:
+
+- `Baja`
+- `Media`
+- `Alta`
+
+La etiqueta se calcula con `Rx5day`, que representa el maximo acumulado de lluvia en cinco dias consecutivos. Los umbrales actuales son globales: se calculan con las 12 zonas de desarrollo entre 1991 y 2017 y se aplican a todas las zonas.
+
+## Datos Usados
+
+La fuente base es ERA5-Land, con datos meteorologicos horarios. Esos datos no se usan directamente como millones de filas independientes; primero se resumen en indicadores diarios y mensuales.
+
+Variables principales:
+
+- precipitacion
+- temperatura
+- punto de rocio
+- humedad relativa estimada
+- viento
+- presion superficial
+- humedad del suelo
+
+## Features
+
+Las features son las columnas que el modelo usa para aprender patrones. En la version actual se trabaja con un catalogo de 38 caracteristicas candidatas, construido despues del analisis exploratorio.
+
+Ejemplos:
+
+- lluvia total mensual
+- maximo diario de lluvia
+- maximo de lluvia en 5 dias
+- dias humedos
+- dias con lluvia mayor a 10 mm o 20 mm
+- rachas secas y humedas
+- temperatura media
+- humedad relativa
+- viento medio
+
+## Flujo Oficial ML
+
+Ejecutar desde la raiz del proyecto:
 
 ```bat
-py 01_descargar_era5_land_horario.py
+py modelo/01_descargar_era5_land_horario.py
+py modelo/02_construir_indicadores.py
+py modelo/03_validar_calidad_dataset.py
+py modelo/04_preparar_dataset_modelado.py
+py modelo/05_construir_caracteristicas_candidatas.py
 ```
 
-La prueba descarga Guayaquil para enero de 2024 y guarda los archivos en `datos_horarios_crudos/prueba`.
+Luego abrir los notebooks:
 
-### 2. Procesar la prueba
-
-En `02_construir_dataset_mensual.py` deja:
-
-```python
-DATA_MODE = "prueba"
+```text
+modelo/05_analisis_caracteristicas.ipynb
+modelo/06_entrenar_comparar_modelos.ipynb
+modelo/07_validar_modelo.ipynb
+modelo/08_evaluacion_final.ipynb
 ```
 
-Luego ejecuta:
+## Modelos Comparados
 
-```bat
-py 02_construir_dataset_mensual.py
+En el Paso 06 se comparan cinco modelos principales de machine learning:
+
+| Modelo | Que es |
+| --- | --- |
+| `Logistic_Regression` | Modelo lineal simple y explicable; sirve como referencia fuerte. |
+| `Random_Forest` | Conjunto de arboles de decision; captura relaciones no lineales. |
+| `XGBoost` | Modelo de boosting basado en arboles; suele rendir muy bien en datos tabulares. |
+| `SVM_RBF` | Maquina de vectores de soporte con kernel RBF; captura fronteras no lineales. |
+| `MLP` | Red neuronal simple para datos tabulares. |
+
+Tambien se comparan baselines como `Persistencia`, `Climatologia_mes` y `Dummy_most_frequent`. Esos no son los modelos principales, sino puntos de referencia para verificar si los modelos realmente aportan valor.
+
+## Modelo Ganador
+
+El ganador registrado en `resultados/modelos_cv/ganador_paso06.json` es:
+
+```text
+SVM_RBF
 ```
 
-### 3. Descargar el histórico completo
+Parametros congelados:
 
-Cambia en el descargador:
-
-```python
-TEST_MODE = False
+```text
+C = 1
+gamma = 0.05
+selector de caracteristicas = all
 ```
 
-y ejecuta el descargador. Los archivos completos se guardan en `datos_horarios_crudos/completo`, por lo que la prueba no hará que el programa omita accidentalmente el histórico.
+Resultado en validacion cruzada:
 
-Después cambia en el procesador:
-
-```python
-DATA_MODE = "completo"
+```text
+macro_f1_cv_media = 0.7188
+balanced_accuracy_media = 0.7180
 ```
 
-y ejecútalo nuevamente.
+Validacion temporal 2018-2021:
 
-## Archivos de salida
+```text
+macro_f1 = 0.6895
+balanced_accuracy = 0.6892
+accuracy = 0.6997
+```
 
-En `resultados_prueba` o `resultados_completo`, según el modo, se generan:
+## Que Es El Modelo
 
-- `indicadores_diarios_todas_zonas.csv`
-- `indicadores_mensuales_todas_zonas.csv`
-- `reporte_calidad.csv`
-- `dataset_modelo_mensual.csv`
+En este proyecto, "el modelo" es una combinacion de dos cosas:
 
-## Etiqueta preliminar
+1. Un algoritmo: `SVM_RBF`, implementado con `SVC` de scikit-learn.
+2. Un pipeline de preparacion: imputacion, escalado, codificacion de variables categoricas y seleccion de caracteristicas.
 
-La etiqueta se basa en Rx5day del mes objetivo. Los percentiles 33 y 66 se
-calculan por zona y mes del año usando solamente el periodo histórico de
-entrenamiento. Así, una lluvia normal para Esmeraldas no se interpreta igual
-que una lluvia excepcional para Salinas.
+En los notebooks, ese pipeline se crea como un objeto de Python, se entrena con `.fit(...)` y luego produce predicciones con `.predict(...)`.
 
-La etiqueta es una clasificación relativa para el proyecto académico. No es
-una alerta oficial ni una escala de riesgo de desastre.
+Conceptualmente:
 
-## Partición temporal
+```text
+datos nuevos -> pipeline entrenado -> prediccion: 0, 1 o 2
+```
 
-- Entrenamiento: hasta 2017.
-- Validación temporal: 2018-2021.
-- Prueba temporal: 2022-2025.
-- Santo Domingo, Nueva Loja y Macas se mantienen como validación espacial.
+Traduccion de salida:
 
-## Advertencia sobre los archivos anteriores
+```text
+0 = Baja
+1 = Media
+2 = Alta
+```
 
-Los archivos `data_stream-oper_stepType-*.nc` descargados anteriormente
-cubren una malla completa sobre Ecuador continental y no un único punto.
-Cada combinación de hora, latitud y longitud genera una observación. Después
-esa cantidad se multiplica por cada variable seleccionada. Por eso contienen
-millones de valores aunque ocupen pocos megabytes gracias a la compresión
-NetCDF.
+## Artefactos Importantes
+
+El proyecto conserva:
+
+- seleccion del ganador: `resultados/modelos_cv/ganador_paso06.json`
+- mejores parametros: `resultados/modelos_cv/mejores_parametros.json`
+- metricas y comparaciones: `resultados/modelos_cv/`
+- validacion temporal: `resultados/validacion_modelo/`
+- predicciones de validacion: `resultados/validacion_modelo/predicciones_validacion_2018_2021.csv`
+
+## Sobre `.joblib`
+
+Un `.joblib` es un archivo que guarda un objeto de Python ya entrenado. En este caso guarda el `Pipeline` completo de scikit-learn: preparacion de columnas, imputacion, escalado, one-hot encoding, seleccion de caracteristicas y el clasificador `SVM_RBF`.
+
+Sirve para reutilizar el modelo sin volver a entrenarlo desde cero. Se carga con `joblib.load(...)` y luego se usa con `.predict(...)`.

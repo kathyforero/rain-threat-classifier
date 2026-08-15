@@ -39,7 +39,7 @@ import numpy as np
 import pandas as pd
 
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 INPUT_FILE = (
     BASE_DIR

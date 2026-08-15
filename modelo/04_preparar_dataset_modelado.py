@@ -70,7 +70,7 @@ import pandas as pd
 # CONFIGURACIÓN
 # =============================================================================
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 INPUT_FILE = (
     BASE_DIR
