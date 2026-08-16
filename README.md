@@ -10,7 +10,7 @@ La idea no es usar una caja negra lista, sino construir un flujo propio: descarg
 rain-threat-classifier/
 |-- modelo/                    # Pipeline, notebooks y entrenamiento ML
 |-- back/                      # Backend de aplicacion, por ahora reservado
-|-- front/                     # Frontend/interfaz, por ahora reservado
+|-- front/                     # Interfaz web y archivo iniciar.cmd
 |-- datos/                     # Datos crudos, procesados y de modelado
 |-- resultados/                # Reportes, metricas y salidas del modelo
 |-- Tareas/                    # Entregas, correcciones y guias de defensa
