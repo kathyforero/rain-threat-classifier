@@ -23,8 +23,7 @@ export function WeatherHistoryChart({ series, referenceMonth }: WeatherHistoryCh
         Comportamiento reciente de la precipitación
       </h4>
       <p className="mt-1 text-xs text-muted-foreground">
-        Precipitación acumulada mensual. La barra destacada corresponde al mes de referencia (
-        {referenceMonth}).
+        Precipitación acumulada mensual de antecedentes observados hasta {referenceMonth}.
       </p>
 
       <div className="mt-4 h-64 w-full">
@@ -63,8 +62,8 @@ export function WeatherHistoryChart({ series, referenceMonth }: WeatherHistoryCh
               {series.map((point) => (
                 <Cell
                   key={point.month}
-                  fill={point.isReference ? "var(--primary)" : "var(--sky-accent)"}
-                  opacity={point.isReference ? 1 : 0.65}
+                  fill="var(--sky-accent)"
+                  opacity={0.75}
                 />
               ))}
             </Bar>

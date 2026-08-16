@@ -4,7 +4,7 @@ const STEPS = [
   {
     icon: CalendarSearch,
     title: "Seleccionar ciudad y mes",
-    detail: "El usuario elige una zona y el mes de referencia para consultar el mes siguiente.",
+    detail: "El usuario elige una zona y el mes que desea predecir.",
   },
   {
     icon: Database,
@@ -24,7 +24,7 @@ const STEPS = [
   {
     icon: Brain,
     title: "Ejecutar clasificador",
-    detail: "El modelo estima la clase de amenaza para el mes siguiente.",
+    detail: "El modelo estima la clase de amenaza para el mes seleccionado.",
   },
   {
     icon: BarChart3,

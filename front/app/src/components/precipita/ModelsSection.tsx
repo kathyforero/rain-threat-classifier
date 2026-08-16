@@ -280,8 +280,8 @@ export function ModelsSection() {
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               Entrenamos con periodos históricos anteriores y validamos contra meses posteriores
               para simular un uso real: predecir el futuro sin mezclar información de adelante. En
-              esa prueba, el SVM mantuvo el mejor equilibrio general con Macro F1 de 68.9%,
-              balanced accuracy de 68.9% y accuracy de 70.0%.
+              esa prueba, el SVM mantuvo el mejor equilibrio general con Macro F1 de 71.9%,
+              balanced accuracy de 71.8% y accuracy de 72.0%.
             </p>
           </div>
         </div>

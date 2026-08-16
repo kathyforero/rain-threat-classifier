@@ -4,7 +4,6 @@ import { ConsultationPanel } from "@/components/precipita/ConsultationPanel";
 import { EcuadorMap } from "@/components/precipita/EcuadorMap";
 import { ErrorState } from "@/components/precipita/ErrorState";
 import { InsufficientDataState } from "@/components/precipita/InsufficientDataState";
-import { InterpretationCard } from "@/components/precipita/InterpretationCard";
 import { PredictionLoading } from "@/components/precipita/PredictionLoading";
 import { ThreatResultCard } from "@/components/precipita/ThreatResultCard";
 import { WeatherHistoryChart } from "@/components/precipita/WeatherHistoryChart";
@@ -113,7 +112,7 @@ export function ConsultationSection() {
                       Antecedentes utilizados en la consulta
                     </h2>
                     <p className="mt-1.5 text-sm text-muted-foreground">
-                      Indicadores correspondientes a {result.city} en {result.referenceMonth}.
+                      Datos observados de {result.city} hasta {result.referenceMonth}, enviados al modelo para estimar {result.targetMonth}.
                     </p>
                     <div className="mt-4">
                       <WeatherIndicators indicators={result.indicators} />
@@ -128,7 +127,6 @@ export function ConsultationSection() {
                   />
                 ) : null}
 
-                <InterpretationCard />
               </>
             )
           ) : null}

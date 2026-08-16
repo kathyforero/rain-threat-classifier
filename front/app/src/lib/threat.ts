@@ -58,12 +58,17 @@ export function addMonths(value: string, delta: number): string {
 /** Meses de referencia disponibles: enero 2020 – diciembre 2025 (más recientes primero). */
 export function getAvailableReferenceMonths(): string[] {
   const months: string[] = [];
-  for (let year = 2025; year >= 2020; year--) {
-    for (let month = 12; month >= 1; month--) {
-      months.push(`${year}-${String(month).padStart(2, "0")}`);
-    }
+  for (let total = 2025 * 12 + 11; total >= 2020 * 12; total--) {
+    const year = Math.floor(total / 12);
+    const month = (total % 12) + 1;
+    months.push(`${year}-${String(month).padStart(2, "0")}`);
   }
   return months;
+}
+
+/** Meses objetivo disponibles: febrero 2020 – enero 2026 (más recientes primero). */
+export function getAvailableTargetMonths(): string[] {
+  return getAvailableReferenceMonths().map((month) => addMonths(month, 1));
 }
 
 export interface ThreatStyleConfig {

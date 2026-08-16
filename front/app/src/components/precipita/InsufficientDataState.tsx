@@ -38,7 +38,7 @@ export function InsufficientDataState({ result, onModifyQuery }: InsufficientDat
         </div>
         <div className="rounded-xl border border-border bg-muted/50 p-3">
           <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-            Período consultado
+            Datos requeridos hasta
           </dt>
           <dd className="text-sm font-bold text-foreground">{result.referenceMonth}</dd>
         </div>

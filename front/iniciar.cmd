@@ -1,7 +1,32 @@
 @echo off
 setlocal
 
-cd /d "%~dp0app"
+set "APP_DIR=%~dp0app"
+set "BACK_DIR=%~dp0..\back"
+
+where python >nul 2>nul
+if errorlevel 1 (
+  echo [ERROR] Python no esta disponible.
+  pause
+  exit /b 1
+)
+
+python -c "import fastapi, uvicorn, joblib, pandas, sklearn" >nul 2>nul
+if errorlevel 1 (
+  echo Instalando dependencias del backend...
+  python -m pip install -r "%BACK_DIR%\requirements.txt"
+  if errorlevel 1 (
+    echo [ERROR] No se pudieron instalar las dependencias del backend.
+    pause
+    exit /b 1
+  )
+)
+
+echo Iniciando API local en http://127.0.0.1:8000
+start "Precipita API" cmd /k "cd /d %BACK_DIR% && python -m uvicorn main:app --host 127.0.0.1 --port 8000"
+timeout /t 4 /nobreak >nul
+
+cd /d "%APP_DIR%"
 
 where node >nul 2>nul
 if errorlevel 1 (

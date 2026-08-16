@@ -12,10 +12,12 @@ export interface City {
 
 export interface WeatherIndicatorsData {
   accumulatedPrecipitation: number;
-  maximumDailyPrecipitation: number;
+  maximumThreeHourPrecipitation: number;
   maximumFiveDayPrecipitation: number;
-  rainyDays: number;
+  rainfallIntensityPerWetDay: number;
   intenseRainDays: number;
+  wetStreakDays: number;
+  dryStreakDays: number;
   averageTemperature: number;
   relativeHumidity: number;
   windSpeed: number;

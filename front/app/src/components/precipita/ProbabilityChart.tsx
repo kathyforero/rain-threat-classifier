@@ -1,5 +1,3 @@
-import { Bar, BarChart, Cell, LabelList, ResponsiveContainer, XAxis, YAxis } from "recharts";
-
 import { THREAT_CONFIG } from "@/lib/threat";
 import type { ThreatLevel } from "@/types/prediction";
 
@@ -10,14 +8,13 @@ interface ProbabilityChartProps {
 
 export function ProbabilityChart({ probabilities, selectedLevel }: ProbabilityChartProps) {
   const data = [
-    { level: "Baja" as ThreatLevel, name: "Amenaza Baja", value: probabilities.low },
-    { level: "Media" as ThreatLevel, name: "Amenaza Media", value: probabilities.medium },
-    { level: "Alta" as ThreatLevel, name: "Amenaza Alta", value: probabilities.high },
+    { level: "Baja" as ThreatLevel, value: probabilities.low },
+    { level: "Media" as ThreatLevel, value: probabilities.medium },
+    { level: "Alta" as ThreatLevel, value: probabilities.high },
   ];
 
   return (
     <div className="mt-3">
-      {/* Barras accesibles con texto: no dependen solo del color */}
       <ul className="space-y-3">
         {data.map((item) => {
           const config = THREAT_CONFIG[item.level];
@@ -53,41 +50,6 @@ export function ProbabilityChart({ probabilities, selectedLevel }: ProbabilityCh
           );
         })}
       </ul>
-
-      <div className="mt-5 h-40 w-full" aria-hidden="true">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} margin={{ top: 18, right: 8, left: 0, bottom: 0 }}>
-            <XAxis
-              dataKey="name"
-              tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
-              axisLine={{ stroke: "var(--border)" }}
-              tickLine={false}
-            />
-            <YAxis
-              domain={[0, 100]}
-              width={34}
-              tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
-              axisLine={false}
-              tickLine={false}
-              unit="%"
-            />
-            <Bar dataKey="value" radius={[6, 6, 0, 0]} isAnimationActive>
-              <LabelList
-                dataKey="value"
-                position="top"
-                formatter={(value: number) => `${value} %`}
-                style={{ fontSize: 11, fontWeight: 700, fill: "var(--foreground)" }}
-              />
-              {data.map((item) => (
-                <Cell key={item.level} fill={THREAT_CONFIG[item.level].chartColor} />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-      <p className="mt-1 text-xs text-muted-foreground">
-        Las tres probabilidades suman 100 % y la categoría estimada corresponde a la de mayor valor.
-      </p>
     </div>
   );
 }

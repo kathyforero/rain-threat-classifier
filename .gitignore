@@ -18,7 +18,6 @@ cmake-build-*/
 back/build/
 
 # Artefactos de modelos y resultados generados
-*.joblib
 *.pkl
 *.pickle
 *.pt
@@ -29,3 +28,4 @@ back/build/
 
 # Datos crudos pesados
 datos/crudos/
+GUIA_*.md

@@ -38,13 +38,13 @@ export function ThreatResultCard({ result }: ThreatResultCardProps) {
       <dl className="mt-5 grid gap-3 sm:grid-cols-2">
         <div className="rounded-xl border border-border bg-muted/50 p-3">
           <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-            Período consultado
+            Datos usados hasta
           </dt>
           <dd className="text-sm font-bold text-foreground">{result.referenceMonth}</dd>
         </div>
         <div className="rounded-xl border border-border bg-muted/50 p-3">
           <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-            Estimación para
+            Mes estimado
           </dt>
           <dd className="text-sm font-bold text-foreground">{result.targetMonth}</dd>
         </div>

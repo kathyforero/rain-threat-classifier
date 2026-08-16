@@ -33,7 +33,7 @@ export function ConsultationPanel({
   const hint = !city
     ? "Selecciona una ciudad para comenzar."
     : !referenceMonth
-      ? "Selecciona un mes de referencia."
+      ? "Selecciona el mes que quieres predecir."
       : "Datos listos para estimar.";
 
   return (

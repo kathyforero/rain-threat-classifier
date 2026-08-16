@@ -214,9 +214,13 @@ Otra diferencia menor es que algunas variables o lags mencionados en el diseno p
 
 ## Integracion con frontend
 
-No se usa una API en la propuesta actual. La integracion local prevista es: modelo Python -> `predictions-local.json` -> frontend.
+La integracion actual usa una API local con FastAPI. El frontend consulta
+`http://127.0.0.1:8000/predict`, y el backend carga el archivo
+`resultados/modelo_svm_rbf_operativo_2025.joblib` para ejecutar la prediccion en
+Python.
 
-El script oficial de Paso 10 aun no existe en el repositorio. Debe implementarse despues de cerrar la evaluacion y exportar el modelo operativo.
+No se genera un JSON estatico de predicciones. La prediccion se calcula en el
+backend local cuando el usuario consulta una ciudad y un mes.
 
 Importante: enero de 2026 puede predecirse usando diciembre de 2025 como mes de entrada, porque el problema es `X(t) -> Y(t+1)`. No se necesitan observaciones de enero de 2026 para esa prediccion.
 
