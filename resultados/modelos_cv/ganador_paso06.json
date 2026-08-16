@@ -9,6 +9,6 @@
     "model__gamma": 0.05,
     "preprocess__num__selector__k": "all"
   },
-  "mejor_baseline": "Persistencia",
-  "macro_f1_mejor_baseline": 0.5904185395405437
+  "mejor_baseline": "Climatologia_zona_mes",
+  "macro_f1_mejor_baseline": 0.7122811641088388
 }

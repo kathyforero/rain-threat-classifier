@@ -1,0 +1,289 @@
+﻿zone_id,ciudad,region,period_start,target_period_start,target_rx5day_mm,amenaza_mes,target_amenaza,ventana_evaluacion,prediccion,correcta
+macas,Macas,Amazonía,2017-12-01,2018-01-01,138.15919303894043,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2017-12-01,2018-01-01,147.27493000030518,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2017-12-01,2018-01-01,102.2049560546875,Media,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2018-01-01,2018-02-01,126.146803855896,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2018-01-01,2018-02-01,96.51056098937988,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2018-01-01,2018-02-01,132.25838613510132,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2018-02-01,2018-03-01,73.74449682235718,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2018-02-01,2018-03-01,115.63460159301758,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2018-02-01,2018-03-01,120.07210063934326,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2018-03-01,2018-04-01,193.10755157470703,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2018-03-01,2018-04-01,158.64827156066897,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2018-03-01,2018-04-01,114.88187789916992,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2018-04-01,2018-05-01,141.72551155090332,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2018-04-01,2018-05-01,280.04307556152344,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2018-04-01,2018-05-01,76.4377589225769,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2018-05-01,2018-06-01,188.20325374603271,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2018-05-01,2018-06-01,211.07252883911133,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2018-05-01,2018-06-01,24.819204568862915,Alta,Baja,holdout_espacial_2018_2021,Alta,False
+macas,Macas,Amazonía,2018-06-01,2018-07-01,118.5934386253357,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2018-06-01,2018-07-01,224.4537229537964,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2018-06-01,2018-07-01,28.14667510986328,Baja,Baja,holdout_espacial_2018_2021,Baja,True
+macas,Macas,Amazonía,2018-07-01,2018-08-01,116.58276987075806,Alta,Alta,holdout_espacial_2018_2021,Media,False
+nueva_loja,Nueva Loja,Amazonía,2018-07-01,2018-08-01,143.614807844162,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2018-07-01,2018-08-01,23.61038398742676,Baja,Baja,holdout_espacial_2018_2021,Baja,True
+macas,Macas,Amazonía,2018-08-01,2018-09-01,44.36973714828491,Alta,Media,holdout_espacial_2018_2021,Media,True
+nueva_loja,Nueva Loja,Amazonía,2018-08-01,2018-09-01,139.81823825836182,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2018-08-01,2018-09-01,18.0757360458374,Baja,Baja,holdout_espacial_2018_2021,Baja,True
+macas,Macas,Amazonía,2018-09-01,2018-10-01,81.13481140136719,Media,Alta,holdout_espacial_2018_2021,Media,False
+nueva_loja,Nueva Loja,Amazonía,2018-09-01,2018-10-01,90.42630195617676,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2018-09-01,2018-10-01,16.43405830860138,Baja,Baja,holdout_espacial_2018_2021,Media,False
+macas,Macas,Amazonía,2018-10-01,2018-11-01,62.56157636642456,Alta,Media,holdout_espacial_2018_2021,Alta,False
+nueva_loja,Nueva Loja,Amazonía,2018-10-01,2018-11-01,100.10741806030272,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2018-10-01,2018-11-01,62.72849178314209,Baja,Media,holdout_espacial_2018_2021,Media,True
+macas,Macas,Amazonía,2018-11-01,2018-12-01,113.2980456352234,Media,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2018-11-01,2018-12-01,120.66145038604736,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2018-11-01,2018-12-01,163.87783241271973,Media,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2018-12-01,2019-01-01,242.6617956161499,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2018-12-01,2019-01-01,132.74227905273438,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2018-12-01,2019-01-01,160.59914588928223,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2019-01-01,2019-02-01,167.77786445617676,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2019-01-01,2019-02-01,106.8654432296753,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2019-01-01,2019-02-01,153.3686180114746,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2019-02-01,2019-03-01,79.1992130279541,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2019-02-01,2019-03-01,134.97824096679688,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2019-02-01,2019-03-01,224.45913171768188,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2019-03-01,2019-04-01,81.33068466186523,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2019-03-01,2019-04-01,138.96314430236816,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2019-03-01,2019-04-01,92.8023999929428,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2019-04-01,2019-05-01,143.89169108867645,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2019-04-01,2019-05-01,131.59752893447876,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2019-04-01,2019-05-01,67.45284843444824,Alta,Media,holdout_espacial_2018_2021,Alta,False
+macas,Macas,Amazonía,2019-05-01,2019-06-01,115.9581971168518,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2019-05-01,2019-06-01,350.83540058135986,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2019-05-01,2019-06-01,40.34177970886231,Media,Media,holdout_espacial_2018_2021,Media,True
+macas,Macas,Amazonía,2019-06-01,2019-07-01,121.88786602020264,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2019-06-01,2019-07-01,148.64348769187927,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2019-06-01,2019-07-01,27.91292083263397,Media,Baja,holdout_espacial_2018_2021,Baja,True
+macas,Macas,Amazonía,2019-07-01,2019-08-01,76.5312340259552,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2019-07-01,2019-08-01,120.3364007472992,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2019-07-01,2019-08-01,13.71557205915451,Baja,Baja,holdout_espacial_2018_2021,Baja,True
+macas,Macas,Amazonía,2019-08-01,2019-09-01,61.19390630722046,Alta,Media,holdout_espacial_2018_2021,Media,True
+nueva_loja,Nueva Loja,Amazonía,2019-08-01,2019-09-01,199.99458092451096,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2019-08-01,2019-09-01,32.26154184341431,Baja,Baja,holdout_espacial_2018_2021,Baja,True
+macas,Macas,Amazonía,2019-09-01,2019-10-01,45.24447059631348,Media,Media,holdout_espacial_2018_2021,Alta,False
+nueva_loja,Nueva Loja,Amazonía,2019-09-01,2019-10-01,104.7335262298584,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2019-09-01,2019-10-01,46.12474846839905,Baja,Media,holdout_espacial_2018_2021,Baja,False
+macas,Macas,Amazonía,2019-10-01,2019-11-01,129.5601406097412,Media,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2019-10-01,2019-11-01,155.96780633926392,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2019-10-01,2019-11-01,58.065460205078125,Media,Media,holdout_espacial_2018_2021,Alta,False
+macas,Macas,Amazonía,2019-11-01,2019-12-01,115.55582857131958,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2019-11-01,2019-12-01,107.9107437133789,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2019-11-01,2019-12-01,49.4125075340271,Media,Media,holdout_espacial_2018_2021,Alta,False
+macas,Macas,Amazonía,2019-12-01,2020-01-01,160.532479763031,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2019-12-01,2020-01-01,163.00703811645508,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2019-12-01,2020-01-01,120.37681245803832,Media,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2020-01-01,2020-02-01,55.338573694229126,Alta,Media,holdout_espacial_2018_2021,Alta,False
+nueva_loja,Nueva Loja,Amazonía,2020-01-01,2020-02-01,112.68878501653673,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2020-01-01,2020-02-01,150.56781673431396,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2020-02-01,2020-03-01,203.02775382995603,Media,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2020-02-01,2020-03-01,163.44004726409912,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2020-02-01,2020-03-01,171.59212446212769,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2020-03-01,2020-04-01,136.72815418243408,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2020-03-01,2020-04-01,79.58010399341583,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2020-03-01,2020-04-01,140.85932207107544,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2020-04-01,2020-05-01,130.55116605758667,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2020-04-01,2020-05-01,173.97816467285156,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2020-04-01,2020-05-01,33.3653576374054,Alta,Baja,holdout_espacial_2018_2021,Alta,False
+macas,Macas,Amazonía,2020-05-01,2020-06-01,66.33747065067291,Alta,Media,holdout_espacial_2018_2021,Alta,False
+nueva_loja,Nueva Loja,Amazonía,2020-05-01,2020-06-01,139.70516777038574,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2020-05-01,2020-06-01,37.60337996482849,Baja,Media,holdout_espacial_2018_2021,Media,True
+macas,Macas,Amazonía,2020-06-01,2020-07-01,112.36659860610962,Media,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2020-06-01,2020-07-01,142.88657426834106,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2020-06-01,2020-07-01,22.20899480581284,Media,Baja,holdout_espacial_2018_2021,Baja,True
+macas,Macas,Amazonía,2020-07-01,2020-08-01,109.88732600212096,Alta,Alta,holdout_espacial_2018_2021,Media,False
+nueva_loja,Nueva Loja,Amazonía,2020-07-01,2020-08-01,75.72507232427597,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2020-07-01,2020-08-01,12.177921175956726,Baja,Baja,holdout_espacial_2018_2021,Baja,True
+macas,Macas,Amazonía,2020-08-01,2020-09-01,91.31395554542542,Alta,Alta,holdout_espacial_2018_2021,Media,False
+nueva_loja,Nueva Loja,Amazonía,2020-08-01,2020-09-01,159.3933676481247,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2020-08-01,2020-09-01,20.79700493812561,Baja,Baja,holdout_espacial_2018_2021,Baja,True
+macas,Macas,Amazonía,2020-09-01,2020-10-01,81.9765682220459,Alta,Alta,holdout_espacial_2018_2021,Media,False
+nueva_loja,Nueva Loja,Amazonía,2020-09-01,2020-10-01,78.70018649101257,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2020-09-01,2020-10-01,21.380516052246094,Baja,Baja,holdout_espacial_2018_2021,Media,False
+macas,Macas,Amazonía,2020-10-01,2020-11-01,149.36355590820312,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2020-10-01,2020-11-01,102.60299253463744,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2020-10-01,2020-11-01,33.08657455444336,Baja,Baja,holdout_espacial_2018_2021,Media,False
+macas,Macas,Amazonía,2020-11-01,2020-12-01,205.0496401786804,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2020-11-01,2020-12-01,148.6942253112793,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2020-11-01,2020-12-01,63.00535678863525,Baja,Media,holdout_espacial_2018_2021,Media,True
+macas,Macas,Amazonía,2020-12-01,2021-01-01,133.98790216445923,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2020-12-01,2021-01-01,158.57114601135254,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2020-12-01,2021-01-01,121.6602544784546,Media,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2021-01-01,2021-02-01,109.59026432037354,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2021-01-01,2021-02-01,206.59349250793457,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2021-01-01,2021-02-01,133.4570698738098,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2021-02-01,2021-03-01,194.02023601531985,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2021-02-01,2021-03-01,209.1872634887696,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2021-02-01,2021-03-01,171.4062225818634,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2021-03-01,2021-04-01,156.3386869430542,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2021-03-01,2021-04-01,129.6565761566162,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2021-03-01,2021-04-01,170.40086126327515,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2021-04-01,2021-05-01,155.507098197937,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2021-04-01,2021-05-01,147.5801544189453,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2021-04-01,2021-05-01,107.72404384613036,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+macas,Macas,Amazonía,2021-05-01,2021-06-01,130.08862113952637,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2021-05-01,2021-06-01,169.77181196212769,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2021-05-01,2021-06-01,37.51787185668945,Alta,Media,holdout_espacial_2018_2021,Media,True
+macas,Macas,Amazonía,2021-06-01,2021-07-01,126.57099151611328,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2021-06-01,2021-07-01,156.208083152771,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2021-06-01,2021-07-01,12.103007972240448,Media,Baja,holdout_espacial_2018_2021,Baja,True
+macas,Macas,Amazonía,2021-07-01,2021-08-01,45.678154945373535,Alta,Media,holdout_espacial_2018_2021,Media,True
+nueva_loja,Nueva Loja,Amazonía,2021-07-01,2021-08-01,161.3131623864174,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2021-07-01,2021-08-01,21.61549472808838,Baja,Baja,holdout_espacial_2018_2021,Baja,True
+macas,Macas,Amazonía,2021-08-01,2021-09-01,34.38743758201599,Media,Baja,holdout_espacial_2018_2021,Media,False
+nueva_loja,Nueva Loja,Amazonía,2021-08-01,2021-09-01,85.8706955909729,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2021-08-01,2021-09-01,24.877882957458496,Baja,Baja,holdout_espacial_2018_2021,Baja,True
+macas,Macas,Amazonía,2021-09-01,2021-10-01,125.08082962036131,Baja,Alta,holdout_espacial_2018_2021,Media,False
+nueva_loja,Nueva Loja,Amazonía,2021-09-01,2021-10-01,88.70176219940186,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2021-09-01,2021-10-01,35.3155415058136,Baja,Baja,holdout_espacial_2018_2021,Media,False
+macas,Macas,Amazonía,2021-10-01,2021-11-01,112.12799835205078,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2021-10-01,2021-11-01,100.07803249359132,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2021-10-01,2021-11-01,30.727178812026978,Baja,Baja,holdout_espacial_2018_2021,Media,False
+macas,Macas,Amazonía,2021-11-01,2021-12-01,109.38936281204224,Alta,Alta,holdout_espacial_2018_2021,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2021-11-01,2021-12-01,61.910871505737305,Alta,Media,holdout_espacial_2018_2021,Alta,False
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2021-11-01,2021-12-01,53.41679072380066,Baja,Media,holdout_espacial_2018_2021,Alta,False
+macas,Macas,Amazonía,2021-12-01,2022-01-01,119.35105919837952,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2021-12-01,2022-01-01,88.3576250076294,Media,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2021-12-01,2022-01-01,130.2505006790161,Media,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2022-01-01,2022-02-01,118.63108682632446,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2022-01-01,2022-02-01,99.72172927856444,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2022-01-01,2022-02-01,132.10699319839478,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2022-02-01,2022-03-01,236.06231689453125,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2022-02-01,2022-03-01,139.9794044494629,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2022-02-01,2022-03-01,226.32750701904297,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2022-03-01,2022-04-01,167.38660717010498,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2022-03-01,2022-04-01,196.82681941986084,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2022-03-01,2022-04-01,83.65355491638184,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2022-04-01,2022-05-01,98.0389642715454,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2022-04-01,2022-05-01,120.1430721282959,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2022-04-01,2022-05-01,44.706844329833984,Alta,Media,holdout_espacial_2022_2025,Alta,False
+macas,Macas,Amazonía,2022-05-01,2022-06-01,75.58357286453247,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2022-05-01,2022-06-01,187.2505893707276,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2022-05-01,2022-06-01,32.972150564193726,Media,Baja,holdout_espacial_2022_2025,Media,False
+macas,Macas,Amazonía,2022-06-01,2022-07-01,93.237859249115,Alta,Alta,holdout_espacial_2022_2025,Media,False
+nueva_loja,Nueva Loja,Amazonía,2022-06-01,2022-07-01,116.5387499332428,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2022-06-01,2022-07-01,28.68760073184967,Baja,Baja,holdout_espacial_2022_2025,Baja,True
+macas,Macas,Amazonía,2022-07-01,2022-08-01,60.71850150823593,Alta,Media,holdout_espacial_2022_2025,Media,True
+nueva_loja,Nueva Loja,Amazonía,2022-07-01,2022-08-01,69.33245086669922,Alta,Media,holdout_espacial_2022_2025,Media,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2022-07-01,2022-08-01,21.73697078227997,Baja,Baja,holdout_espacial_2022_2025,Baja,True
+macas,Macas,Amazonía,2022-08-01,2022-09-01,46.65598225593567,Media,Media,holdout_espacial_2022_2025,Media,True
+nueva_loja,Nueva Loja,Amazonía,2022-08-01,2022-09-01,131.80273872613907,Media,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2022-08-01,2022-09-01,11.848950564861298,Baja,Baja,holdout_espacial_2022_2025,Baja,True
+macas,Macas,Amazonía,2022-09-01,2022-10-01,193.4253330230713,Media,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2022-09-01,2022-10-01,88.91100120544434,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2022-09-01,2022-10-01,17.422296047210693,Baja,Baja,holdout_espacial_2022_2025,Media,False
+macas,Macas,Amazonía,2022-10-01,2022-11-01,236.8637886047364,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2022-10-01,2022-11-01,188.5384693145752,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2022-10-01,2022-11-01,21.9153146147728,Baja,Baja,holdout_espacial_2022_2025,Media,False
+macas,Macas,Amazonía,2022-11-01,2022-12-01,78.82941913604736,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2022-11-01,2022-12-01,51.73320347070694,Alta,Media,holdout_espacial_2022_2025,Alta,False
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2022-11-01,2022-12-01,91.04054474830627,Baja,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2022-12-01,2023-01-01,80.24872779846191,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2022-12-01,2023-01-01,95.9725376367569,Media,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2022-12-01,2023-01-01,95.54851770401,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2023-01-01,2023-02-01,66.47485065460205,Alta,Media,holdout_espacial_2022_2025,Alta,False
+nueva_loja,Nueva Loja,Amazonía,2023-01-01,2023-02-01,64.1002893447876,Alta,Media,holdout_espacial_2022_2025,Alta,False
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2023-01-01,2023-02-01,182.21417903900144,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2023-02-01,2023-03-01,205.12848091125488,Media,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2023-02-01,2023-03-01,143.20067596435547,Media,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2023-02-01,2023-03-01,150.63846015930176,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2023-03-01,2023-04-01,213.7823572158813,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2023-03-01,2023-04-01,114.92583751678468,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2023-03-01,2023-04-01,212.3489351272583,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2023-04-01,2023-05-01,86.04169082641602,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2023-04-01,2023-05-01,140.26064884662628,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2023-04-01,2023-05-01,130.70317935943604,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2023-05-01,2023-06-01,122.33597564697266,Alta,Alta,holdout_espacial_2022_2025,Media,False
+nueva_loja,Nueva Loja,Amazonía,2023-05-01,2023-06-01,191.8480931520462,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2023-05-01,2023-06-01,89.27727222442627,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2023-06-01,2023-07-01,71.68190097808838,Alta,Alta,holdout_espacial_2022_2025,Media,False
+nueva_loja,Nueva Loja,Amazonía,2023-06-01,2023-07-01,113.99802494049072,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2023-06-01,2023-07-01,74.52712261676788,Alta,Alta,holdout_espacial_2022_2025,Media,False
+macas,Macas,Amazonía,2023-07-01,2023-08-01,45.00454521179199,Alta,Media,holdout_espacial_2022_2025,Media,True
+nueva_loja,Nueva Loja,Amazonía,2023-07-01,2023-08-01,61.80892193317413,Alta,Media,holdout_espacial_2022_2025,Alta,False
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2023-07-01,2023-08-01,28.551882028579712,Alta,Baja,holdout_espacial_2022_2025,Media,False
+macas,Macas,Amazonía,2023-08-01,2023-09-01,64.48163747787476,Media,Media,holdout_espacial_2022_2025,Media,True
+nueva_loja,Nueva Loja,Amazonía,2023-08-01,2023-09-01,58.26698184013367,Media,Media,holdout_espacial_2022_2025,Alta,False
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2023-08-01,2023-09-01,27.14707326889038,Baja,Baja,holdout_espacial_2022_2025,Baja,True
+macas,Macas,Amazonía,2023-09-01,2023-10-01,206.62077140808103,Media,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2023-09-01,2023-10-01,73.77300214767456,Media,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2023-09-01,2023-10-01,54.33368921279907,Baja,Media,holdout_espacial_2022_2025,Media,True
+macas,Macas,Amazonía,2023-10-01,2023-11-01,192.1994504928589,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2023-10-01,2023-11-01,202.9155659675598,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2023-10-01,2023-11-01,73.04784488677979,Media,Alta,holdout_espacial_2022_2025,Media,False
+macas,Macas,Amazonía,2023-11-01,2023-12-01,62.48306751251221,Alta,Media,holdout_espacial_2022_2025,Alta,False
+nueva_loja,Nueva Loja,Amazonía,2023-11-01,2023-12-01,88.62701559066772,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2023-11-01,2023-12-01,122.50917100906372,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2023-12-01,2024-01-01,82.61790084838867,Media,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2023-12-01,2024-01-01,58.05906760692597,Alta,Media,holdout_espacial_2022_2025,Alta,False
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2023-12-01,2024-01-01,100.69474935531616,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2024-01-01,2024-02-01,175.42753219604492,Alta,Alta,holdout_espacial_2022_2025,Media,False
+nueva_loja,Nueva Loja,Amazonía,2024-01-01,2024-02-01,90.05968999862671,Media,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2024-01-01,2024-02-01,186.075870513916,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2024-02-01,2024-03-01,94.31661653518675,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2024-02-01,2024-03-01,99.30152797698976,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2024-02-01,2024-03-01,121.4037470817566,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2024-03-01,2024-04-01,114.252610206604,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2024-03-01,2024-04-01,116.59333193302156,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2024-03-01,2024-04-01,242.8240451812744,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2024-04-01,2024-05-01,155.50151348114014,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2024-04-01,2024-05-01,303.50087451934814,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2024-04-01,2024-05-01,80.531014919281,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2024-05-01,2024-06-01,75.72177815437317,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2024-05-01,2024-06-01,109.03603279590608,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2024-05-01,2024-06-01,31.38104367256165,Alta,Baja,holdout_espacial_2022_2025,Alta,False
+macas,Macas,Amazonía,2024-06-01,2024-07-01,100.16340732574464,Alta,Alta,holdout_espacial_2022_2025,Media,False
+nueva_loja,Nueva Loja,Amazonía,2024-06-01,2024-07-01,109.00020503997804,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2024-06-01,2024-07-01,25.46040439605713,Baja,Baja,holdout_espacial_2022_2025,Baja,True
+macas,Macas,Amazonía,2024-07-01,2024-08-01,48.67758321762085,Alta,Media,holdout_espacial_2022_2025,Media,True
+nueva_loja,Nueva Loja,Amazonía,2024-07-01,2024-08-01,75.64600157737732,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2024-07-01,2024-08-01,9.825058341026306,Baja,Baja,holdout_espacial_2022_2025,Baja,True
+macas,Macas,Amazonía,2024-08-01,2024-09-01,47.219626903533936,Media,Media,holdout_espacial_2022_2025,Media,True
+nueva_loja,Nueva Loja,Amazonía,2024-08-01,2024-09-01,36.24326705932617,Alta,Baja,holdout_espacial_2022_2025,Alta,False
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2024-08-01,2024-09-01,8.95943808555603,Baja,Baja,holdout_espacial_2022_2025,Media,False
+macas,Macas,Amazonía,2024-09-01,2024-10-01,83.10371553897858,Media,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2024-09-01,2024-10-01,94.1615343093872,Baja,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2024-09-01,2024-10-01,48.353885650634766,Baja,Media,holdout_espacial_2022_2025,Baja,False
+macas,Macas,Amazonía,2024-10-01,2024-11-01,117.12750720977785,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2024-10-01,2024-11-01,85.42988109588623,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2024-10-01,2024-11-01,16.719262421131134,Media,Baja,holdout_espacial_2022_2025,Alta,False
+macas,Macas,Amazonía,2024-11-01,2024-12-01,120.28571939468384,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2024-11-01,2024-12-01,64.33859252929688,Alta,Media,holdout_espacial_2022_2025,Alta,False
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2024-11-01,2024-12-01,51.67807555198669,Baja,Media,holdout_espacial_2022_2025,Alta,False
+macas,Macas,Amazonía,2024-12-01,2025-01-01,61.80237400531769,Alta,Media,holdout_espacial_2022_2025,Alta,False
+nueva_loja,Nueva Loja,Amazonía,2024-12-01,2025-01-01,46.11208897829056,Media,Media,holdout_espacial_2022_2025,Alta,False
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2024-12-01,2025-01-01,93.73581504821776,Media,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2025-01-01,2025-02-01,107.06703019142152,Media,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2025-01-01,2025-02-01,50.91736578941345,Media,Media,holdout_espacial_2022_2025,Alta,False
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2025-01-01,2025-02-01,223.2473125457764,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2025-02-01,2025-03-01,154.09898567199707,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2025-02-01,2025-03-01,105.52014446258544,Media,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2025-02-01,2025-03-01,220.85708236694336,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2025-03-01,2025-04-01,60.17250871658325,Alta,Media,holdout_espacial_2022_2025,Alta,False
+nueva_loja,Nueva Loja,Amazonía,2025-03-01,2025-04-01,136.73733109235764,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2025-03-01,2025-04-01,157.75917434692383,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+macas,Macas,Amazonía,2025-04-01,2025-05-01,131.86513423919678,Media,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2025-04-01,2025-05-01,169.83590459823608,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2025-04-01,2025-05-01,58.72662544250488,Alta,Media,holdout_espacial_2022_2025,Alta,False
+macas,Macas,Amazonía,2025-05-01,2025-06-01,104.85953950881958,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2025-05-01,2025-06-01,180.0132532119751,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2025-05-01,2025-06-01,30.988790035247803,Media,Baja,holdout_espacial_2022_2025,Media,False
+macas,Macas,Amazonía,2025-06-01,2025-07-01,151.21271800994873,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2025-06-01,2025-07-01,119.95136547088624,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2025-06-01,2025-07-01,38.93732136487961,Baja,Media,holdout_espacial_2022_2025,Baja,False
+macas,Macas,Amazonía,2025-07-01,2025-08-01,65.87140798568726,Alta,Media,holdout_espacial_2022_2025,Media,True
+nueva_loja,Nueva Loja,Amazonía,2025-07-01,2025-08-01,142.57839965820312,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2025-07-01,2025-08-01,14.992088437080383,Media,Baja,holdout_espacial_2022_2025,Media,False
+macas,Macas,Amazonía,2025-08-01,2025-09-01,68.92533540725708,Media,Media,holdout_espacial_2022_2025,Media,True
+nueva_loja,Nueva Loja,Amazonía,2025-08-01,2025-09-01,59.21422839164734,Alta,Media,holdout_espacial_2022_2025,Alta,False
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2025-08-01,2025-09-01,19.791625261306763,Baja,Baja,holdout_espacial_2022_2025,Baja,True
+macas,Macas,Amazonía,2025-09-01,2025-10-01,127.34421730041504,Media,Alta,holdout_espacial_2022_2025,Media,False
+nueva_loja,Nueva Loja,Amazonía,2025-09-01,2025-10-01,112.73989963531494,Media,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2025-09-01,2025-10-01,52.1549870967865,Baja,Media,holdout_espacial_2022_2025,Media,True
+macas,Macas,Amazonía,2025-10-01,2025-11-01,48.72386121749878,Alta,Media,holdout_espacial_2022_2025,Alta,False
+nueva_loja,Nueva Loja,Amazonía,2025-10-01,2025-11-01,173.88126945495603,Alta,Alta,holdout_espacial_2022_2025,Alta,True
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2025-10-01,2025-11-01,40.55255365371704,Media,Media,holdout_espacial_2022_2025,Baja,False
+macas,Macas,Amazonía,2025-11-01,2025-12-01,82.24172115325928,Media,Alta,holdout_espacial_2022_2025,Alta,True
+nueva_loja,Nueva Loja,Amazonía,2025-11-01,2025-12-01,52.580748811364174,Alta,Media,holdout_espacial_2022_2025,Alta,False
+santo_domingo,Santo Domingo,Transición Litoral-Sierra,2025-11-01,2025-12-01,61.20336437225342,Media,Media,holdout_espacial_2022_2025,Alta,False

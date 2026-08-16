@@ -1,0 +1,136 @@
+{
+  "modelo": "SVM_RBF",
+  "tipo_artefacto": "modelo_operativo_post_evaluacion",
+  "archivo_modelo": "resultados\\modelo_final\\modelo_svm_rbf_operativo_2025.joblib",
+  "dataset": "datos\\modelado\\dataset_caracteristicas_candidatas.csv",
+  "catalogo_features": "resultados\\analisis_caracteristicas\\catalogo_caracteristicas_modelado.csv",
+  "features": [
+    "prcptot_mm",
+    "rx5day_mm",
+    "max_3h_mm",
+    "sdii_mm_per_wet_day",
+    "r20mm_days",
+    "cwd_days",
+    "cdd_days",
+    "temperature_mean_c",
+    "relative_humidity_mean_pct",
+    "wind_mean_ms",
+    "surface_pressure_mean_hpa",
+    "latitud_solicitada",
+    "longitud_solicitada",
+    "target_month_sin",
+    "target_month_cos",
+    "region",
+    "prcptot_mm__lag1",
+    "prcptot_mm__lag11",
+    "rx5day_mm__lag1",
+    "rx5day_mm__lag11",
+    "max_3h_mm__lag1",
+    "max_3h_mm__lag11",
+    "sdii_mm_per_wet_day__lag1",
+    "sdii_mm_per_wet_day__lag11",
+    "r20mm_days__lag1",
+    "r20mm_days__lag11",
+    "cwd_days__lag1",
+    "cwd_days__lag11",
+    "cdd_days__lag1",
+    "cdd_days__lag11",
+    "temperature_mean_c__lag1",
+    "temperature_mean_c__lag11",
+    "relative_humidity_mean_pct__lag1",
+    "relative_humidity_mean_pct__lag11",
+    "wind_mean_ms__lag1",
+    "wind_mean_ms__lag11",
+    "surface_pressure_mean_hpa__lag1",
+    "surface_pressure_mean_hpa__lag11"
+  ],
+  "numeric_features": [
+    "prcptot_mm",
+    "rx5day_mm",
+    "max_3h_mm",
+    "sdii_mm_per_wet_day",
+    "r20mm_days",
+    "cwd_days",
+    "cdd_days",
+    "temperature_mean_c",
+    "relative_humidity_mean_pct",
+    "wind_mean_ms",
+    "surface_pressure_mean_hpa",
+    "latitud_solicitada",
+    "longitud_solicitada",
+    "target_month_sin",
+    "target_month_cos",
+    "prcptot_mm__lag1",
+    "prcptot_mm__lag11",
+    "rx5day_mm__lag1",
+    "rx5day_mm__lag11",
+    "max_3h_mm__lag1",
+    "max_3h_mm__lag11",
+    "sdii_mm_per_wet_day__lag1",
+    "sdii_mm_per_wet_day__lag11",
+    "r20mm_days__lag1",
+    "r20mm_days__lag11",
+    "cwd_days__lag1",
+    "cwd_days__lag11",
+    "cdd_days__lag1",
+    "cdd_days__lag11",
+    "temperature_mean_c__lag1",
+    "temperature_mean_c__lag11",
+    "relative_humidity_mean_pct__lag1",
+    "relative_humidity_mean_pct__lag11",
+    "wind_mean_ms__lag1",
+    "wind_mean_ms__lag11",
+    "surface_pressure_mean_hpa__lag1",
+    "surface_pressure_mean_hpa__lag11"
+  ],
+  "categorical_features": [
+    "region"
+  ],
+  "n_features_catalogo": 38,
+  "target": "target_amenaza",
+  "horizonte": "mes_t_a_mes_t_mas_1",
+  "label_mapping": {
+    "target_to_int": {
+      "Baja": 0,
+      "Media": 1,
+      "Alta": 2
+    },
+    "int_to_target": {
+      "0": "Baja",
+      "1": "Media",
+      "2": "Alta"
+    }
+  },
+  "umbrales_target": {
+    "variable": "rx5day_mm",
+    "q33_global_mm": 37.347906937599184,
+    "q66_global_mm": 70.9957434463501,
+    "scope": "12_zonas_desarrollo_1991_2017",
+    "nota": "Umbrales estadísticos del proyecto; no son umbrales oficiales de alerta de INAMHI."
+  },
+  "train_filter": {
+    "rol": "desarrollo",
+    "splits": [
+      "entrenamiento",
+      "validacion_temporal",
+      "prueba_temporal"
+    ],
+    "zonas": 12,
+    "hasta_target": "2025-12-01"
+  },
+  "n_train": 4896,
+  "svm_params_clasificacion": {
+    "model__C": 1,
+    "model__gamma": 0.05,
+    "preprocess__num__selector__k": "all"
+  },
+  "probabilidades": {
+    "disponibles": true,
+    "metodo": "SVC probability=True (estimacion probabilistica de libsvm)",
+    "nota": "Las probabilidades son estimaciones para la interfaz. No reabren la selección del clasificador ni sustituyen las métricas de evaluación del Paso 08."
+  },
+  "evaluacion": {
+    "archivo_oficial": "resultados\\evaluacion_final\\resumen_evaluacion_final.csv",
+    "nota": "Este Paso 09 no reevalúa test ni holdout. Las métricas oficiales permanecen en resultados/evaluacion_final/."
+  }
+}

@@ -1,0 +1,2 @@
+﻿modelo,n_train,zonas_entrenamiento,primer_target,ultimo_target,C,gamma,selector_k,probability
+SVM_RBF,4896,12,1992-01-01,2025-12-01,1,0.05,all,True

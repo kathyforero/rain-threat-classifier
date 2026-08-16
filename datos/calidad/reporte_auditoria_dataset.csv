@@ -6,9 +6,12 @@ ERROR,Zonas: 12 desarrollo y 3 validación espacial,OK,"Distribución: {'desarro
 ERROR,Crudos: directorio existe,OK,C:\Users\Kathy\Documents\GitHub\rain-threat-classifier\datos\crudos\era5_land
 ERROR,Crudos: carpeta por cada zona,OK,Todas presentes.
 ERROR,Crudos: marcador de descarga completa por zona,OK,Todos los marcadores son válidos.
-ERROR,Crudos: siete variables originales registradas,OK,Los marcadores registran las siete variables solicitadas originalmente.
+ERROR,Crudos: solicitud original de siete variables registrada,OK,Los marcadores registran las siete variables solicitadas originalmente al CDS.
 ERROR,Crudos: periodo solicitado 1991-01-01 a 2026-01-01,OK,Periodo correcto.
 ERROR,Crudos: NetCDF listados en marcadores existen,OK,Todos los archivos referenciados existen.
+ERROR,Crudos: NetCDF pueden abrirse físicamente,OK,Todos los NetCDF pudieron abrirse.
+ERROR,Crudos: seis variables usadas por el pipeline presentes físicamente,OK,"t2m, d2m, tp, sp, u10 y v10 están presentes en los NetCDF de todas las zonas."
+ADVERTENCIA,Crudos: humedad del suelo solicitada vs archivo físico,ADVERTENCIA,"La solicitud/marcador incluye humedad del suelo, pero swvl1 no está físicamente en los NetCDF conservados de estas zonas: ['guayaquil', 'babahoyo', 'esmeraldas', 'portoviejo', 'machala', 'salinas', 'quito', 'riobamba', 'cuenca', 'loja', 'tena', 'puyo', 'santo_domingo', 'nueva_loja', 'macas']. No afecta el pipeline actual porque esa variable no se procesa ni se usa como feature."
 ERROR,Calidad: columnas obligatorias,OK,Todas presentes.
 ERROR,Calidad: 15 zonas,OK,Zonas encontradas: 15
 ERROR,Calidad: 12 zonas de desarrollo y 3 holdout,OK,"Distribución: {'desarrollo': 12, 'validacion_espacial': 3}"

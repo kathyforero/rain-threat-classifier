@@ -148,15 +148,13 @@ Actualmente se compararon efectivamente 5 modelos:
 - SVM RBF
 - MLP
 
-Tambien se usaron baselines de comparacion, como persistencia, climatologia mensual y dummy classifier.
+Tambien se usaron baselines de comparacion: persistencia, climatologia mensual, dummy classifier y, como referencia temporal fuerte, climatologia por zona + mes. Este ultimo no aplica al holdout espacial porque requiere historia etiquetada de la misma zona.
 
 El modelo ganador actual es `SVM_RBF`, no Random Forest. Esto no contradice la Tarea 4, porque ahi se propuso Random Forest como candidato principal, pero se dejo como criterio final escoger el mejor modelo segun metricas.
 
 ## Resultado actual del modelo
 
-El modelo final exportado esta en:
-
-`resultados/modelo_final/modelo_svm_rbf_final.joblib`
+La configuracion clasificatoria congelada es `SVM_RBF`, `C=1`, `gamma=0.05`, `k=all`. Un script previo de exportacion llego a evaluar el periodo 2022-2025; por tanto ese test temporal ya fue consultado y no debe utilizarse para retunear el modelo.
 
 Metricas actuales principales:
 
@@ -183,9 +181,16 @@ Hasta ahora hemos corregido varias cosas importantes:
 - Se separo mejor el analisis del problema de la implementacion tecnica.
 - Se compararon realmente los 5 modelos declarados.
 - Se eligio el modelo ganador por metricas, no por preferencia inicial.
-- Se exporto el modelo final a `.joblib`.
-- Se genero una salida local para conectar con el frontend sin API.
-- Se ajusto el `.gitignore` para no subir datos crudos ni carpetas pesadas.
+- Se dejo definida la configuracion final del clasificador SVM.
+- La exportacion operativa se separo de la evaluacion: el Paso 09 debe ejecutarse despues del Paso 08 y no vuelve a medir el test.
+- La integracion local con frontend esta documentada como siguiente etapa; el Paso 10 aun debe implementarse.
+- Se ajusto el `.gitignore` para ignorar binarios regenerables sin ocultar metadata y reportes pequenos.
+
+## Auditoria tecnica previa a la evaluacion final
+
+Se reviso el contenido fisico de los NetCDF y se corrigio el Paso 03 para no confiar unicamente en los marcadores JSON. Las seis variables utilizadas por el pipeline (`t2m`, `d2m`, `tp`, `sp`, `u10`, `v10`) estan presentes en las 15 zonas. La humedad del suelo fue solicitada originalmente, pero `swvl1` no esta presente en los NetCDF conservados; esto queda como advertencia de trazabilidad y no afecta el modelo actual porque esa variable no se procesa ni se usa como feature.
+
+Tambien se incorporo un baseline fuerte de `Climatologia_zona_mes` para la evaluacion temporal en zonas conocidas. Su Macro F1 medio en CV temporal es aproximadamente `0.7123` y en validacion 2018-2021 es aproximadamente `0.6795`. El SVM sigue siendo el modelo ganador, pero esta comparacion deja claro que una parte importante de la predictibilidad proviene de la climatologia local y la estacionalidad. Este baseline no se usa en el holdout espacial.
 
 ## Correcciones aun sensibles para la entrega final
 
@@ -207,17 +212,13 @@ La principal diferencia es que en la documentacion se hablaba mucho de Random Fo
 
 Otra diferencia menor es que algunas variables o lags mencionados en el diseno pueden no coincidir exactamente con las variables finales usadas. En la practica actual se trabaja con un conjunto de caracteristicas candidatas y seleccion de variables dentro del pipeline.
 
-## Integracion actual con frontend
+## Integracion con frontend
 
-No estamos usando una API.
+No se usa una API en la propuesta actual. La integracion local prevista es: modelo Python -> `predictions-local.json` -> frontend.
 
-La integracion actual es local y semi-estatica:
+El script oficial de Paso 10 aun no existe en el repositorio. Debe implementarse despues de cerrar la evaluacion y exportar el modelo operativo.
 
-1. El modelo `.joblib` se ejecuta en tu computador con Python.
-2. El script genera un archivo `predictions-local.json`.
-3. El frontend lee ese JSON como archivo estatico.
-
-Esto permite mostrar resultados en una pagina web sin montar backend, sin servidor de modelo y sin depender de una API.
+Importante: enero de 2026 puede predecirse usando diciembre de 2025 como mes de entrada, porque el problema es `X(t) -> Y(t+1)`. No se necesitan observaciones de enero de 2026 para esa prediccion.
 
 ## Conclusion
 
