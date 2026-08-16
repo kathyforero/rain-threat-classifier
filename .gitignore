@@ -26,7 +26,6 @@ back/build/
 *.onnx
 *.yml.gz
 *.xml
-resultados/modelo_final/
 
 # Datos crudos pesados
 datos/crudos/

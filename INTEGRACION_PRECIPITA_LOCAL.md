@@ -1,111 +1,87 @@
-# Integracion local con precipita-ecuador-forecast
+# Integración local con precipita-ecuador-forecast
 
-## Decision
+## Decisión
 
-No vamos a usar API.
-
-La forma mas rapida para que funcione en tu computador es:
+Para la demo académica se propone una integración local sin API:
 
 ```text
-Python ejecuta el modelo .joblib
+Python carga el modelo operativo .joblib
         |
         v
 genera predictions-local.json
         |
         v
-el frontend React lee ese JSON local
+el frontend React lee ese JSON estático
 ```
 
-Esto no sirve como sistema publico desplegado, pero si sirve perfecto para una demo local y para conectar el modelo real con el front sin montar backend.
+No es una arquitectura pública de producción, pero evita desplegar un backend solo para la demostración.
 
 ## Estado actual
 
-Este documento queda como referencia de integracion local no oficial. En la reestructura actual del repositorio, el flujo academico se mantiene hasta el Paso 08 y no hay un script operativo de exportacion local dentro de `modelo/`.
-
-Si se retoma esta integracion, el script deberia ubicarse en:
+El pipeline académico llega hasta el Paso 09. El futuro script de inferencia/frontend debe ubicarse en:
 
 ```text
 modelo/10_exportar_predicciones_front_local.py
 ```
 
-## Archivos esperados para esa integracion
+Ese Paso 10 todavía debe implementarse después de completar la evaluación final y exportar el modelo operativo.
 
-En `rain-threat-classifier`:
+## Enero de 2026 sí puede predecirse con los datos actuales
 
-```text
-modelo/10_exportar_predicciones_front_local.py
-```
-
-Ese script carga:
+El problema es:
 
 ```text
-resultados/modelo_final/modelo_svm_rbf_final.joblib
-datos/modelado/dataset_caracteristicas_candidatas.csv
+X(t) -> Y(t+1)
 ```
 
-y genera:
+Por tanto, para predecir **enero de 2026** no necesitamos observar enero de 2026. Necesitamos construir las features conocidas hasta **diciembre de 2025**:
 
 ```text
-C:\Users\drami\Documents\GitHub\precipita-ecuador-forecast\public\predictions-local.json
+mes de entrada      = diciembre 2025
+mes objetivo        = enero 2026
+lag1                = noviembre 2025
+lag11               = enero 2025
++ meteorología de diciembre 2025
++ geografía/región
++ codificación del mes objetivo
 ```
 
-Tambien deja una copia en:
+`indicadores_mensuales_todas_zonas.csv` sí contiene diciembre de 2025.
+
+El archivo `dataset_caracteristicas_candidatas.csv` termina en noviembre de 2025 como **mes de entrada supervisado** porque una fila de diciembre de 2025 no tiene todavía una etiqueta observada para enero de 2026. Esa ausencia de target impide usarla para entrenamiento, pero **no impide usar diciembre de 2025 para inferencia**.
+
+Solo para predecir febrero de 2026 y meses posteriores sería necesario incorporar nuevos datos meteorológicos observados de 2026.
+
+## Probabilidades
+
+El Paso 09 operativo habilita `SVC(probability=True)` para que el futuro Paso 10 pueda producir, además de la clase, estimaciones como:
+
+```json
+{
+  "prediccion": "Alta",
+  "probabilidades": {
+    "Baja": 0.08,
+    "Media": 0.21,
+    "Alta": 0.71
+  }
+}
+```
+
+Estas probabilidades son estimaciones del SVM para la interfaz y no sustituyen las métricas clasificatorias oficiales del Paso 08.
+
+## Archivos esperados
+
+Después del Paso 09:
+
+```text
+resultados/modelo_final/modelo_svm_rbf_operativo_2025.joblib
+resultados/modelo_final/metadata_modelo_svm_rbf_operativo_2025.json
+```
+
+El futuro Paso 10 generará:
 
 ```text
 resultados/modelo_final/predictions-local.json
 ```
 
-En `precipita-ecuador-forecast`:
-
-```text
-src/services/predictionService.ts
-```
-
-Ahora el `predictionService` usa `localStaticPredictionService`, que lee:
-
-```text
-/predictions-local.json
-```
-
-desde la carpeta `public`.
-
-## Como se ejecutaria
-
-Desde `rain-threat-classifier`:
-
-```powershell
-.\.venv\Scripts\python.exe modelo/10_exportar_predicciones_front_local.py
-```
-
-Ese comando solo aplica si el script existe. Despues corres el frontend como normalmente lo ejecutes en tu computador.
-
-El front no le pregunta nada a una API. Solo lee el JSON local generado previamente.
-
-## Limitacion importante
-
-El modelo no puede inventar datos meteorologicos de 2026 si no existen features procesadas para 2026.
-
-El JSON generado actualmente cubre los meses de referencia disponibles en el dataset:
-
-```text
-2020-01 a 2025-11
-```
-
-El selector del front muestra hasta `2025-12`, pero `2025-12` queda como datos insuficientes porque el dataset vigente llega hasta noviembre de 2025 como mes de referencia.
-
-Para consultar 2026 localmente habria que:
-
-1. descargar/procesar datos 2026;
-2. reconstruir features;
-3. volver a ejecutar `modelo/10_exportar_predicciones_front_local.py`;
-4. refrescar el frontend.
-
-## Que tan complicado fue
-
-Bajo.
-
-No se rehizo el front. Solo se cambio el punto donde antes usaba datos simulados para que ahora lea predicciones reales generadas por Python.
-
-## Resumen en una frase
-
-El modelo corre en tu computador con Python, genera un JSON, y el frontend lo consume localmente sin API.
+y opcionalmente copiará el mismo archivo a la carpeta `public/` del frontend.

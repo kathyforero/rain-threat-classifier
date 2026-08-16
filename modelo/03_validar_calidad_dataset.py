@@ -35,6 +35,12 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import xarray as xr
+
+try:
+    import h5py
+except ImportError:
+    h5py = None
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -89,7 +95,9 @@ EXPECTED_MONTHS_PER_ZONE = 420
 EXPECTED_RAW_START = "1991-01-01"
 EXPECTED_RAW_END = "2026-01-01"
 
-EXPECTED_RAW_VARIABLES = {
+# La solicitud original al CDS registró siete variables. Esta lista se usa
+# únicamente para auditar el marcador de descarga y conservar trazabilidad.
+EXPECTED_REQUEST_VARIABLES = {
     "2m_temperature",
     "2m_dewpoint_temperature",
     "total_precipitation",
@@ -98,6 +106,36 @@ EXPECTED_RAW_VARIABLES = {
     "10m_v_component_of_wind",
     "volumetric_soil_water_layer_1",
 }
+
+# El pipeline 02 procesa realmente estas seis variables. La auditoría física
+# comprueba su presencia dentro de los NetCDF, no solo lo declarado en JSON.
+NETCDF_ALIASES = {
+    "t2m": "t2m",
+    "2m_temperature": "t2m",
+    "d2m": "d2m",
+    "2m_dewpoint_temperature": "d2m",
+    "tp": "tp",
+    "total_precipitation": "tp",
+    "sp": "sp",
+    "surface_pressure": "sp",
+    "u10": "u10",
+    "10m_u_component_of_wind": "u10",
+    "v10": "v10",
+    "10m_v_component_of_wind": "v10",
+    "swvl1": "swvl1",
+    "volumetric_soil_water_layer_1": "swvl1",
+}
+
+REQUIRED_PHYSICAL_VARIABLES = {
+    "t2m",
+    "d2m",
+    "tp",
+    "sp",
+    "u10",
+    "v10",
+}
+
+OPTIONAL_SOIL_VARIABLE = "swvl1"
 
 COMPLETE_MARKER_NAME = (
     "_DESCARGA_COMPLETA.json"
@@ -203,14 +241,44 @@ def has_infinite(
     )
 
 
+def read_netcdf_variable_names(
+    path: Path,
+) -> set[str]:
+    """
+    Lee nombres de variables físicas del NetCDF.
+
+    Se intenta primero con xarray, igual que en el Paso 02. Como respaldo,
+    si el entorno no tiene backend netCDF4/h5netcdf pero sí h5py, se leen
+    las claves HDF5 directamente. Esto hace la auditoría menos frágil sin
+    cambiar el procesamiento meteorológico.
+    """
+    try:
+        with xr.open_dataset(path) as ds:
+            return set(ds.data_vars)
+    except Exception as xarray_exc:
+        if h5py is None:
+            raise RuntimeError(
+                f"xarray no pudo abrir {path.name}: {xarray_exc}"
+            ) from xarray_exc
+
+        try:
+            with h5py.File(path, "r") as handle:
+                return set(handle.keys())
+        except Exception as h5_exc:
+            raise RuntimeError(
+                f"No se pudo abrir {path.name} con xarray ni h5py. "
+                f"xarray={xarray_exc}; h5py={h5_exc}"
+            ) from h5_exc
+
+
 def processed_without_soil(
     frame: pd.DataFrame,
     dataset_name: str,
 ) -> None:
     """
-    La variable de humedad del suelo sí forma parte de la descarga cruda
-    original, pero el pipeline histórico no la incorpora a los indicadores
-    diario/mensual utilizados posteriormente.
+    La humedad del suelo fue solicitada originalmente al CDS, pero no forma
+    parte del pipeline actual de indicadores ni del modelado. Su presencia
+    física en los NetCDF se audita por separado como trazabilidad.
     """
     soil_columns = [
         column
@@ -352,8 +420,11 @@ def audit_raw_downloads(
     missing_markers: list[str] = []
     invalid_markers: list[str] = []
     missing_files: list[str] = []
-    variable_mismatches: list[str] = []
+    marker_variable_mismatches: list[str] = []
     date_mismatches: list[str] = []
+    netcdf_read_errors: list[str] = []
+    physical_variable_mismatches: list[str] = []
+    soil_missing_zones: list[str] = []
 
     for _, zone in zones.iterrows():
         zone_id = zone["zone_id"]
@@ -395,8 +466,8 @@ def audit_raw_downloads(
             )
         )
 
-        if variables != EXPECTED_RAW_VARIABLES:
-            variable_mismatches.append(
+        if variables != EXPECTED_REQUEST_VARIABLES:
+            marker_variable_mismatches.append(
                 (
                     f"{zone_id}: "
                     f"{sorted(variables)}"
@@ -417,20 +488,49 @@ def audit_raw_downloads(
                 zone_id
             )
 
+        physical_variables: set[str] = set()
+
         for relative_name in payload.get(
             "archivos_netcdf",
             [],
         ):
-            if not (
-                zone_dir
-                / relative_name
-            ).exists():
+            netcdf_path = zone_dir / relative_name
+
+            if not netcdf_path.exists():
                 missing_files.append(
                     (
                         f"{zone_id}/"
                         f"{relative_name}"
                     )
                 )
+                continue
+
+            try:
+                raw_variable_names = read_netcdf_variable_names(
+                    netcdf_path
+                )
+
+                for raw_name in raw_variable_names:
+                    canonical = NETCDF_ALIASES.get(raw_name)
+                    if canonical:
+                        physical_variables.add(canonical)
+            except Exception as exc:
+                netcdf_read_errors.append(
+                    f"{zone_id}/{relative_name}: {exc}"
+                )
+
+        missing_required = sorted(
+            REQUIRED_PHYSICAL_VARIABLES.difference(physical_variables)
+        )
+
+        if missing_required:
+            physical_variable_mismatches.append(
+                f"{zone_id}: faltan {missing_required}; "
+                f"encontradas={sorted(physical_variables)}"
+            )
+
+        if OPTIONAL_SOIL_VARIABLE not in physical_variables:
+            soil_missing_zones.append(zone_id)
 
     add_check(
         "ERROR",
@@ -475,20 +575,17 @@ def audit_raw_downloads(
     add_check(
         "ERROR",
         (
-            "Crudos: siete variables "
-            "originales registradas"
+            "Crudos: solicitud original "
+            "de siete variables registrada"
         ),
-        not variable_mismatches,
+        not marker_variable_mismatches,
         (
-            "Los marcadores registran "
-            "las siete variables "
-            "solicitadas originalmente."
-            if not variable_mismatches
+            "Los marcadores registran las siete variables solicitadas "
+            "originalmente al CDS."
+            if not marker_variable_mismatches
             else (
                 "Diferencias: "
-                + " | ".join(
-                    variable_mismatches
-                )
+                + " | ".join(marker_variable_mismatches)
             )
         ),
     )
@@ -525,6 +622,45 @@ def audit_raw_downloads(
             else (
                 "Faltan: "
                 f"{missing_files}"
+            )
+        ),
+    )
+
+    add_check(
+        "ERROR",
+        "Crudos: NetCDF pueden abrirse físicamente",
+        not netcdf_read_errors,
+        (
+            "Todos los NetCDF pudieron abrirse."
+            if not netcdf_read_errors
+            else "Errores: " + " | ".join(netcdf_read_errors)
+        ),
+    )
+
+    add_check(
+        "ERROR",
+        "Crudos: seis variables usadas por el pipeline presentes físicamente",
+        not physical_variable_mismatches,
+        (
+            "t2m, d2m, tp, sp, u10 y v10 están presentes en los NetCDF "
+            "de todas las zonas."
+            if not physical_variable_mismatches
+            else "Diferencias: " + " | ".join(physical_variable_mismatches)
+        ),
+    )
+
+    add_check(
+        "ADVERTENCIA",
+        "Crudos: humedad del suelo solicitada vs archivo físico",
+        not soil_missing_zones,
+        (
+            "swvl1 está presente físicamente en todas las zonas."
+            if not soil_missing_zones
+            else (
+                "La solicitud/marcador incluye humedad del suelo, pero swvl1 "
+                "no está físicamente en los NetCDF conservados de estas zonas: "
+                f"{soil_missing_zones}. No afecta el pipeline actual porque "
+                "esa variable no se procesa ni se usa como feature."
             )
         ),
     )
