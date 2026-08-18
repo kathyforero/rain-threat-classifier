@@ -92,7 +92,7 @@ def load_context():
     df = build_inference_frame(monthly)
     df["front_city_id"] = df["zone_id"].map(FRONT_CITY_IDS)
     df = df[df["front_city_id"].notna()].copy()
-    return model, df, features
+    return model, df, catalog
 
 
 def build_inference_frame(monthly: pd.DataFrame) -> pd.DataFrame:
@@ -173,6 +173,46 @@ def normalize_percentages(probabilities: dict[str, float]) -> dict[str, int]:
     return rounded
 
 
+def validate_model_input(X: pd.DataFrame, catalog: pd.DataFrame) -> None:
+    features = catalog["caracteristica"].tolist()
+    numeric_features = catalog.loc[catalog["tipo"] == "numerica", "caracteristica"].tolist()
+    categorical_features = catalog.loc[catalog["tipo"] == "categorica", "caracteristica"].tolist()
+
+    received = list(X.columns)
+    missing = sorted(set(features).difference(received))
+    extra = sorted(set(received).difference(features))
+
+    if missing or extra:
+        detail = []
+        if missing:
+            detail.append(f"Faltan features: {missing}")
+        if extra:
+            detail.append(f"Sobran features: {extra}")
+        raise HTTPException(status_code=422, detail=" | ".join(detail))
+
+    if received != features:
+        raise HTTPException(
+            status_code=422,
+            detail="Las features no están en el orden esperado por el modelo.",
+        )
+
+    for column in numeric_features:
+        try:
+            pd.to_numeric(X[column])
+        except Exception as exc:
+            raise HTTPException(
+                status_code=422,
+                detail=f"La feature numérica {column} tiene un tipo de dato inválido.",
+            ) from exc
+
+    for column in categorical_features:
+        if X[column].isna().any():
+            raise HTTPException(
+                status_code=422,
+                detail=f"La feature categórica {column} no puede estar vacía.",
+            )
+
+
 @app.get("/health")
 def health():
     load_context()
@@ -181,7 +221,8 @@ def health():
 
 @app.post("/predict")
 def predict(payload: PredictionRequest):
-    model, df, features = load_context()
+    model, df, catalog = load_context()
+    features = catalog["caracteristica"].tolist()
 
     match = df[
         (df["front_city_id"] == payload.cityId)
@@ -195,6 +236,7 @@ def predict(payload: PredictionRequest):
 
     row = match.iloc[0]
     X = row[features].to_frame().T
+    validate_model_input(X, catalog)
     prediction = int(model.predict(X)[0])
     class_order = list(model.named_steps["model"].classes_)
     proba_labels = [CLASS_LABELS[int(value)] for value in class_order]
